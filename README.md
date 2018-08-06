@@ -1,7 +1,8 @@
 **Work Diary**
 
-Please upload your work diary to the directory :
+Please upload your work diary to the directory each week at least.
 
+---
 
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
