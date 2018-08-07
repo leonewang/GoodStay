@@ -1,0 +1,21 @@
+Week 2
+
+** Planned and finished **
+
+- Group formed. 
+- I created the Trello and Bitbucket accounts for the team.
+- As a product owner, I defined the main features of the product.
+- Together with the other group mambers, we wrote the draft version of the project proposal.
+- I also found and discussed with the team all available software tools, and how to do the synchronous development including effective communication in a more efficient way.
+
+** Obtacles **
+
+- Two of our members are not familiar with Git, so I need to take the cost of learning git into account and arrange time for them.
+
+
+** Plan for the next period **
+
+- Building the project structure model.
+- Designing the database structure.
+- Testing all the tools and online services will be used.
+- Those two members who are not familiar with Git should know enough of it for developing.
