@@ -1,3 +1,25 @@
+Week 3
+
+** Planned and finished **
+
+- Tested all the tools and online services will be used.
+- Improved the features.
+- Finished the formal version of project proposal.
+
+** Obtacles **
+
+- Everyone has limited free time which can be an obtacle for team communication, we need to find out how to solve it.
+
+
+** Plan for the next period **
+
+- Designing the database structure.
+- Building the project structure model.
+- Setting up whe whole development environment.
+
+
+---
+
 Week 2
 
 ** Planned and finished **
@@ -18,4 +40,4 @@ Week 2
 - Building the project structure model.
 - Designing the database structure.
 - Testing all the tools and online services will be used.
-- Those two members who are not familiar with Git should know enough of it for developing.
+- Those two members who are not familiar with Git should know enough of it for joint developing.
