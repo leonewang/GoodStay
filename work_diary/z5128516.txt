@@ -1,10 +1,26 @@
+Week 4
+
+** Planned and finished **
+
+- Set up the whole development environment.
+- 
+
+** Obtacles **
+
+
+
+** Plan for the next period **
+
+
+---
+
 Week 3
 
 ** Planned and finished **
 
 - Tested all the tools and online services will be used.
 - Improved the features.
-- Finished the formal version of project proposal.
+- Helped to finish the formal version of project proposal.
 
 ** Obtacles **
 
@@ -13,9 +29,7 @@ Week 3
 
 ** Plan for the next period **
 
-- Designing the database structure.
-- Building the project structure model.
-- Setting up whe whole development environment.
+- Setting up the whole development environment.
 
 
 ---
