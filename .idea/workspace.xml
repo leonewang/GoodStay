@@ -23,8 +23,8 @@
       <file leaf-file-name="post.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/post.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            <state relative-caret-position="34">
+              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -92,7 +92,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="269" />
+    <option name="x" value="421" />
     <option name="y" value="22" />
     <option name="width" value="1448" />
     <option name="height" value="1058" />
@@ -147,6 +147,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Alidada" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -360,16 +364,15 @@
       <updated>1536655416004</updated>
       <workItem from="1536655419874" duration="325000" />
       <workItem from="1536655779278" duration="908000" />
-      <workItem from="1536663642116" duration="1168000" />
+      <workItem from="1536663642116" duration="2078000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2401000" />
+    <option name="totallyTimeSpent" value="3311000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="269" y="22" width="1448" height="1058" extended-state="0" />
-    <editor active="true" />
+    <frame x="421" y="22" width="1448" height="1058" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -386,7 +389,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25320056" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25320056" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -505,14 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/DBUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/acceptFriend.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -527,47 +522,6 @@
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/DBDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding>
-            <marker date="1508607028000" expanded="true" signature="356:523" ph="insert into User... " />
-            <marker date="1508607028000" expanded="true" signature="1140:1195" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="1957:2019" ph="select * fro... Admin" />
-            <marker date="1508607028000" expanded="true" signature="2546:2584" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="3462:3493" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="4359:4397" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="4817:4858" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="5878:5938" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="7131:7191" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="8353:8406" ph="update User " />
-            <marker date="1508607028000" expanded="true" signature="8723:9005" ph="update User " />
-            <marker date="1508607028000" expanded="true" signature="9343:9455" ph="insert into Image... " />
-            <marker date="1508607028000" expanded="true" signature="9923:10033" ph="insert into Post... " />
-            <marker date="1508607028000" expanded="true" signature="10535:10829" ph="select * fro... Post" />
-            <marker date="1508607028000" expanded="true" signature="10608:10678" ph="select frien... Friend" />
-            <marker date="1508607028000" expanded="true" signature="10715:10804" ph="select user_... Friend" />
-            <marker date="1508607028000" expanded="true" signature="11723:11767" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="12712:12757" ph="update Post " />
-            <marker date="1508607028000" expanded="true" signature="13177:13311" ph="insert into Friend... " />
-            <marker date="1508607028000" expanded="true" signature="13779:13834" ph="update Frien... " />
-            <marker date="1508607028000" expanded="true" signature="14161:14192" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="15265:15393" ph="select * fro... Friend" />
-            <marker date="1508607028000" expanded="true" signature="16008:16053" ph="select * fro... User" />
-            <marker date="1508607028000" expanded="true" signature="16507:16544" ph="update User " />
-            <marker date="1508607028000" expanded="true" signature="16895:16932" ph="update User " />
-            <marker date="1508607028000" expanded="true" signature="17358:17485" ph="insert into Notification... " />
-            <marker date="1508607028000" expanded="true" signature="17937:17995" ph="select * fro... Notification" />
-            <marker date="1508607028000" expanded="true" signature="18869:18926" ph="update Notif... " />
-            <marker date="1508607028000" expanded="true" signature="19301:19408" ph="insert into Log... " />
-            <marker date="1508607028000" expanded="true" signature="19873:19927" ph="select * fro... Log" />
-            <marker date="1508607028000" expanded="true" signature="20729:20795" ph="select * fro... post" />
-            <marker date="1508607028000" expanded="true" signature="21436:21514" ph="select frien... Friend" />
           </folding>
         </state>
       </provider>
@@ -724,10 +678,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/alert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/DBUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/DetectMailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ActiveServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/AddFriendServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Friend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/DBDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <marker date="1508607028000" expanded="true" signature="356:523" ph="insert into User... " />
+            <marker date="1508607028000" expanded="true" signature="1140:1195" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="1957:2019" ph="select * fro... Admin" />
+            <marker date="1508607028000" expanded="true" signature="2546:2584" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="3462:3493" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="4359:4397" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="4817:4858" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="5878:5938" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="7131:7191" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="8353:8406" ph="update User " />
+            <marker date="1508607028000" expanded="true" signature="8723:9005" ph="update User " />
+            <marker date="1508607028000" expanded="true" signature="9343:9455" ph="insert into Image... " />
+            <marker date="1508607028000" expanded="true" signature="9923:10033" ph="insert into Post... " />
+            <marker date="1508607028000" expanded="true" signature="10535:10829" ph="select * fro... Post" />
+            <marker date="1508607028000" expanded="true" signature="10608:10678" ph="select frien... Friend" />
+            <marker date="1508607028000" expanded="true" signature="10715:10804" ph="select user_... Friend" />
+            <marker date="1508607028000" expanded="true" signature="11723:11767" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="12712:12757" ph="update Post " />
+            <marker date="1508607028000" expanded="true" signature="13177:13311" ph="insert into Friend... " />
+            <marker date="1508607028000" expanded="true" signature="13779:13834" ph="update Frien... " />
+            <marker date="1508607028000" expanded="true" signature="14161:14192" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="15265:15393" ph="select * fro... Friend" />
+            <marker date="1508607028000" expanded="true" signature="16008:16053" ph="select * fro... User" />
+            <marker date="1508607028000" expanded="true" signature="16507:16544" ph="update User " />
+            <marker date="1508607028000" expanded="true" signature="16895:16932" ph="update User " />
+            <marker date="1508607028000" expanded="true" signature="17358:17485" ph="insert into Notification... " />
+            <marker date="1508607028000" expanded="true" signature="17937:17995" ph="select * fro... Notification" />
+            <marker date="1508607028000" expanded="true" signature="18869:18926" ph="update Notif... " />
+            <marker date="1508607028000" expanded="true" signature="19301:19408" ph="insert into Log... " />
+            <marker date="1508607028000" expanded="true" signature="19873:19927" ph="select * fro... Log" />
+            <marker date="1508607028000" expanded="true" signature="20729:20795" ph="select * fro... post" />
+            <marker date="1508607028000" expanded="true" signature="21436:21514" ph="select frien... Friend" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/post.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        <state relative-caret-position="34">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
           <folding />
         </state>
       </provider>

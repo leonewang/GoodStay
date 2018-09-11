@@ -2,6 +2,14 @@
 
 GoodStay is a web application that will allow providers to present their holiday units, and searchers to review the offers and reserve or rent a property. This is a guide document for the development of our project. **Please follow the guideline listed below and make sure that you are clear about what you will do in the current period.**
 
+**Database:** MySQL 5.6.41
+**Tomcat:** 7.0.571
+**Others:** jdk1.8, mysql-connector-java:5.1.28, javax.servlet-api:3.1.0
+
+Please find the database sourse data `GoodStay_yyyymmdd.sql`.
+
+## Weekly Tasks
+
 **Week 8 tasks**
 
 - Advertisement posting page.
