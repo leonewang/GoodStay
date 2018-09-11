@@ -1,15 +1,61 @@
+Week 7：
+
+** Planned and finished **
+
+- Find my password.
+- Like a post (staring).
+- User profile page.
+- Easy notification system.
+
+** Plan for the next period **
+
+- Add more fields in the advertisement posting page (calender support).
+- New main page.
+
+---
+
+Week 6：
+
+- Login page (front-end)
+- Register page (front-end)
+- Verifying user validity via sending an activation email to the address user leaved in register page (the user need to click the activation link in the email then complete the register).
+- Advertisement posting page (front-end, initial version, need to add more fields)
+
+** Obtacles **
+
+- Hard to use Bitbucket (one of us force merged the master branch so we lost everything), so I asked Rachid can we change it to github and he approved.
+
+** Plan for the next period **
+
+- Find my password.
+- New main page.
+- Like a post (staring).
+
+---
+
+Week 5:
+
+** Planned and finished **
+
+- Building the initial database from database model to database management system (mysql).
+
+** Plan for the next period **
+
+- Login page (front-end)
+- Register page (front-end)
+- Verifying user validity via sending an activation email to the address user leaved in register page (the user need to click the activation link in the email then complete the register).
+
+---
+
 Week 4
 
 ** Planned and finished **
 
 - Set up the whole development environment.
-- 
-
-** Obtacles **
-
-
 
 ** Plan for the next period **
+
+- Database implementation.
 
 
 ---

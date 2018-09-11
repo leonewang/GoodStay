@@ -1,4 +1,24 @@
+# GoodStay
+
+GoodStay is a web application that will allow providers to present their holiday units, and searchers to review the offers and reserve or rent a property.
+
 This is a guide document for the development of our project. **Please follow the guideline listed below and make sure that you are clear about what you will do in the current period.**
+
+**Week 8 tasks**
+
+- Advertisement posting page.
+- Main page (represent advertisement).
+
+**Week 7 tasks**
+
+- User profile page (CRUD).
+- Simple notification system.
+- Password refind.
+
+**Week 6 tasks**
+
+- Login and register page.
+- Advertisement posting page.
 
 **Week 5 tasks**
 
