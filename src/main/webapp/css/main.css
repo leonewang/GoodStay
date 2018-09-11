@@ -1,0 +1,23 @@
+body { background-color: #ECF0F1; }
+.color-white { color:white; }
+.tab{ margin-left: 20px;}
+.font-lg { font-size: 2rem;}
+.headroom { position: fixed; top: 0; left: 0; right: 0; transition: all .2s ease-in-out; }
+.headroom--unpinned { top: -100px; }
+.headroom--pinned { top: 0; }
+.info { padding: 10px 20px 10px 20px; }
+.img-thumbnail { margin-bottom: 15px; }
+.level {}
+.app-auth { margin: 25px 0;}
+.app-icon { float: left; margin: 0 3px 5px 0; }
+.mail-md { height:32px; width: 32px; background: url("images/appIcon/mail-md.png"); }
+.phone-md { height:32px; width: 32px; background: url("images/appIcon/phone-md.png"); }
+.sina-md { height:32px; width: 32px; background: url("images/appIcon/sina-md.png"); }
+.qq-md { height:32px; width: 32px; background: url("images/appIcon/qq-md.png"); }
+.badge { margin-bottom: 15px; }
+.text-list { float: left; margin: 10px 15px; }
+.text-list a { color: #1ABC9C; }
+.text-list a:HOVER { color: #FFF; }
+
+/**************Carousel****************/
+

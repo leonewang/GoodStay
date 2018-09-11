@@ -1,6 +1,6 @@
 # GoodStay
 
-GoodStay is a web application that will allow providers to present their holiday units, and searchers to review the offers and reserve or rent a property.This is a guide document for the development of our project. **Please follow the guideline listed below and make sure that you are clear about what you will do in the current period.**
+GoodStay is a web application that will allow providers to present their holiday units, and searchers to review the offers and reserve or rent a property. This is a guide document for the development of our project. **Please follow the guideline listed below and make sure that you are clear about what you will do in the current period.**
 
 **Week 8 tasks**
 
@@ -35,4 +35,4 @@ GoodStay is a web application that will allow providers to present their holiday
 
 **Work Diary**
 
-Do not forget to write you work diary and please upload it to the directory 'work_diary' once a week at least. The name of your work diary should in the format, `your_zid.txt`.
+Please do not forget to write your working diary and upload it to the directory 'work_diary' once per week at least. The name of your work diary should in the format, `your_zid.txt`.

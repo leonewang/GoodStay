@@ -1,0 +1,173 @@
+* { margin:0; padding:0; }
+#container { position: relative;  margin: 0 auto; padding: 0px; width: auto; height: 100%; text-align: left; clear: both; }
+#dropz { overflow: hidden !important; }
+#category-select ul li li a { color:#2ba3d4; }
+#bg-panel .bg-content { position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; margin-top:150px; height: 50%; }
+#bg-panel .search-input { margin-top: 100px; }
+body,html { color:#31343D; margin: 0px; padding: 0px; height: 100%; }
+select { color: #2ba3d4 !important; }
+.clear { clear: both; }
+.input-height { height: 40px !important; }
+.color-white { color: #fff; }
+.color-blue { color: #2ba3d4 !important; }
+.color-gary { color: #666 !important; }
+.color-gary2 { color: #ddd !important;}
+.font-mini { font-size: 13px !important; }
+.font-small { font-size: 15px !important; }
+.font-medium { font-size: 18px !important; }
+.font-large { font-size: 23px !important; }
+.eg { width: 150px; padding: 10px 0; float: left; clear: both; }
+.space { margin-right: 30px; }
+.uk-form-width-large { width: 550px !important; }
+.issue-input { margin: 20px 0 0 0; font-size: 18px !important; }
+.issue-input .clause-text p { width: 650px; word-break: break-word; }
+.category { width:550px; z-index:1002; display: none; position: absolute; margin-left: 150px; }
+.ta-description { overflow: hidden; max-width: 550px; }
+.wl-hover:hover { background-color: #666; }
+/* .offcancas-logo { margin-top: 20px; } */
+/* 导航栏 */
+.uk-navbar-nav>li>a { color: #ddd; }
+.uk-navbar-nav>li.uk-open>a,.uk-navbar-nav>li:hover>a,.uk-navbar-nav>li>a:focus { background-color: #2ba3d4 !important; color: #fff !important; }
+.tm-center { text-align: center; }
+.tm-button-download { margin: 0; }
+.tm-footer { background: #1b1b1b; }
+.tm-middle,
+.tm-section,
+.tm-footer { padding: 50px 0; }
+.tm-footer { padding: 30px 0; }
+input[type="text"] { height: 40px !important; }
+/****************** index.jsp ******************/
+/***********************************************/
+.search { width: 30%; height: 50px !important; margin-right: 30px !important; box-shadow: 1px 1px 1px rgba(0,0,0,0.1); background: #fff; border: none; color: #2ba3d4 !important; border-radius: 4px !important; }
+.search:focus, .search:active { background: #2e93bc; border: none !important; color: #2e93bc !important; font-size: 20px; }
+.uk-offcanvas-bar h2 { margin-top: 10%; }
+.offcanvas-text { float: left; margin-left: 10%; }
+.register-login { margin: 20px 0; }
+.user-pw { width: 80% !important; height: 40px !important; margin: 10px 0 !important; border: none !important; color: #2ba3d4 !important; border-radius: 4px !important; }
+.user-pw:focus, .user-pw:active { background: #2e93bc; border: none !important; color: #2e93bc !important; font-size: 20px; }
+.bg-panel, .bg-panel h1, .bg-panel h2, bg-panel a:not([class]), bg-panel ul li a { color:#ddd !important; }
+.tm-form-password { display: inline !important; }
+.tm-autocomplete { display: inline !important; }
+.register-form { margin-top: 10%; }
+.register-form .uk-panel { width: 80%; margin-top: 10px; }
+.tm-section-colored .uk-nav-autocomplete>li>a { color: #666 !important; }
+.tm-section-colored .uk-nav-autocomplete>li.uk-active>a { color: #fff !important; }
+.social-login { margin-bottom: 10px; }
+.social-login .uk-button-danger { float: left; margin-left: 10%; }
+.social-login .uk-button-primary { float: right; margin-right: 10%; }
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+position: absolute;
+top: 0;
+right: 0;
+left: 0;
+z-index: 20;
+}
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+padding-right: 0;
+padding-left: 0;
+}
+.navbar-wrapper .navbar {
+padding-right: 15px;
+padding-left: 15px;
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+height: 500px;
+margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+height: 500px;
+background-color: #777;
+}
+.carousel-inner > .item > img {
+position: absolute;
+top: 0;
+left: 0;
+min-width: 100%;
+height: 500px;
+}
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+margin-bottom: 20px;
+text-align: center;
+}
+.marketing h2 {
+font-weight: normal;
+}
+.marketing .col-lg-4 p {
+margin-right: 10px;
+margin-left: 10px;
+}
+/* Featurettes
+------------------------- */
+.featurette-divider {
+margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+/* Thin out the marketing headings */
+.featurette-heading {
+font-weight: 300;
+line-height: 1;
+letter-spacing: -1px;
+}
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+/* Navbar positioning foo */
+.navbar-wrapper {
+margin-top: 20px;
+}
+.navbar-wrapper .container {
+padding-right: 15px;
+padding-left: 15px;
+}
+.navbar-wrapper .navbar {
+padding-right: 0;
+padding-left: 0;
+}
+/* The navbar becomes detached from the top, so we round the corners */
+.navbar-wrapper .navbar {
+border-radius: 4px;
+}
+/* Bump up size of carousel content */
+.carousel-caption p {
+margin-bottom: 20px;
+font-size: 21px;
+line-height: 1.4;
+}
+.featurette-heading {
+font-size: 50px;
+}
+}
+@media (min-width: 992px) {
+.featurette-heading {
+margin-top: 120px;
+}
+}
+/*Blocks*/
+.tm-middle, .tm-section, .tm-footer { padding: 30px 0; }
+/* Tablet and bigger */
+@media (min-width: 768px) { .tm-middle, .tm-section, .tm-footer { padding: 50px 0; }}
+/* Large screen and bigger */
+@media (min-width: 1220px) { .tm-middle, .tm-section, .tm-footer { padding: 65px 0; }}
+/****************** stuffDetail.jsp ******************/
+/***********************************************/
+.bid-history { margin-left: 28px; }
+.bid-history .uk-badge { float:right; }
+.button-more { margin-top: 10px; }
+.images { width:180px; height:135px; overflow:hidden; }
+.images img { max-width:180px; _width:expression(this.width > 180 ? "180px" : this.width); }
+.uk-width-1-3 { position: relative; }
+.interest-in { position: absolute; bottom: 0; }

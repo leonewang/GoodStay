@@ -1,0 +1,18 @@
+.form-group {
+    position: relative;
+    margin-bottom: 12px !important;
+}
+
+.login-screen {
+    min-height: 473px;
+    padding: 30px 199px 33px 306px !important;
+    background-color: #1abc9c;
+}
+
+.activate {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #34495E;
+    margin-bottom: 10px;
+}

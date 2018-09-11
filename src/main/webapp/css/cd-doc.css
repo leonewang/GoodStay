@@ -1,0 +1,505 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*,*::after,*::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+.cd-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+.cd-single-item {
+  position: relative;
+  border-radius: 6px;
+}
+
+.cd-slider-wrapper {
+	position: relative;
+	z-index: 1;
+	-webkit-transition: width 0.4s;
+	-moz-transition: width 0.4s;
+	transition: width 0.4s;
+	/* Force Hardware Acceleration in WebKit */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	will-change: width;
+}
+
+@media only screen and (min-width: 992px) {
+	.cd-slider-wrapper {
+		width: 40%;
+	}
+	.cd-slider-active .cd-slider-wrapper {
+		width: 100%;
+	}
+}
+
+.cd-slider {
+	position: relative;
+    min-height: 300px;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.cd-slider::before {
+	/* never visible - this is used in jQuery to check the current MQ */
+	content: 'mobile';
+	display: none;
+}
+
+.cd-slider li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	-webkit-transform: translateX(100%);
+	-moz-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	-o-transform: translateX(100%);
+	transform: translateX(100%);
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.cd-slider li img {
+	display: block;
+	width: 100%;
+}
+
+.cd-slider li.selected {
+	position: relative;
+	z-index: 2;
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+	transform: translateX(0);
+}
+
+.cd-slider li.move-left {
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+
+@media only screen and (min-width: 992px) {
+	.cd-slider {
+		cursor: pointer;
+	}
+	.cd-slider::before {
+		/* never visible - this is used in jQuery to check the current MQ */
+		content: 'desktop';
+	}
+	.cd-slider::after {
+		/* slider cover layer - to indicate the image is clickable */
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.4) url("../images/cd-icon-zoom.svg")
+			no-repeat center center;
+		/* size of the icon */
+		background-size: 48px;
+		opacity: 0;
+		z-index: 4;
+		-webkit-transition: opacity 0.2s;
+		-moz-transition: opacity 0.2s;
+		transition: opacity 0.2s;
+	}
+	.no-touch .cd-slider:hover::after {
+		opacity: 1;
+	}
+	.cd-slider-active .cd-slider {
+		cursor: auto;
+	}
+	.cd-slider-active .cd-slider::after {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.cd-slider-navigation li,.cd-slider-pagination {
+		opacity: 0;
+		visibility: hidden;
+		-webkit-transition: opacity 0.4s 0s, visibility 0s 0.4s;
+		-moz-transition: opacity 0.4s 0s, visibility 0s 0.4s;
+		transition: opacity 0.4s 0s, visibility 0s 0.4s;
+	}
+	.cd-slider-active .cd-slider-navigation li,.cd-slider-active .cd-slider-pagination
+		{
+		opacity: 1;
+		visibility: visible;
+		-webkit-transition: opacity 0.4s 0.4s, visibility 0s 0.4s;
+		-moz-transition: opacity 0.4s 0.4s, visibility 0s 0.4s;
+		transition: opacity 0.4s 0.4s, visibility 0s 0.4s;
+	}
+}
+
+.cd-slider-navigation li {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	bottom: auto;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.cd-slider-navigation li:first-of-type {
+	left: 10px;
+}
+
+.cd-slider-navigation li:last-of-type {
+	right: 10px;
+}
+
+.cd-slider-navigation li a.inactive {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity 0.2s 0s, visibility 0s 0.2s;
+	-moz-transition: opacity 0.2s 0s, visibility 0s 0.2s;
+	transition: opacity 0.2s 0s, visibility 0s 0.2s;
+}
+
+.no-touch .cd-slider-navigation li a:hover {
+	opacity: .9;
+}
+
+/*.cd-slider-navigation li:first-of-type a {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}*/
+
+@media only screen and (min-width: 1024px) {
+	.cd-slider-navigation li:first-child {
+		left: 30px;
+	}
+	.cd-slider-navigation li:last-child {
+		right: 30px;
+	}
+}
+
+.cd-slider-pagination {
+	/* you won't see this element in the html but it will be created using jQuery */
+	position: absolute;
+	z-index: 2;
+	bottom: 30px;
+	left: 50%;
+	right: auto;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	visibility: hidden;
+}
+
+.cd-slider-pagination:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.touch .cd-slider-pagination {
+	visibility: hidden;
+}
+
+.cd-slider-pagination li {
+	display: inline-block;
+	float: left;
+	margin: 0 5px;
+}
+
+.cd-slider-pagination li.selected a {
+	background: #f5f4f3;
+}
+
+.cd-slider-pagination a {
+	display: block;
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	border: 2px solid #f5f4f3;
+	/* fix a bug in IE9/10 - transparent anchor not clickable */
+	background-color: rgba(255, 255, 255, 0);
+	/* image replacement */
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+  opacity: .9;
+}
+
+.cd-slider-wrapper .cd-close {
+	display: none;
+	position: absolute;
+	z-index: 2;
+	top: 45px;
+	right: 45px;
+	width: 40px;
+	height: 40px;
+	background: url("../images/cd-icon-close.svg") no-repeat center center;
+	/* image replacement */
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s 0s, visibility 0s 0.4s;
+	-moz-transition: -moz-transform 0.3s 0s, visibility 0s 0.4s;
+	transition: transform 0.3s 0s, visibility 0s 0.4s;
+}
+
+.cd-slider-active .cd-slider-wrapper .cd-close {
+	visibility: visible;
+	opacity: .9;
+	-webkit-transition: -webkit-transform 0.3s 0s, visibility 0s 0s, opacity
+		0.4s 0.4s;
+	-moz-transition: -moz-transform 0.3s 0s, visibility 0s 0s, opacity 0.4s
+		0.4s;
+	transition: transform 0.3s 0s, visibility 0s 0s, opacity 0.4s 0.4s;
+}
+
+.no-touch .cd-slider-active .cd-slider-wrapper .cd-close:hover {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+@media only screen and (min-width: 992px) {
+	.cd-slider-wrapper .cd-close {
+		display: block;
+	}
+}
+
+.cd-photo-num {
+  font-size: 15px;
+  color: #BDC3C7;
+  margin-left: 37%;
+}
+
+.cd-item-info {
+	padding: 1% 5%;
+}
+
+.cd-item-info .cd-alert-warning {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.cd-item-info .no-icon {
+  margin-left: 34px;
+}
+
+.cd-item-info .cd-item-icon {
+  font-size: 22px;
+  padding-right: 10px;
+  color: #BDC3C7;
+}
+
+.cd-item-info .cd-item-bid, .cd-item-info .cd-item-gin {
+	font-size: 27px;
+  padding-right: 5px;
+	font-weight: bold;
+}
+
+.cd-item-info #cd-bid {
+  width: 150px;
+  padding-right: 10px;
+  float: left;
+}
+
+.cd-item-info #cd-bid-submit input {
+  float: left;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.cd-item-info .divider-left, .cd-item-info .divider-right {
+  float: left;
+  height: 15px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #BDC3C7;
+}
+
+.cd-item-info .divider-left {
+  width: 138px;
+}
+
+.cd-item-info .divider-right {
+  width: 97px;
+}
+
+.cd-item-info #cd-gin {
+  float: left;
+  width: 193px;
+}
+
+.cd-item-info #cd-gin-submit {
+  float: left;
+}
+
+.cd-item-info #cd-add-watchlist .watching {
+  color: #FFAEB9;
+}
+
+@media only screen and (min-width: 992px) {
+	.cd-item-info {
+		position: absolute;
+		width: 60%;
+		top: 0;
+		left: 40%;
+		padding: 0 0 0 9%;
+		margin: 0;
+	}
+}
+
+.cd-content p {
+  font-size: 16px;
+	padding-top: 2.5em;
+	margin: 0 auto;
+	line-height: 1.5;
+}
+
+.cd-content .cd-content-warning {
+  float: left;
+  font-size: 14px;
+  margin-top: 10px; 
+  color: #BDC3C7;
+}
+
+.cd-content .cd-content-flag a {
+  float: right;
+  font-size: 14px;
+  margin-top: 10px; 
+  color: #BDC3C7;
+}
+
+.cd-updates h2, .cd-comments h2, .gs-content-right h2 {
+  font-size: 20px;
+  padding: 2em 0 5px 0;
+  margin: 0;
+  color: #F39C12;
+  border-width: 1px;
+  border-bottom-style: solid;
+  border-color: #BDC3C7;
+}
+
+.cd-updates h2 span, .cd-comments h2>span, .gs-content-right h2>span {
+  color: #BDC3C7;
+}
+
+.cd-updates h2>div, .cd-comments h2>div {
+  float: right;
+  font-size: 14px;
+  font-weight: normal;
+  color: #5a5a5a;
+}
+
+.cd-updates ul li {
+  padding: 10px 0;
+  border-width: 1px;
+  border-top-style: solid;
+  border-color: #BDC3C7;
+}
+
+.cd-updates ul li:first-child {
+  border-top-style: none;
+}
+
+.cd-updates ul li .updates-date {
+  float: left;
+  width: 30%;
+  font-size: 14px;
+  color: #BDC3C7;
+}
+
+.cd-updates ul li .updates-description {
+  float: left;
+  font-size: 15px;
+  line-height: 1.4;
+  width: 70%;
+}
+
+.cd-comments h2 .toolbar {
+  margin-top: -10px;
+}
+
+.cd-comments h2 .btn-toolbar .btn-group a {
+  padding: 5px 10px;
+}
+
+.cd-comments .media-list li {
+  padding: 15px 10px;
+  border-width: 1px;
+  border-bottom-style: solid;
+  border-color: #BDC3C7;
+}
+
+.cd-comments .media-list li:first-child {
+  border-top-style: none;
+}
+
+.cd-comments .media-list>.media {
+  margin: 0;}
+
+.cd-comments .media-list .media:hover {
+  background-color: #ECF0F1;
+}
+
+.cd-comments .media-list li .media-body {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.cd-comments .media-list li .media-body .media-date, .cd-comments .media-list li .media-body .media-like, .cd-comments .media-list li .media-body .media-flag {
+  float: left;
+  padding-top: 5px;
+  width: 80px;
+  font-size: 13px;
+  color: #BDC3C7;
+}
+
+.cd-comments .media-list li .media-body .media-date {
+  width: 200px;
+}
+
+.cd-comments .media-list .cd-media-comment {
+  border: none;
+  padding-bottom: 0;
+}
+
+.cd-comments .media-list li .cd-media-button {
+  float: right;
+  padding-top: 15px;
+}
