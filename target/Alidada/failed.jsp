@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Leone Wang">
-    <title>Failed | UNSW BOOK</title>
+    <title>Failed | GoodStay</title>
     <!-- Bootstrap core CSS -->
     <!-- <link href="assets/flat-ui/css/bootstrap-responsive.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/assets/bootstrap.css">
@@ -28,15 +28,15 @@
     <div class="login">
         <div class="login-screen" style="padding: 123px 199px 33px 306px !important;">
             <div class="login-icon hidden-sm hidden-xs">
-                <a href="index.jsp"><img src="images/login/chat.svg" alt="Welcome to UNSWBook" /></a>
+                <a href="index.jsp"><img src="images/login/chat.svg" alt="Welcome to GoodStay" /></a>
                 <h4>
-                    Welcome to <small>UNSWBook</small>
+                    Welcome to <small>GoodStay</small>
                 </h4>
             </div>
             <form role="form">
                 <div class="login-icon-hidden hidden-md hidden-lg">
-                    <a href="index.jsp"><img src="images/login/chat.svg" alt="Welcome to UNSWBook" /></a>
-                    <h4>Welcome to UNSWBook</h4>
+                    <a href="index.jsp"><img src="images/login/chat.svg" alt="Welcome to GoodStay" /></a>
+                    <h4>Welcome to GoodStay</h4>
                 </div>
                 <div class="login-form">
                     <span class="fui-cross-circle" style="color: #E74C3C;"> Oops!</span>

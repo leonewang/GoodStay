@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Leone Wang">
-    <title>Notification | UNSW BOOK</title>
+    <title>Notification | GoodStay</title>
     <!-- Bootstrap core CSS -->
     <!-- <link href="assets/flat-ui/css/bootstrap-responsive.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/assets/bootstrap.css">

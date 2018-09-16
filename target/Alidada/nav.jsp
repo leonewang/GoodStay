@@ -30,14 +30,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li><a href="post.jsp">Post</a></li>
-                <li><a href="wall.jsp">Wall</a></li>
-                <li><a href="/SearchGraphServlet?username=">Graph</a></li>
+                <li><a href="wall.jsp">Browse</a></li>
+                <li><a href="/SearchGraphServlet?username=">Help</a></li>
                 <li><a href="notification.jsp">Notification<% if (count > 0) { %><span class="navbar-unread"><%=count%></span><% } %></a></li>
             </ul>
             <form class="navbar-form navbar-left" action="/SearchServlet" method="post" role="search">
                 <div class="form-group">
                     <div class="input-group">
-                        <input class="form-control" id="navbar-input" type="search" name="username" placeholder="Search username">
+                        <input class="form-control" id="navbar-input" type="search" name="username" placeholder="Search">
                         <span class="input-group-btn">
                             <button type="submit" class="btn"><span class="fui-search"></span></button>
                         </span>

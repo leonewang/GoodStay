@@ -24,7 +24,7 @@
     <div class="login">
         <div class="login-screen">
             <div class="login-icon hidden-sm hidden-xs">
-                <a href="index.jsp"><img src="images/login/chat.svg" alt="Welcome to GoodStay" /></a>
+                <a href="index.jsp"><img src="images/login/house.svg" alt="Welcome to GoodStay" /></a>
                 <h4>
                     Welcome to <small>GoodStay</small>
                 </h4>

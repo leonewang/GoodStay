@@ -63,6 +63,8 @@
         </div>
     </div>
 </div>
+<!-- /custom footer -->
+<%@include file="footer.jsp"%>
 
 <script src="js/assets/jquery.min.js"></script>
 <script src="js/assets/flat-ui.min.js"></script>
