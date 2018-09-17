@@ -14,6 +14,7 @@
     <!-- Bootstrap core CSS -->
     <!-- <link href="assets/flat-ui/css/bootstrap-responsive.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/assets/bootstrap.css">
+    <link rel="stylesheet" href="css/assets/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/assets/flat-ui.css">
     <link rel="stylesheet" href="css/doc.css">
     <link rel="stylesheet" href="css/index.css">
@@ -41,13 +42,16 @@
             opacity: 1;
             -webkit-filter: none;
         }
+        .datepicker-days {
+            min-width: 200px;
+        }
     </style>
 </head>
 <body style="padding-top: 70px;">
 <!-- /custom navbar -->
 <%@include file="nav.jsp"%>
 <%
-    List<Post> posts = new DBDao().listAllPosts(user.getId());
+    List<Post> posts = new DBDao().listAllPosts();
     Integer post_num = posts.size();
 %>
 
@@ -134,16 +138,6 @@
             </div>
             <div class="gs-clear"></div>
 
-            <!-- info alert -->
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <span class="gs-alert-icon fui-info-circle"></span>Earn credits by
-                <strong><a class="alert-link" href="#">making a deal</a></strong>,
-                <strong><a class="alert-link" href="#">inviting friends</a></strong>, or
-                <strong><a class="alert-link" href="#">get it instantly in here.</a></strong>
-            </div>
             <!-- search -->
             <div id="flash-saved-search" class="alert alert-warning" role="alert" style="display:none;">
                 <form id="new-saved-search" accept-charset="UTF-8" action="/advance-search" method="post">
@@ -169,7 +163,7 @@
                                     <option value="4">More than 3 Beds</option>
                                 </optgroup>
                                 <optgroup label="Bathroom">
-                                    <option value="5">1 Bathroom</option>
+                                    <option value="5" selected>1 Bathroom</option>
                                     <option value="6">2 Bathrooms</option>
                                     <option value="7">3 Bathrooms</option>
                                     <option value="8">More than 3 Bathrooms</option>
@@ -193,13 +187,13 @@
                             <label style="padding-top:3px;">Check in</label>
                         </div>
                         <div class="has-warning">
-                            <input class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                            <input id='checkindate' class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                         </div>
                         <div>
                             <label style="padding-top:3px;">Check out</label>
                         </div>
                         <div class="has-warning">
-                            <input class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                            <input id='checkoutdate' class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                         </div>
                         <div>
                             <label style="padding-top:3px;">Dwelling Type</label>
@@ -223,6 +217,17 @@
                 <div class="gs-clear"></div>
             </div>
             <!-- /custom search -->
+
+            <!-- info alert -->
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <span class="gs-alert-icon fui-info-circle"></span>Earn credits by
+                <strong><a class="alert-link" href="#">making a deal</a></strong>,
+                <strong><a class="alert-link" href="#">inviting friends</a></strong>, or
+                <strong><a class="alert-link" href="#">get it instantly in here.</a></strong>
+            </div>
 
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="random">
@@ -248,7 +253,7 @@
                                     <p><%=post.getText()%></p>
                                     <span class="label label-warning gs-bid">PRICE</span>
                                     <small class="gs-bid-num">$350 / night </small>
-                                    <small class="gs-days">12 days</small>
+                                    <small class="gs-days">16/09/2018</small>
                                     <div class="gs-clear"></div>
                                     <span class="label label-success gs-gin">TYPE</span>
                                     <small class="gs-gin-num">House</small>
@@ -314,6 +319,7 @@
 <script src="js/vendor/masonry.pkgd.js"></script>
 <script src="js/vendor/velocity.min.js"></script>
 <script src="js/vendor/sweetalert-dev.js"></script>
+<script src="js/assets/bootstrap-datepicker.min.js"></script>
 
 <!-- Custom jquery sentences -->
 <script src="js/backtop.js"></script>
@@ -325,6 +331,12 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        $('#checkindate').datepicker({
+            format: "yyyy-mm-dd"
+        });
+        $('#checkoutdate').datepicker({
+            format: "yyyy-mm-dd"
+        });
         $('.like').click(function() {
             var a = $(this);
             $.ajax({

@@ -290,17 +290,11 @@ public class DBDao {
      * @param id
      * @throws SQLException
      */
-    public List<Post> listAllPosts(Integer id) throws SQLException {
+    public List<Post> listAllPosts() throws SQLException {
         List<Post> posts = new ArrayList<Post>();
         Connection conn = DBUtil.getConn();
-        String sql = "select * from Post where post_by = ? or post_by in " +
-                "(select friend_id from Friend where post_by = friend_id and user_id = ?)" +
-                "or post_by in (select user_id from Friend where post_by = user_id and " +
-                "friend_id = ?) order by post_date DESC";
+        String sql = "select * from Post order by post_date DESC";
         PreparedStatement ptmt = conn.prepareStatement(sql);
-        ptmt.setInt(1, id);
-        ptmt.setInt(2, id);
-        ptmt.setInt(3, id);
         ResultSet rs = ptmt.executeQuery();
         while (rs.next()) {
             Post post = new Post();
