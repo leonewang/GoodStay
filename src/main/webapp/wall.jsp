@@ -55,70 +55,7 @@
     Integer post_num = posts.size();
 %>
 
-<!-- .btn-group dark, QR Code -->
-<div class="btn-group-vertical visible-sm visible-md visible-lg">
-    <a id="btn-dark" class="btn btn-primary">
-        <span class="fui-eye"></span>
-    </a>
-    <a id="qr-code" role="button" class="btn btn-inverse" tabindex="0" data-toggle="popover" data-trigger="focus"
-       data-content="<img src='../css/images/qrcode.png' height='120' width='120'>" title="URL QR Code">
-        <span class="glyphicon glyphicon-qrcode"></span>
-    </a>
-    <a style="display: none" id="btn-top-group" class="btn btn-primary">
-        <span class="fui-triangle-up"></span>
-    </a>
-</div>
-
 <div class="container">
-    <!-- cd-quick-view -->
-    <div class="cd-quick-view cd-quick">
-        <div class="cd-slider-wrapper">
-            <ul class="cd-slider">
-                <li class="selected"><div class="cd-img"><img src=""></div></li>
-            </ul>
-            <!-- cd-slider -->
-            <ul class="cd-slider-navigation">
-                <li><a href="#0" class="cd-prev inactive carousel-control left">&lsaquo;</a></li>
-                <li><a href="#0" class="cd-next carousel-control right">&rsaquo;</a></li>
-            </ul>
-            <!-- cd-slider-navigation -->
-        </div>
-        <!-- cd-slider-wrapper -->
-        <div class="cd-item-info">
-            <h3>Product Title</h3>
-            <a class="cd-more" href="#">Read more</a>
-            <p>detail</p>
-            <div class="cd-item-action row">
-                <div class="cd-label-group">
-                    <span class="label label-warning cd-bid">BID</span>
-                    <small class="cd-bid-num">0</small>
-                    <span class="label label-success cd-gin">GIN</span> <small class="cd-gin-num">0</small>
-                    <div class="cd-days">00 days 00:00:00</div>
-                </div>
-
-                <div class="cd-button-group">
-                    <div class="input-group">
-                        <input class="form-control input-lg" placeholder="0" /> <span class="input-group-addon">Bids</span>
-                    </div>
-                    <div>
-                        <button class="btn btn-warning btn-lg">Bid</button>
-                    </div>
-                    <div class="cd-or">
-                        <small>- OR -</small>
-                    </div>
-                    <div>
-                        <button class="btn btn-success btn-lg">Get It Now</button>
-                    </div>
-                    <div class="gs-clear"></div>
-                </div>
-            </div>
-            <!-- cd-item-action -->
-        </div>
-        <!-- cd-item-info -->
-        <a href="#0" class="cd-close">Close</a>
-    </div>
-    <!-- /cd-quick-view -->
-
     <div class="col-xs-12 gs-right">
         <!-- Pills Tab -->
         <div class="row first-row" role="tabpanel">
@@ -187,13 +124,13 @@
                             <label style="padding-top:3px;">Check in</label>
                         </div>
                         <div class="has-warning">
-                            <input id='checkindate' class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                            <input id='checkindate' name="checkintime" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                         </div>
                         <div>
                             <label style="padding-top:3px;">Check out</label>
                         </div>
                         <div class="has-warning">
-                            <input id='checkoutdate' class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                            <input id='checkoutdate' name="checkouttime" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                         </div>
                         <div>
                             <label style="padding-top:3px;">Dwelling Type</label>

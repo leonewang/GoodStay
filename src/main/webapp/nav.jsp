@@ -63,3 +63,36 @@
     </div>
     <!-- /.navbar-collapse -->
 </nav>
+
+<!-- .btn-group dark, ask for help (customer services) -->
+<div class="btn-group-vertical visible-sm visible-md visible-lg">
+    <a id="btn-dark" class="btn btn-primary">
+        <span class="fui-eye"></span>
+    </a>
+    <a id="qr-code" role="button" class="btn btn-inverse" onclick="Chatra('openChat', true)">
+        <span class="fui-chat"></span>
+    </a>
+    <a style="display: none" id="btn-top-group" class="btn btn-primary">
+        <span class="fui-triangle-up"></span>
+    </a>
+</div>
+
+
+<!-- Chatra {literal} -->
+<script>
+    (function(d, w, c) {
+        w.ChatraID = 'Gu5PBbMcScSX4pFYF';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+
+    window.ChatraSetup = {
+        buttonSize: 1
+    };
+</script>
+<!-- /Chatra {/literal} -->

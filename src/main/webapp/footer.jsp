@@ -5,7 +5,7 @@
             <p>
                 Do you like this website? Want to get more information like this?<br /> Subscribe to us and updates to stay tuned on great ideas.<br />
                 Go to&nbsp;<a href="https://github.com/leonewang/GoodStay" target="_blank"> GoodStay in Github</a><br /> Thanks to&nbsp;<a
-                    href="http://glyphicons.com/" target="_blank"> Glyphicons and FlatUI</a>
+                    href="https://getbootstrap.com/" target="_blank"> Bootstrap and all Open Source Widgets we used.</a>
             </p>
         </div>
         <div class="col-sm-5 col-xs-11">
