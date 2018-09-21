@@ -149,7 +149,7 @@ img {
 	left: 0;
 	top: 0;
 	width: 100%;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 	z-index: 10;
 }
 
@@ -191,15 +191,24 @@ img {
 }
 
 .carousel .item1 {
+	background: #2C3E50;
+	background-image: url("https://a0.muscache.com/4ea/air/v2/pictures/b3ab7ae3-87aa-4c93-9c9d-0443f423b692.jpg?t=c:w3393-h1029,r:w3393-h1029-sfit,e:fjpg-c75");
+	background-size: cover;
+	background-position:center;
+}
+
+.carousel .item3 {
 	background: #16A085;
+	background-image: url("https://a0.muscache.com/4ea/air/v2/pictures/0731968f-053e-4166-ae9e-c9146c91ea4b.jpg?t=c:w2400-h1200,r:w2400-h1200-sfit,e:fjpg-c75");
+	background-size: cover;
+	background-position: bottom;
 }
 
 .carousel .item2 {
 	background: #BDC3C7;
-}
-
-.carousel .item3 {
-	background: #2C3E50;
+	background-image: url("https://a0.muscache.com/4ea/air/v2/pictures/afd64fec-14ea-4dbe-9f20-a5b8ee660535.jpg?t=c:w2400-h1200,r:w2400-h1200-sfit,e:fjpg-c75");
+	background-size: cover;
+	background-position:center;
 }
 
 .carousel img {
@@ -236,7 +245,7 @@ img {
 /* Featurettes
     ------------------------- */
 .featurette-divider {
-	margin: 80px 0; /* Space out the Bootstrap <hr> more */
+	margin: 40px 0; /* Space out the Bootstrap <hr> more */
 }
 
 .featurette {
@@ -244,6 +253,36 @@ img {
 	/* Vertically center images part 1: add padding above and below text. */
 	overflow: hidden;
 	/* Vertically center images part 2: clear their floats. */
+}
+
+.featurette1 {
+	margin-top: 25px;
+	padding: 30px;
+	border-radius: 4px;
+	background: #BDC3C7;
+	background-image: url("https://a0.muscache.com/4ea/air/v2/pictures/e8afe40c-86e0-4064-8f98-7a742728f266.jpg?t=c:w2400-h1200,r:w2400-h1200-sfit,e:fjpg-c75");
+	background-size: cover;
+	background-position: center;
+	text-align:center;
+}
+
+.featurette1 > h2 {
+	margin: 0;
+}
+
+.featurette1 .get-started {
+	margin-top: 20px;
+}
+
+.featurette2 {
+	margin: 50px 20%;
+}
+
+.featurette2 > h4 {
+	font-size: 28px;
+	font-weight: 800;
+	line-height: 1.5;
+	letter-spacing: -1px;
 }
 
 .featurette-image {
@@ -261,7 +300,7 @@ img {
 /* Thin out the marketing headings */
 .featurette-heading {
 	font-size: 50px;
-	font-weight: 400;
+	font-weight: 800;
 	line-height: 1;
 	letter-spacing: -1px;
 }

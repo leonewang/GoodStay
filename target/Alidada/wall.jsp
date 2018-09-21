@@ -58,7 +58,7 @@
 <div class="container">
     <div class="col-xs-12 gs-right">
         <!-- Pills Tab -->
-        <div class="row first-row" role="tabpanel">
+        <dixv class="row first-row" role="tabpanel">
             <div class="gs-sort">
                 <span class="gs-sort-content">Find your good stay</span>
                 <a id="save-search" href="#" onclick="jQuery('#flash-saved-search').show();">
@@ -239,7 +239,7 @@
                 </ul>
 
             </div>
-        </div>
+        </dixv>
     </div>
 </div>
 

@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
         String action = request.getParameter("action");
         if (action.equals("logout")) {
             request.getSession().invalidate();
-            response.sendRedirect("signin.jsp");
+            response.sendRedirect("index.jsp");
             return;
         }
     }

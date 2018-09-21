@@ -44,7 +44,7 @@
                     </div>
                     <input type="submit" class="btn btn-primary btn-lg btn-block" value="Sign in" />
                     <div class="row">
-                        <a class="login-link col-xs-6" href="/findPassword.jsp">Lost your password?</a> <a class="login-link col-xs-6" href="index.jsp">Sign up</a>
+                        <a class="login-link col-xs-6" href="/findPassword.jsp">Lost your password?</a> <a class="login-link col-xs-6" href="signup.jsp">Sign up</a>
                     </div>
                 </div>
             </form>

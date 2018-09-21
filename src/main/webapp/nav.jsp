@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="post.jsp">Post</a></li>
                 <li><a href="wall.jsp">Browse</a></li>
-                <li><a href="/SearchGraphServlet?username=">Help</a></li>
+                <li><a href="help.jsp">Help</a></li>
                 <li><a href="notification.jsp">Notification<% if (count > 0) { %><span class="navbar-unread"><%=count%></span><% } %></a></li>
             </ul>
             <form class="navbar-form navbar-left" action="/SearchServlet" method="post" role="search">
