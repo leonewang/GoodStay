@@ -485,7 +485,7 @@ body>.btn-group-vertical {
 }
 .gs-right .row .alert-warning .gs-alert-input div {
 	float:left;
-	margin-right: 20px;
+	margin-right: 15px;
 }
 
 .gs-right .row .nav li {
@@ -544,11 +544,11 @@ body>.btn-group-vertical {
 .gs-content .gs-content-left {
 	float: left;
 	padding-right: 15px;
-	width: 70%;
+	width: 65%;
 }
 .gs-content .gs-content-right {
 	float: left;
-	width: 30%;
+	width: 35%;
 	margin-bottom: 10px;
 }
 .gs-content .gs-content-right>div {

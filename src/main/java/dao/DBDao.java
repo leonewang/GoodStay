@@ -287,7 +287,6 @@ public class DBDao {
     /**
      * List all post func
      *
-     * @param id
      * @throws SQLException
      */
     public List<Post> listAllPosts() throws SQLException {

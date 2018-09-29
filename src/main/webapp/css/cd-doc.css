@@ -20,6 +20,7 @@ Main Components
 .cd-single-item {
   position: relative;
   border-radius: 6px;
+  margin-bottom: 0.5em;
 }
 
 .cd-slider-wrapper {
@@ -333,7 +334,7 @@ Main Components
 }
 
 .cd-item-info #cd-bid {
-  width: 150px;
+  width: 135px;
   padding-right: 10px;
   float: left;
 }
@@ -361,32 +362,23 @@ Main Components
 }
 
 .cd-item-info #cd-gin {
-  float: left;
-  width: 193px;
+	width: 135px;
+	padding-right: 10px;
+	float: left;
 }
 
 .cd-item-info #cd-gin-submit {
-  float: left;
+  	float: left;
+	margin-left: 10px;
 }
 
 .cd-item-info #cd-add-watchlist .watching {
   color: #FFAEB9;
 }
 
-@media only screen and (min-width: 992px) {
-	.cd-item-info {
-		position: absolute;
-		width: 60%;
-		top: 0;
-		left: 40%;
-		padding: 0 0 0 9%;
-		margin: 0;
-	}
-}
-
 .cd-content p {
   font-size: 16px;
-	padding-top: 2.5em;
+	padding-top: 1em;
 	margin: 0 auto;
 	line-height: 1.5;
 }
@@ -451,6 +443,10 @@ Main Components
   width: 70%;
 }
 
+.cd-updates ul li .updates-description b {
+	margin-right: 15px;
+}
+
 .cd-comments h2 .toolbar {
   margin-top: -10px;
 }
@@ -483,7 +479,7 @@ Main Components
 }
 
 .cd-comments .media-list li .media-body .media-date, .cd-comments .media-list li .media-body .media-like, .cd-comments .media-list li .media-body .media-flag {
-  float: left;
+  float: right;
   padding-top: 5px;
   width: 80px;
   font-size: 13px;

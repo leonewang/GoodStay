@@ -101,16 +101,47 @@
                         <div class="list-input">
                             <select multiple="multiple" class="form-control multiselect multiselect-primary" name="typeId" style="width: 100%;">
                                 <optgroup label="Bedroom">
-                                    <option value="1">1 Bed</option>
-                                    <option value="2">2 Beds</option>
-                                    <option value="3">3 Beds</option>
-                                    <option value="4">More than 3 Beds</option>
+                                    <option value="1">1 Bedroom</option>
+                                    <option value="2">2 Bedrooms</option>
+                                    <option value="3">3 Bedrooms</option>
+                                    <option value="4">More than 3 Bedrooms</option>
+                                </optgroup>
+                                <optgroup label="Bed">
+                                    <option value="5" selected>1 Bed</option>
+                                    <option value="6">2 Beds</option>
+                                    <option value="7">3 Beds</option>
+                                    <option value="8">More than 3 Beds</option>
                                 </optgroup>
                                 <optgroup label="Bathroom">
-                                    <option value="5" selected>1 Bathroom</option>
-                                    <option value="6">2 Bathrooms</option>
-                                    <option value="7">3 Bathrooms</option>
-                                    <option value="8">More than 3 Bathrooms</option>
+                                    <option value="9">1 Bathroom</option>
+                                    <option value="10">1.5 Bathrooms</option>
+                                    <option value="11">2 Bathrooms</option>
+                                    <option value="12">More than 2 Bathrooms</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="list-amenities">
+                        <div class="list-text">
+                            <strong>Amenities</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <select multiple="multiple" class="form-control multiselect multiselect-primary" name="amentiesId" style="width: 100%;">
+                                <optgroup label="Commons">
+                                    <option value="1" selected>Wireless Internet</option>
+                                    <option value="2">Free parking</option>
+                                    <option value="3">Washer</option>
+                                    <option value="4">Dryer</option>
+                                    <option value="5">Hair dryer</option>
+                                    <option value="6">Bathroom essentials</option>
+                                    <option value="7">Bedroom comforts</option>
+                                </optgroup>
+                                <optgroup label="Uncommons">
+                                    <option value="8" >Pool</option>
+                                    <option value="9">Dishwasher</option>
+                                    <option value="10">Coffee maker</option>
+                                    <option value="11">Full kitchen</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -247,8 +278,7 @@
     });
 
     $("select").select2({
-        dropdownCssClass : 'dropdown-inverse',
-        maximumSelectionSize : 1
+        dropdownCssClass : 'dropdown-inverse'
     });
 </script>
 </body>
