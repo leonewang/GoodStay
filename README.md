@@ -12,6 +12,20 @@ Please find the database sourse data `GoodStay_yyyymmdd.sql`.
 
 ## Weekly Tasks
 
+**Week 11 tasks**
+
+- Personal profile page (edit the basic info, showing my reservations(completed and active) / my watch list / my posts(completed and active) / others' reviews)
+- Help and documentation
+
+**Week 10 tasks**
+
+- Post detail page (showing the basic info and users' review)
+- Make a reservation (using sweetalert)
+
+**Week 9 tasks**
+
+- Index page (users can search without login)
+
 **Week 8 tasks**
 
 - Advertisement posting page.

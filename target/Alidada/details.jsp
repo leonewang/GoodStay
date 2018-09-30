@@ -197,11 +197,11 @@
                 </div>
                 <div class="seller-info">
                     <div class="name">
-                        <a><b>MonsterCritic</b></a><a> <b>(179) 100%</b></a>
+                        <a><b>MonsterCritic</b></a>
                     </div>
                     <div class="fans" onselectstart="return false">
                         <small><a id="be-fans"><span class="fui-heart fan"></span> <span class="be-fans-text">Become a fan</span></a>
-                            (<span class="fans-num">1,937</span> fans)
+                            (<span class="fans-num">32</span> fans)
                         </small>
                     </div>
                     <div class="badges">

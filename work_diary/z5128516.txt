@@ -1,3 +1,43 @@
+Week 10：
+
+** Planned and finished **
+
+- Post detail page (showing the basic info and users' review)
+- Make a reservation (using sweetalert)
+
+** Plan for the next period **
+
+- Personal profile page (edit the basic info, showing my reservations(completed and active) / my watch list / my posts(completed and active) / others' reviews)
+- Help and documentation
+
+---
+
+Week 9：
+
+** Planned and finished **
+
+- Index page (users can search without login)
+
+** Plan for the next period **
+
+- Post detail page (showing the basic info and users' review)
+- Make a reservation (using sweetalert)
+
+---
+
+Week 8：
+
+** Planned and finished **
+
+- Add more fields in the advertisement posting page (calender support).
+- New main page.
+
+** Plan for the next period **
+
+- Index page (users can search without login)
+
+---
+
 Week 7：
 
 ** Planned and finished **
