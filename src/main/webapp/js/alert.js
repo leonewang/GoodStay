@@ -15,6 +15,24 @@ $('.cd-item-info #cd-gin-submit input').click(function() {
     var check_out = $('.cd-item-info #cd-gin input').val();
     bookNow(check_in, check_out);
 });
+//Stick to top
+$('#stick').click(function() {
+    stickToTop(this);
+});
+
+function stickToTop(node) {
+    $.ajax({
+        url: "",
+        type: "stick"
+    })
+    .done(function(data) {
+        swal("Great!", "Stick this post to the top successfully! It seems other users are more likely to see this post.", "success");
+        node.setAttribute("disabled","disabled");
+    })
+    .error(function(data) {
+        swal("Please refresh the page", "Sorry, something wrong!", "error");
+    });
+};
 //check availability
 function checkAvailability(check_in, check_out) {
     if(check_in == '' || check_out == '') {

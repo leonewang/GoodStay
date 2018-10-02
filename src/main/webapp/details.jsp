@@ -10,7 +10,7 @@
     <title>Details | GoodStay</title>
     <!-- Loading Bootstrap -->
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/assets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/assets/flat-ui.css">
     <link rel="stylesheet" href="css/vendor/dropzone.css">
     <link rel="stylesheet" href="css/assets/bootstrap-datepicker.css">
@@ -51,7 +51,13 @@
     </div>
 
     <div>
-        <p class="cd-title">Mouzinho 134 - Hist Center - Orange</p>
+        <p class="cd-title">
+            Mouzinho 134 - Hist Center - Orange
+            <button id="stick" class="btn btn-sm btn-success" style="margin-left: 20px;">
+                <span class="glyphicon glyphicon-pushpin"></span> Stick to top
+            </button>
+            <a href="#" class="gs-color-green gs-text-sm"><span class="fui-question-circle "></span></a>
+        </p>
     </div>
 
     <div class="gs-content">
