@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Leone Wang">
-    <title>Post | GoodStay</title>
+    <title>Details | GoodStay</title>
     <!-- Loading Bootstrap -->
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/assets/bootstrap.css">
@@ -136,11 +136,11 @@
                                 <div class="media-body">
                                     <div>
                                         <b><a>blank</a></b> We stayed at Gabriel's apartment as a treat for my 30th birthday.
-                                        The views are incredible – waking up to a panorama of the city was pretty special – and
+                                        The views are incredible – waking up to a panorama of the city was pretty special and
                                         the roof terrace with its little pool are wonderful too.
                                     </div>
                                     <div class="media-date">
-                                        Feb 19, 2017 09:25:36<a class="gs-flag" style="display: none; float: right;"><span class="fui fui-trash"></span>flag</a>
+                                        Feb 19, 2017 09:25:36
                                     </div>
                                     <div class="gs-clear"></div>
                                 </div>
@@ -155,7 +155,7 @@
                                         views of Cape Town. I highly reccomend this flat to anyone wanting to stay in Cape Town!
                                     </div>
                                     <div class="media-date">
-                                        Jul 12, 2018 23:32:10<a class="gs-flag" style="display: none; float: right;"><span class="fui fui-trash"></span>flag</a>
+                                        Jul 12, 2018 23:32:10
                                     </div>
                                     <div class="gs-clear"></div>
                                 </div>
@@ -173,7 +173,7 @@
                                         we may never have left this wonderful Airbnb if it was.
                                     </div>
                                     <div class="media-date">
-                                        Aug 27, 2018 13:23:42<a class="gs-flag" style="display: none; float: right;"><span class="fui fui-trash"></span>flag</a>
+                                        Aug 27, 2018 13:23:42
                                     </div>
                                     <div class="gs-clear"></div>
                                 </div>
@@ -193,11 +193,11 @@
 
             <div class="gs-seller">
                 <div class="seller-thumb">
-                    <a><img src="images/character/leone.jpg" height="65" width="65"></a>
+                    <a><img src="images/character/leone.jpg" height="70" width="70"></a>
                 </div>
                 <div class="seller-info">
                     <div class="name">
-                        <a><b>MonsterCritic</b></a>
+                        <a href="#"><b>MonsterCritic</b></a>
                     </div>
                     <div class="fans" onselectstart="return false">
                         <small><a id="be-fans"><span class="fui-heart fan"></span> <span class="be-fans-text">Become a fan</span></a>

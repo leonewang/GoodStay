@@ -1,3 +1,4 @@
+<%@ page import="model.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Leone Wang">
-    <title>Post | GoodStay</title>
+    <title>Profile | GoodStay</title>
     <!-- Loading Bootstrap -->
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/assets/bootstrap.css">
@@ -22,13 +23,8 @@
     <link rel="shortcut icon" href="images/icons/favicon.ico">
     <script src="js/vendor/modernizr.js"></script>
     <style>
-        .list-unlock {
-            font-size: 0.9em;
-            margin: -5px 0 15px 27%;
-            padding: 10px 20px;
-            width: 65%;
-            background-color: #ECF0F1;
-            border-radius: 3px;
+        .structure b {
+            margin-left: 7px;
         }
     </style>
 </head>
@@ -37,310 +33,349 @@
 <%@include file="nav.jsp"%>
 
 <!-- container -->
-<div class="gs-container container">
-    <!-- info alert -->
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <span class="gs-alert-icon fui-info-circle"></span>Earn credits by
-        <strong><a class="alert-link" href="#">making a deal</a></strong>,
-        <strong><a class="alert-link" href="#">inviting friends</a></strong>, or
-        <strong><a class="alert-link" href="#">get it instantly in here.</a></strong>
-    </div>
-
-    <div>
-        <p class="cd-title">Mouzinho 134 - Hist Center - Orange</p>
-    </div>
-
+<div class="gs-container container" style="height: 100%;">
     <div class="gs-content">
-        <div class="gs-content-left">
-            <section class="cd-single-item cd-slider-active">
-                <div class="cd-slider-wrapper">
-                    <ul class="cd-slider">
-                        <li class="selected"><img src="https://z1.muscache.cn/im/pictures/7c85b432-33fe-4ebd-8abf-dad0576183fc.jpg?aki_policy=xx_large" alt="Product Image 1"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/64c2efd8-d81c-4611-a5f9-a9f4df274fe4.jpg?aki_policy=x_large" alt="Product Image 2"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/20334448/48387d04_original.jpg?aki_policy=x_large" alt="Product Image 3"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/20334317/fb23306e_original.jpg?aki_policy=x_large" alt="Product Image 4"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/20334595/c4c0724f_original.jpg?aki_policy=x_large" alt="Product Image 5"></li>
-                    </ul>
-                    <!-- cd-slider -->
-
-                    <ul class="cd-slider-navigation">
-                        <li><a href="#0" class="cd-prev inactive carousel-control left">&lsaquo;</a></li>
-                        <li><a href="#0" class="cd-next carousel-control right">&rsaquo;</a></li>
-                    </ul>
-                    <!-- cd-slider-navigation -->
-                </div>
-                <!-- cd-slider-wrapper -->
-            </section>
-            <!-- cd-single-item -->
-
-            <div>
-                <section class="cd-content">
-                    <p>Sit back in a private plunge pool and enjoy an uninterrupted vista of Table Mountain, the city skyline, and the ocean beyond.
-                        The views are just as good from inside this chic and modern penthouse, where sunlight pours in through walls of windows.
-                    </p>
-                    <p>The apartment is in a truly wonderful neighbourhood - Vredehoek. It is centrally located in Cape Town's City Bowl. The area
-                        is safe, clean, and beautifully situated on the slopes of famous Table Mountain. It's the perfect base for exploring the city.
-                    </p>
-
-                    <div class="cd-content-warning">The lister assumes full responsibility for this listing</div>
-                    <div class="cd-content-flag">
-                        <a><span class="fui fui-trash"></span> Flag as inappropriates</a>
-                    </div>
-                    <div class="gs-clear"></div>
-                </section>
-                <!-- /cd-content -->
-                <div class="cd-updates">
-                    <h2>
-                        <span class="fui-star-2"></span> Amenities
-                    </h2>
-                    <ul>
-                        <li>
-                            <div class="updates-date">Strucutre</div>
-                            <div class="updates-description"><b>1 bedroom</b> <b>1 bed</b> <b>1.5 baths</b></div>
-                            <div class="gs-clear"></div>
-                        </li>
-                        <li>
-                            <div class="updates-date">Amenties</div>
-                            <div class="updates-description"><b>Free parking</b> <b>Pool</b> <b>Washer</b> <b>Dryer</b> <b>Dishwasher</b>
-                                <b>Wireless Internet</b> <b>TV</b> <b>Hair dryer</b> <b>Coffee maker</b> <b>Pool</b> <b>Bathroom essentials</b>
-                                <b>Bedroom comforts</b> <b>Full kitchen</b></div>
-                            <div class="gs-clear"></div>
-                        </li>
-                    </ul>
-                    <div class="gs-clear"></div>
-                </div>
-                <!-- /cd-updates -->
-                <div class="cd-comments">
-                    <h2>
-                        <span class="fui-chat"></span> Reviews & Comments
-                        <div class="toolbar">
-                            <div class="btn-toolbar">
-                                <div class="btn-group">
-                                    <a class="btn btn-primary active" href="#fakelink"><span class="fui-heart"></span></a>
-                                    <a class="btn btn-primary" href="#fakelink"><span class="fui-time"></span></a>
-                                    <a class="btn btn-primary" href="#fakelink"><span class="fui-eye"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </h2>
-                    <div id="cd-media-list">
-                        <ul class="media-list">
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"><img class="media-object" src="images/character/blank.jpg" height="65" width="65"></a>
-                                </div>
-                                <div class="media-body">
-                                    <div>
-                                        <b><a>blank</a></b> We stayed at Gabriel's apartment as a treat for my 30th birthday.
-                                        The views are incredible – waking up to a panorama of the city was pretty special – and
-                                        the roof terrace with its little pool are wonderful too.
-                                    </div>
-                                    <div class="media-date">
-                                        Feb 19, 2017 09:25:36<a class="gs-flag" style="display: none; float: right;"><span class="fui fui-trash"></span>flag</a>
-                                    </div>
-                                    <div class="gs-clear"></div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"><img class="media-object" src="images/character/betrayal.jpg" height="65" width="65"></a>
-                                </div>
-                                <div class="media-body">
-                                    <div>
-                                        <b><a>betrayal</a></b> Gabriels flat is absolutely amazing1 Great location with uninterupted
-                                        views of Cape Town. I highly reccomend this flat to anyone wanting to stay in Cape Town!
-                                    </div>
-                                    <div class="media-date">
-                                        Jul 12, 2018 23:32:10<a class="gs-flag" style="display: none; float: right;"><span class="fui fui-trash"></span>flag</a>
-                                    </div>
-                                    <div class="gs-clear"></div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
-                                </div>
-                                <div class="media-body">
-                                    <div>
-                                        <b><a>bignose</a></b> The windows in this Airbnb make it worth it alone but if that weren't enough
-                                        it also includes two incredible decks, a cute neighborhood with a grocery store, restaurants, and
-                                        coffee shops and is in walking distance of Table Mountain National Park. Gabriel was an accommodating
-                                        and friendly host. We only wish the weather had been warmer when we visited...but then again,
-                                        we may never have left this wonderful Airbnb if it was.
-                                    </div>
-                                    <div class="media-date">
-                                        Aug 27, 2018 13:23:42<a class="gs-flag" style="display: none; float: right;"><span class="fui fui-trash"></span>flag</a>
-                                    </div>
-                                    <div class="gs-clear"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="gs-clear"></div>
-                </div>
-                <!-- /cd-comments -->
-            </div>
-        </div>
-
         <div class="gs-content-right">
             <h2 style="border: none;" class="visible-xs">
                 <span class="fui-clip"></span> Seller's Info
             </h2>
 
-            <div class="gs-seller">
+            <div class="gs-seller" style="margin-bottom: 15px;">
                 <div class="seller-thumb">
-                    <a><img src="images/character/leone.jpg" height="65" width="65"></a>
+                    <a><img src="images/character/leone.jpg" height="140" width="140"></a>
                 </div>
                 <div class="seller-info">
-                    <div class="name">
-                        <a><b>MonsterCritic</b></a><a> <b>(179) 100%</b></a>
+                    <div class="name" style="font-size: 1.1em; margin-bottom: 9px;">
+                        <a><b>Hey, I'm Leone</b></a>
                     </div>
                     <div class="fans" onselectstart="return false">
-                        <small><a id="be-fans"><span class="fui-heart fan"></span> <span class="be-fans-text">Become a fan</span></a>
-                            (<span class="fans-num">1,937</span> fans)
+                        <small><a id="be-fans"><span class="fui-heart fan"></span> Become a fan</span></a>
+                            (<span class="fans-num">23</span> fans)
                         </small>
                     </div>
-                    <div class="badges">
-                        <a href="#"><img src="images/badge/266770060211131.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111311.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111312.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111313.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111314.png" height="25" width="25"></a>
-                    </div>
+                    <div><small><b>Joined in July 2018</b></small></div>
+                    <div><small><a href="#"><span class="fui-eye"></span> Report this user</a></small></div>
+                    <div><small><a href="/EditProfileServlet?id=<%=user.getId()%>" class="btn btn-sm btn-primary">Edit Profile</a></small></div>
                 </div>
                 <div class="gs-clear"></div>
             </div>
 
             <div class="cd-item-info">
+                <div style="padding-bottom: 5px;">
+                    <span class="gs-icon fui fui-info-circle"></span><b>Verified Info</b>
+                    <div style="height: 5px;border-bottom-style: solid;border-width: 2px;border-color: #BDC3C7;width: 100%;"></div>
+                </div>
                 <ul>
-                    <li><span class="cd-item-icon fui-tag"></span><span class="cd-item-bid">350</span>
-                        <small> $AUD / night</small>
+                    <li><span class="cd-item-icon fui-user"></span><span class="cd-item-bid">01</span>
+                        <small> Leone Wang</small>
                     </li>
-                    <li class="cd-alert-warning"><span class="cd-item-icon fui-calendar"></span>
-                        <span id="cd-alert-text">You will stay with us from</span></li>
-                    <li class="no-icon">
-                        <form>
-                            <div id="cd-bid">
-                                <input type="text" id="check-in" class="form-control" placeholder="yyyy-mm-dd"/>
-                            </div>
-                            <div id="cd-bid-submit">
-                                <input type="button" value="Available?" class="btn btn-primary">
-                            </div>
-                            <div class="gs-clear"></div>
-                        </form>
+                    <li><span class="cd-item-icon fui-mail"></span>
+                        <small><b class="cd-item-calendar">wangleone.me@gmail.com</b> (Verified)</small>
                     </li>
-                    <li class="no-icon">
-                        <div class="divider-left"></div>
-                        <div style="float: left; color: #BDC3C7; font-size: 16px; padding: 0 5px;">to</div>
-                        <div class="divider-right"></div>
-                        <div class="gs-clear"></div>
-                    </li>
-                    <li class="no-icon">
-                        <form>
-                            <div id="cd-gin">
-                                <input type="text" id="check-out" class="form-control" placeholder="yyyy-mm-dd"/>
-                            </div>
-                            <div id="cd-gin-submit">
-                                <input type="button" value="Book now!" class="btn btn-primary">
-                            </div>
-                            <div class="gs-clear"></div>
-                        </form>
-                    </li>
-
-                    <li><span class="cd-item-icon fui-time"></span>
-                        <small><b class="cd-item-calendar">Wednesday, May 27, 2015 12:44:40</b></small>
-                    </li>
-                    <li onselectstart="return false"><a id="cd-add-watchlist"><span
-                            class="cd-item-icon fui-heart watch"></span>
-                        <small><b class="cd-item-watch">Add to watchlist </b></small>
+                    <li><a href=""><span
+                            class="cd-item-icon fui-chat"></span>
+                        <small><b class="cd-item-watch">0426475811</b></small>
                     </a>
-                        <small> (<span class="watching-num">21</span> watching)</small>
-                    </li>
-                    <li><span class="cd-item-icon fui-location"></span>
-                        <small><b class="cd-item-location gs-color-dsun">Sydney Centre </b></small>
-                        <span class="cd-item-icon fui-home" style="padding-left: 40px;"></span>
-                        <small><b class="cd-item-location">House </b></small>
-                    </li>
-                    <li>
-                        <small style="margin-left: 35px;"><b>38 College St, Darlinghurst NSW 2000</b></small>
+                        <small>(Verified)</small>
                     </li>
                 </ul>
             </div>
-            <!-- cd-item-info -->
+        </div>
 
-            <div class="gs-item-others">
-                <div style="padding-bottom: 5px;">
-                    <span class="gs-icon fui fui-plus-circle"></span><b>Other posts you might like</b>
-                </div>
-                <ul>
-                    <li>
-                        <div class="item">
-                            <div class="item-thumb">
-                                <a href="#"><img src="images/item-1.jpg" height="100%" width="100%"></a>
-                            </div>
-                            <div class="item-title">
-                                <a href="">Views, Expansive Space and Luxury in Heart of City</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <div class="item-thumb">
-                                <a href="#"><img src="images/item-3.jpg" height="100%" width="100%"></a>
-                            </div>
-                            <div class="item-title">
-                                <a href="">Relaxing spacious villa Apartment with Garden, pool</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <div class="item-thumb">
-                                <a href="#"><img src="images/item-3.jpg" height="100%" width="100%"></a>
-                            </div>
-                            <div class="item-title">
-                                <a href="">Stylish Studio S High above Cape Town</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <div class="item-thumb">
-                                <a href="#"><img src="images/item-1.jpg" height="100%" width="100%"></a>
-                            </div>
-                            <div class="item-title">
-                                <a href="">Admire Sea Views from a Stunning Apartment by Clifton </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <div class="item-thumb">
-                                <a href="#"><img src="images/item-1.jpg" height="100%" width="100%"></a>
-                            </div>
-                            <div class="item-title">
-                                <a href="">Breezy Apartment Close to Camps Bay Beaches</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item">
-                            <div class="item-thumb">
-                                <a href="#"><img src="images/item-3.jpg" height="100%" width="100%"></a>
-                            </div>
-                            <div class="item-title">
-                                <a href="">Laze at Infinity Pool from Villa in Peace and Quiet</a>
-                            </div>
-                        </div>
-                    </li>
-                    <div class="view-more">
-                        <a href="/search" class="btn btn-default">view more</a>
+        <div class="gs-content-left" style="padding: 0 0 0 15px">
+            <div>
+                <div id="list-nav">
+                    <div class="list-nav list-input">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-pills btn nav-justified" role="tablist">
+                            <li role="presentation"><a id="btn-credit" href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews & Comments</a></li>
+                            <li role="presentation" class="active"><a id="btn-cash" href="#watch" aria-controls="watch" role="tab" data-toggle="tab">Watch list</a></li>
+                            <li role="presentation"><a id="btn-post" href="#post" aria-controls="post" role="tab" data-toggle="tab">My posts</a></li>
+                            <li role="presentation"><a id="btn-order" href="#order" aria-controls="order" role="tab" data-toggle="tab">My orders</a></li>
+                        </ul>
                     </div>
-                    <div class="gs-clear"></div>
-                </ul>
+                </div>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane" id="review">
+                        <div class="cd-comments">
+                            <h2>
+                                <span class="fui-chat"></span> Reviews & Comments
+                            </h2>
+                            <div>
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object" src="images/character/blank.jpg" height="65" width="65"></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <div>
+                                                <b><a>blank</a></b> We stayed at Gabriel's apartment as a treat for my 30th birthday.
+                                                The views are incredible – waking up to a panorama of the city was pretty special – and
+                                                the roof terrace with its little pool are wonderful too.
+                                            </div>
+                                            <div class="media-date">
+                                                Feb 19, 2017 09:25:36
+                                            </div>
+                                            <div class="gs-clear"></div>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object" src="images/character/betrayal.jpg" height="65" width="65"></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <div>
+                                                <b><a>betrayal</a></b> Gabriels flat is absolutely amazing1 Great location with uninterupted
+                                                views of Cape Town. I highly reccomend this flat to anyone wanting to stay in Cape Town!
+                                            </div>
+                                            <div class="media-date">
+                                                Jul 12, 2018 23:32:10
+                                            </div>
+                                            <div class="gs-clear"></div>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <div>
+                                                <b><a>bignose</a></b> The windows in this Airbnb make it worth it alone but if that weren't enough
+                                                it also includes two incredible decks, a cute neighborhood with a grocery store, restaurants, and
+                                                coffee shops and is in walking distance of Table Mountain National Park. Gabriel was an accommodating
+                                                and friendly host. We only wish the weather had been warmer when we visited...but then again,
+                                                we may never have left this wonderful Airbnb if it was.
+                                            </div>
+                                            <div class="media-date">
+                                                Aug 27, 2018 13:23:42
+                                            </div>
+                                            <div class="gs-clear"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="gs-clear"></div>
+                        </div>
+                        <!-- /cd-comments -->
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane active" id="watch">
+                        <div class="cd-comments">
+                            <h2>
+                                <span class="fui-eye"></span> Watch List
+                                <div class="toolbar">
+                                    <div class="btn-toolbar">
+                                        <div class="btn-group">
+                                            <a class="btn btn-primary active" href="#fakelink"><span class="fui-heart"></span></a>
+                                            <a class="btn btn-primary" href="#fakelink"><span class="fui-time"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <div>
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/61566443/79e8ff67_original.jpg?aki_policy=xx_large" height="105" width="140"></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <div>
+                                                <b><a href="">J's APT 2 Bed Rooms + Free Portable Wi-Fi</a></b>
+                                                <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>6</b></span></small>
+                                                <p class="structure" style="margin: 0;">
+                                                    <small><span class="fui fui-home"></span><b>2 bedrooms</b> <b>4 beds</b> <b>1.5 baths</b></small>
+                                                    <br>
+                                                    <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$350 / night</span></small>
+                                                    <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Apartment</span></small>
+                                                    <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Sydney Centre </span></small>
+                                                </p>
+                                            </div>
+                                            <div class="media-date">
+                                                Feb 19, 2017 09:25:36<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
+                                            </div>
+                                            <div class="gs-clear"></div>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/f539b3dd-2210-49a8-9b00-ca134975379f.jpg?aki_policy=xx_large" height="105" width="140"></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <div>
+                                                <b><a href="">Shinjuku 3 storied House!100㎡ & 12pax & FREE PARKING</a></b>
+                                                <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>8</b></span></small>
+                                                <p class="structure" style="margin: 0;">
+                                                    <small><span class="fui fui-home"></span><b>4 bedrooms</b> <b>10 beds</b> <b>2.5 baths</b></small>
+                                                    <br>
+                                                    <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$290 / night</span></small>
+                                                    <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">House</span></small>
+                                                    <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Sydney Centre </span></small>
+                                                </p>
+                                            </div>
+                                            <div class="media-date">
+                                                Oct 03, 2018 23:236:19<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
+                                            </div>
+                                            <div class="gs-clear"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="gs-clear"></div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="post">
+                        <div class="cd-comments">
+                            <h2>
+                                <span class="fui-image"></span> My Posts
+                                <div class="toolbar">
+                                    <div class="btn-toolbar">
+                                        <div class="btn-group" role="tablist">
+                                            <a class="btn btn-primary active" href="#activepost" aria-controls="activepost" role="tab" data-toggle="tab"><span class="fui-star-2"></span> Active</a>
+                                            <a class="btn btn-primary" href="#completedpost" aria-controls="completedpost" role="tab" data-toggle="tab"><span class="fui-time"></span> Completed</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="activepost">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/89281220/ed6e8824_original.jpg?aki_policy=large" height="105" width="140"></a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div>
+                                                    <b><a href="">Spacious! Shibuya House w/Garden</a></b>
+                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>1</b></span></small>
+                                                    <p class="structure" style="margin: 0;">
+                                                        <small><span class="fui fui-home"></span><b>3 bedrooms</b> <b>4 beds</b> <b>2 baths</b></small>
+                                                        <br>
+                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$388 / night</span></small>
+                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Unit</span></small>
+                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">South Sydney </span></small>
+                                                    </p>
+                                                </div>
+                                                <div class="media-date">
+                                                    Aug 31, 2018 12:32:45<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-new"></span> <b>Edit the post</b></a>
+                                                </div>
+                                                <div class="gs-clear"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="completedpost">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/66915e3c-0d1f-4708-a8e0-17cfa658a944.jpg?aki_policy=large" height="105" width="140"></a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div>
+                                                    <b><a href="">Shinjuku! Free Wi-Fi + Good Location + Clean Room!</a></b>
+                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>8</b></span></small>
+                                                    <p class="structure" style="margin: 0;">
+                                                        <small><span class="fui fui-home"></span><b>4 bedrooms</b> <b>10 beds</b> <b>2.5 baths</b></small>
+                                                        <br>
+                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$420 / night</span></small>
+                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Apartment</span></small>
+                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Sydney Centre </span></small>
+                                                    </p>
+                                                </div>
+                                                <div class="media-date">
+                                                    Oct 03, 2018 23:26:19
+                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b>2018-08-10 ~ 2018-08-15</b>
+                                                    <a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-link"></span> <b>View it!</b></a>
+                                                </div>
+                                                <div class="gs-clear"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="gs-clear"></div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="order">
+                        <div class="cd-comments">
+                            <h2>
+                                <span class="fui-document"></span> My Orders
+                                <div class="toolbar">
+                                    <div class="btn-toolbar">
+                                        <div class="btn-group" role="tablist">
+                                            <a class="btn btn-primary active" href="#activeorder" aria-controls="activeorder" role="tab" data-toggle="tab"><span class="fui-star-2"></span> Active</a>
+                                            <a class="btn btn-primary" href="#completedorder" aria-controls="completedorder" role="tab" data-toggle="tab"><span class="fui-time"></span> Completed</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="activeorder">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/ecec9252-400d-48aa-9422-fd5462ea3c16.jpg?aki_policy=large" height="105" width="140"></a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div>
+                                                    <b><a href="">Spacious! Shibuya House w/Garden</a></b>
+                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>5</b></span></small>
+                                                    <p class="structure" style="margin: 0;">
+                                                        <small><span class="fui fui-home"></span><b>3 bedrooms</b> <b>4 beds</b> <b>2 baths</b></small>
+                                                        <br>
+                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$388 / night</span></small>
+                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Unit</span></small>
+                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">South Sydney </span></small>
+                                                    </p>
+                                                </div>
+                                                <div class="media-date">
+                                                    Sep 31, 2018 10:09:17
+                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b>2018-10-02 ~ 2018-10-08</b>
+                                                    <a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-link"></span> <b>View it!</b></a>
+                                                </div>
+                                                <div class="gs-clear"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="completedorder">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/45604883/54451b1c_original.jpg?aki_policy=large" height="105" width="140"></a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div>
+                                                    <b><a href="">Stunning home in central Tokyo</a></b>
+                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>12</b></span></small>
+                                                    <p class="structure" style="margin: 0;">
+                                                        <small><span class="fui fui-home"></span><b>2 bedrooms</b> <b>2 beds</b> <b>1.5 baths</b></small>
+                                                        <br>
+                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$289 / night</span></small>
+                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Unit</span></small>
+                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Other Area </span></small>
+                                                    </p>
+                                                </div>
+                                                <div class="media-date">
+                                                    Oct 02, 2018 12:45:31
+                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b>2017-09-23 ~ 2017-09-29</b>
+                                                    <a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-link"></span> <b>View it!</b></a>
+                                                </div>
+                                                <div class="gs-clear"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="gs-clear"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

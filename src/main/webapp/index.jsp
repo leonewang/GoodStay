@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Leone Wang">
-    <title>index | GoodStay</title>
+    <title>Index | GoodStay</title>
     <!-- Loading Bootstrap -->
 
     <link rel="stylesheet" href="css/assets/bootstrap.css">

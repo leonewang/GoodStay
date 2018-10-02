@@ -479,7 +479,6 @@ Main Components
 }
 
 .cd-comments .media-list li .media-body .media-date, .cd-comments .media-list li .media-body .media-like, .cd-comments .media-list li .media-body .media-flag {
-  float: right;
   padding-top: 5px;
   width: 80px;
   font-size: 13px;
@@ -487,7 +486,7 @@ Main Components
 }
 
 .cd-comments .media-list li .media-body .media-date {
-  width: 200px;
+  width: 400px;
 }
 
 .cd-comments .media-list .cd-media-comment {
