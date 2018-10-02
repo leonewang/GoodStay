@@ -7,18 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6006627b-fbcd-45db-825b-f4ed1bdafb97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada.war" afterPath="$PROJECT_DIR$/target/Alidada.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/cd-doc.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/cd-doc.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/details.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/details.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/test.html" afterPath="$PROJECT_DIR$/src/main/webapp/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/css/cd-doc.css" afterPath="$PROJECT_DIR$/target/Alidada/css/cd-doc.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/details.jsp" afterPath="$PROJECT_DIR$/target/Alidada/details.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/index.jsp" afterPath="$PROJECT_DIR$/target/Alidada/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/profile.jsp" afterPath="$PROJECT_DIR$/target/Alidada/profile.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/test.html" afterPath="$PROJECT_DIR$/target/Alidada/test.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,7 +25,7 @@
       <file leaf-file-name="wall.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/wall.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="2532">
               <caret line="194" column="51" lean-forward="false" selection-start-line="194" selection-start-column="51" selection-end-line="194" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#5;n#dixv#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -46,8 +37,8 @@
       <file leaf-file-name="post.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/post.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+            <state relative-caret-position="170">
+              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#select#0;n#div#1;n#div#3;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#div#1;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -59,8 +50,8 @@
       <file leaf-file-name="details.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/details.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="31" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="31" />
+            <state relative-caret-position="285">
+              <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#span#1;n#li#7;n#ul#0;n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -71,8 +62,8 @@
       <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/profile.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1775">
-              <caret line="123" column="64" lean-forward="true" selection-start-line="123" selection-start-column="64" selection-end-line="123" selection-end-column="64" />
+            <state relative-caret-position="666">
+              <caret line="200" column="61" lean-forward="false" selection-start-line="200" selection-start-column="61" selection-end-line="200" selection-end-column="61" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -142,8 +133,8 @@
       <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="64" column="38" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="419" selection-end-column="0" />
+            <state relative-caret-position="718">
+              <caret line="67" column="86" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -260,8 +251,8 @@
       <find>gs-flag</find>
       <find>cd_bid_num</find>
       <find>cdBidNum</find>
-      <find>price</find>
       <find>image</find>
+      <find>price</find>
       <find>location</find>
     </findStrings>
   </component>
@@ -627,12 +618,12 @@
       <workItem from="1536655419874" duration="325000" />
       <workItem from="1536655779278" duration="908000" />
       <workItem from="1536663642116" duration="74281000" />
-      <workItem from="1538153512739" duration="32561000" />
+      <workItem from="1538153512739" duration="33752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108075000" />
+    <option name="totallyTimeSpent" value="109266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="317" y="23" width="1602" height="1057" extended-state="0" />
@@ -980,32 +971,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/post.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#div#1;n#div#3;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#1;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/wall.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="194" column="51" lean-forward="false" selection-start-line="194" selection-start-column="51" selection-end-line="194" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#5;n#dixv#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1049,10 +1019,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/editProfile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="88" column="40" lean-forward="true" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#14;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/post.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#1;n#div#3;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/wall.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2532">
+          <caret line="194" column="51" lean-forward="false" selection-start-line="194" selection-start-column="51" selection-end-line="194" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#5;n#dixv#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/details.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="31" />
+        <state relative-caret-position="285">
+          <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#span#1;n#li#7;n#ul#0;n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -1061,8 +1063,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="64" column="38" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="419" selection-end-column="0" />
+        <state relative-caret-position="718">
+          <caret line="67" column="86" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1115,21 +1117,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/editProfile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="88" column="40" lean-forward="true" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#14;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/profile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1775">
-          <caret line="123" column="64" lean-forward="true" selection-start-line="123" selection-start-column="64" selection-end-line="123" selection-end-column="64" />
+        <state relative-caret-position="666">
+          <caret line="200" column="61" lean-forward="false" selection-start-line="200" selection-start-column="61" selection-end-line="200" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

@@ -37,8 +37,11 @@
     <div class="gs-content">
         <div class="gs-content-right">
             <h2 style="border: none;" class="visible-xs">
-                <span class="fui-clip"></span> Seller's Info
+                <span class="fui-clip"></span> Info
             </h2>
+
+            <p class="cd-title">Welcome, I'm Leone.</p>
+
 
             <div class="gs-seller" style="margin-bottom: 15px;">
                 <div class="seller-thumb">
@@ -46,7 +49,7 @@
                 </div>
                 <div class="seller-info">
                     <div class="name" style="font-size: 1.1em; margin-bottom: 9px;">
-                        <a><b>Hey, I'm Leone</b></a>
+                        <a href="#"><b>Leone Wang</b></a>
                     </div>
                     <div class="fans" onselectstart="return false">
                         <small><a id="be-fans"><span class="fui-heart fan"></span> Become a fan</span></a>
@@ -67,7 +70,7 @@
                 </div>
                 <ul>
                     <li><span class="cd-item-icon fui-user"></span><span class="cd-item-bid">01</span>
-                        <small> Leone Wang</small>
+                        <small> Unique ID</small>
                     </li>
                     <li><span class="cd-item-icon fui-mail"></span>
                         <small><b class="cd-item-calendar">wangleone.me@gmail.com</b> (Verified)</small>
@@ -178,7 +181,7 @@
                                 <ul class="media-list">
                                     <li class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/61566443/79e8ff67_original.jpg?aki_policy=xx_large" height="105" width="140"></a>
+                                            <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/b8d2c410-84f9-439c-9eba-6d4bb337bedb.jpg?aki_policy=large" height="105" width="140"></a>
                                         </div>
                                         <div class="media-body">
                                             <div>
@@ -204,7 +207,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div>
-                                                <b><a href="">Shinjuku 3 storied House!100㎡ & 12pax & FREE PARKING</a></b>
+                                                <b><a href="">Shinjuku 3 storied House!100m2 & 12pax & FREE PARKING</a></b>
                                                 <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>8</b></span></small>
                                                 <p class="structure" style="margin: 0;">
                                                     <small><span class="fui fui-home"></span><b>4 bedrooms</b> <b>10 beds</b> <b>2.5 baths</b></small>
