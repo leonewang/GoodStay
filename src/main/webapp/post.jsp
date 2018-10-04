@@ -359,6 +359,7 @@
         autocomplete.addListener('place_changed', function() {
             infowindow.close();
             var place = autocomplete.getPlace();
+            alert(place.address_components[2]);
 
             if (!place.place_id) {
                 return;

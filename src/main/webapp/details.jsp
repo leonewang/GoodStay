@@ -33,6 +33,11 @@
             background-color: #ECF0F1;
             border-radius: 3px;
         }
+        #map {
+            height: 300px;
+            border: 2px solid #ECF0F1;
+            border-radius: 6px;
+        }
     </style>
 </head>
 <body style="padding-top: 70px;">
@@ -48,10 +53,8 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <span class="gs-alert-icon fui-info-circle"></span>Earn credits by
-        <strong><a class="alert-link" href="#">making a deal</a></strong>,
-        <strong><a class="alert-link" href="#">inviting friends</a></strong>, or
-        <strong><a class="alert-link" href="#">get it instantly in here.</a></strong>
+        <span class="gs-alert-icon fui-info-circle"></span>If you have any problem, feel free to tell us by click the
+        <strong><a class="alert-link" href="#">Contact us</a></strong> link in the footer.
     </div>
 
     <div>
@@ -89,7 +92,7 @@
 
             <div>
                 <section class="cd-content">
-                    <%=post.getDescription()%>
+                    <p><%=post.getDescription()%></p>
                     <div class="cd-content-warning">The lister assumes full responsibility for this listing</div>
                     <div class="cd-content-flag">
                         <a><span class="fui fui-trash"></span> Flag as inappropriates</a>
@@ -97,6 +100,7 @@
                     <div class="gs-clear"></div>
                 </section>
                 <!-- /cd-content -->
+
                 <div class="cd-updates">
                     <h2>
                         <span class="fui-star-2"></span> Amenities
@@ -289,12 +293,10 @@
                         <span class="cd-item-icon fui-home" style="padding-left: 40px;"></span>
                         <small><b class="cd-item-location"><%=post.getType()%> </b></small>
                     </li>
-                    <li>
-                        <small style="margin-left: 35px;"><b><%=post.getAddress()%></b></small>
-                    </li>
                 </ul>
             </div>
             <!-- cd-item-info -->
+            <div id="map"></div>
 
             <div class="gs-item-others">
                 <div style="padding-bottom: 5px;">
@@ -371,6 +373,11 @@
     </div>
 </div>
 <!-- /container -->
+<%
+    String[] co = post.getCoordinate().split(",");
+    System.out.println(co[0].substring(1));
+    System.out.println(co[1].substring(1, co[1].length()-1));
+%>
 
 <!-- /custom footer -->
 <%@include file="footer.jsp"%>
@@ -404,6 +411,36 @@
             format: "yyyy-mm-dd"
         });
     });
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: <%=co[0].substring(1)%>, lng: <%=co[1].substring(1, co[1].length()-1)%>},
+            zoom: 15
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+
+        service.getDetails({
+            placeId: '<%=post.getPlaceid()%>'
+        }, function(place, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.setContent('<div><strong>' + place.formatted_address + '</strong></div>');
+                    infowindow.open(map, this);
+                });
+            }
+        });
+    }
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM_XHyreD0F1r-uT2f6OtCDnkWfcfHxy8&libraries=places&callback=initMap"
+        async defer></script>
 </body>
 </html>

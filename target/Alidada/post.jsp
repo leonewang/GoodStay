@@ -265,10 +265,8 @@
 
             <div id="map"></div>
             <div id="infowindow-content">
-                <span id="place-name"  class="title"></span><br>
-                Place ID <span id="place-id"></span><br>
-                <span id="place-address"></span><br>
-                <span id="place-coordinate"></span>
+                <span id="place-name"  class="title"></span>
+                <span id="place-id"></span><span id="place-address"></span><span id="place-coordinate"></span>
             </div>
 
             <h2 style="border: none; margin-top: -35px;">Where is the place?</h2>
