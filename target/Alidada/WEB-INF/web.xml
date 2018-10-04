@@ -29,6 +29,10 @@
     <servlet-class>servlet.PostServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>DetailServlet</servlet-name>
+    <servlet-class>servlet.DetailServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>LikeServlet</servlet-name>
     <servlet-class>servlet.LikeServlet</servlet-class>
   </servlet>
@@ -101,6 +105,10 @@
   <servlet-mapping>
     <servlet-name>PostServlet</servlet-name>
     <url-pattern>/PostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DetailServlet</servlet-name>
+    <url-pattern>/DetailServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LikeServlet</servlet-name>

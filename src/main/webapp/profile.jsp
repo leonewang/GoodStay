@@ -94,7 +94,7 @@
                             <li role="presentation"><a id="btn-credit" href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews & Comments</a></li>
                             <li role="presentation" class="active"><a id="btn-cash" href="#watch" aria-controls="watch" role="tab" data-toggle="tab">Watch list</a></li>
                             <li role="presentation"><a id="btn-post" href="#post" aria-controls="post" role="tab" data-toggle="tab">My posts</a></li>
-                            <li role="presentation"><a id="btn-order" href="#order" aria-controls="order" role="tab" data-toggle="tab">My orders</a></li>
+                            <li role="presentation"><a id="btn-order" href="#booking" aria-controls="booking" role="tab" data-toggle="tab">My bookings</a></li>
                         </ul>
                     </div>
                 </div>
@@ -196,7 +196,8 @@
                                                 </p>
                                             </div>
                                             <div class="media-date">
-                                                Feb 19, 2017 09:25:36<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
+                                                Feb 19, 2017 09:25:36<a class="gs-flag" style="display: none; float: right;" onclick="remove_watchlist(id);">
+                                                <span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
                                             </div>
                                             <div class="gs-clear"></div>
                                         </div>
@@ -218,7 +219,8 @@
                                                 </p>
                                             </div>
                                             <div class="media-date">
-                                                Oct 03, 2018 23:236:19<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
+                                                Oct 03, 2018 23:236:19<a class="gs-flag" style="display: none; float: right;" onclick="remove_watchlist(id);">
+                                                <span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
                                             </div>
                                             <div class="gs-clear"></div>
                                         </div>
@@ -303,21 +305,21 @@
                         </div>
                     </div>
 
-                    <div role="tabpanel" class="tab-pane" id="order">
+                    <div role="tabpanel" class="tab-pane" id="booking">
                         <div class="cd-comments">
                             <h2>
-                                <span class="fui-document"></span> My Orders
+                                <span class="fui-document"></span> My Bookings
                                 <div class="toolbar">
                                     <div class="btn-toolbar">
                                         <div class="btn-group" role="tablist">
-                                            <a class="btn btn-primary active" href="#activeorder" aria-controls="activeorder" role="tab" data-toggle="tab"><span class="fui-star-2"></span> Active</a>
-                                            <a class="btn btn-primary" href="#completedorder" aria-controls="completedorder" role="tab" data-toggle="tab"><span class="fui-time"></span> Completed</a>
+                                            <a class="btn btn-primary active" href="#activebooking" aria-controls="activebooking" role="tab" data-toggle="tab"><span class="fui-star-2"></span> Active</a>
+                                            <a class="btn btn-primary" href="#completedbooking" aria-controls="completedbooking" role="tab" data-toggle="tab"><span class="fui-time"></span> Completed</a>
                                         </div>
                                     </div>
                                 </div>
                             </h2>
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="activeorder">
+                                <div role="tabpanel" class="tab-pane active" id="activebooking">
                                     <ul class="media-list">
                                         <li class="media">
                                             <div class="media-left">
@@ -346,7 +348,7 @@
                                     </ul>
                                 </div>
 
-                                <div role="tabpanel" class="tab-pane" id="completedorder">
+                                <div role="tabpanel" class="tab-pane" id="completedbooking">
                                     <ul class="media-list">
                                         <li class="media">
                                             <div class="media-left">

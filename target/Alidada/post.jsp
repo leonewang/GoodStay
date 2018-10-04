@@ -58,30 +58,14 @@
     <div class="gs-content">
         <div class="gs-content-left">
             <div class="list-form">
-                <form  action="/PostServlet" method="post" onsubmit="return checkList();">
+                <form  action="/PostServlet" method="post"<%-- onsubmit="return checkList();--%>">
                     <input type="text" name="id" value="<%=user.getId()%>" hidden/>
                     <div id="list-title">
                         <div class="list-text">
                             <strong>Title</strong> <span class="gs-color-dsun">*</span>
                         </div>
                         <div class="list-input">
-                            <input type="text" class="form-control" name="title" placeholder="Within 15 characters ..." />
-                        </div>
-                    </div>
-
-                    <div id="list-area">
-                        <div class="list-text">
-                            <strong>Area</strong> <span class="gs-color-dsun">*</span>
-                        </div>
-                        <div class="list-input">
-                            <select data-toggle="select" class="form-control select select-primary" name="area">
-                                <option value="1" selected>Sydney Centre</option>
-                                <option value="2">West Sydney</option>
-                                <option value="3">South Sydney</option>
-                                <option value="4">East Sydney</option>
-                                <option value="5">North Sydney</option>
-                                <option value="6">Other areas</option>
-                            </select>
+                            <input type="text" class="form-control" name="title" placeholder="Within 100 characters ..." />
                         </div>
                     </div>
 
@@ -89,35 +73,64 @@
                         <div class="list-text">
                             <strong>Address</strong> <span class="gs-color-dsun">*</span>
                         </div>
+                        <div class="list-input" id="locationField">
+                            <input id="autocomplete" type="text" class="form-control" name="address" onFocus="geolocate()"
+                                   placeholder="e.g. 3/17 Mascot Drive, Eastlakes NSW"/>
+                        </div>
+                    </div>
+
+                    <div id="list-area">
+                        <div class="list-text">
+                            <strong>City</strong> <span class="gs-color-dsun">*</span>
+                        </div>
                         <div class="list-input">
-                            <input type="text" class="form-control" name="address" placeholder="e.g. 3/17 Mascot Drive, Eastlakes"/>
+                            <input id="locality" type="text" class="form-control" name="city" placeholder="e.g. Mascot"/>
+                        </div>
+                    </div>
+
+                    <div id="list-dwelling">
+                        <div class="list-text">
+                            <strong>Dwelling Type</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <select data-toggle="select" class="form-control select select-primary" name="type" style="min-width: 150px; width: 175px;">
+                                <option value="Apartment & Unit">Apartment & Unit</option>
+                                <option value="House">House</option>
+                                <option value="Townhouse & Villa">Townhouse & Villa</option>
+                                <option value="Others">Others</option>
+                            </select>
                         </div>
                     </div>
 
                     <div id="list-categories">
                         <div class="list-text">
-                            <strong>Dwelling Type</strong> <span class="gs-color-dsun">*</span>
+                            <strong>Demands</strong> <span class="gs-color-dsun">*</span>
                         </div>
                         <div class="list-input">
-                            <select multiple="multiple" class="form-control multiselect multiselect-primary" name="typeId" style="width: 100%;">
-                                <optgroup label="Bedroom">
-                                    <option value="1">1 Bedroom</option>
-                                    <option value="2">2 Bedrooms</option>
-                                    <option value="3">3 Bedrooms</option>
-                                    <option value="4">More than 3 Bedrooms</option>
-                                </optgroup>
-                                <optgroup label="Bed">
-                                    <option value="5" selected>1 Bed</option>
-                                    <option value="6">2 Beds</option>
-                                    <option value="7">3 Beds</option>
-                                    <option value="8">More than 3 Beds</option>
-                                </optgroup>
-                                <optgroup label="Bathroom">
-                                    <option value="9">1 Bathroom</option>
-                                    <option value="10">1.5 Bathrooms</option>
-                                    <option value="11">2 Bathrooms</option>
-                                    <option value="12">More than 2 Bathrooms</option>
-                                </optgroup>
+                            <select multiple="multiple" class="form-control multiselect multiselect-primary" name="demands" style="width: 100%;">
+                                <optgroup label="People">
+                                    <option value="1 People">1 People</option>
+                                    <option value="2 People" selected>2 People</option>
+                                    <option value="3 People">3 People</option>
+                                    <option value="More than 3 People">More than 3 People</option>
+                                    <optgroup label="Bedroom">
+                                        <option value="1 Bedroom" selected>1 Bedroom</option>
+                                        <option value="2 Bedrooms">2 Bedrooms</option>
+                                        <option value="3 Bedrooms">3 Bedrooms</option>
+                                        <option value="More than 3 Bedrooms">More than 3 Bedrooms</option>
+                                    </optgroup>
+                                    <optgroup label="Bed">
+                                        <option value="1 Bed">1 Bed</option>
+                                        <option value="2 Beds">2 Beds</option>
+                                        <option value="3 Beds">3 Beds</option>
+                                        <option value="More than 3 Beds">More than 3 Beds</option>
+                                    </optgroup>
+                                    <optgroup label="Bathroom">
+                                        <option value="1 Bathroom">1 Bathroom</option>
+                                        <option value="1.5 Bathrooms">1.5 Bathrooms</option>
+                                        <option value="2 Bathrooms">2 Bathrooms</option>
+                                        <option value="More than 2 Bathrooms">More than 2 Bathrooms</option>
+                                    </optgroup>
                             </select>
                         </div>
                     </div>
@@ -127,21 +140,21 @@
                             <strong>Amenities</strong> <span class="gs-color-dsun">*</span>
                         </div>
                         <div class="list-input">
-                            <select multiple="multiple" class="form-control multiselect multiselect-primary" name="amentiesId" style="width: 100%;">
+                            <select multiple="multiple" class="form-control multiselect multiselect-primary" name="amenities" style="width: 100%;">
                                 <optgroup label="Commons">
-                                    <option value="1" selected>Wireless Internet</option>
-                                    <option value="2">Free parking</option>
-                                    <option value="3">Washer</option>
-                                    <option value="4">Dryer</option>
-                                    <option value="5">Hair dryer</option>
-                                    <option value="6">Bathroom essentials</option>
-                                    <option value="7">Bedroom comforts</option>
+                                    <option value="Wireless Internet" selected>Wireless Internet</option>
+                                    <option value="Free parking">Free parking</option>
+                                    <option value="Washer">Washer</option>
+                                    <option value="Dryer" selected>Dryer</option>
+                                    <option value="Hair dryer">Hair dryer</option>
+                                    <option value="Bathroom essentials">Bathroom essentials</option>
+                                    <option value="Bedroom comforts">Bedroom comforts</option>
                                 </optgroup>
                                 <optgroup label="Uncommons">
-                                    <option value="8" >Pool</option>
-                                    <option value="9">Dishwasher</option>
-                                    <option value="10">Coffee maker</option>
-                                    <option value="11">Full kitchen</option>
+                                    <option value="Pool" >Pool</option>
+                                    <option value="Dishwasher">Dishwasher</option>
+                                    <option value="Coffee maker">Coffee maker</option>
+                                    <option value="Full kitchen">Full kitchen</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -153,7 +166,7 @@
                         </div>
                         <div class="list-dropzone list-input">
                             <div id="dropz" class="dropzone list-right"></div>
-                            <input type="text" name="images" value="" hidden/>
+                            <input id="photos" type="text" name="photos" value="1" hidden/>
                         </div>
                     </div>
 
@@ -166,7 +179,7 @@
                             <strong>Description</strong> <span class="gs-color-dsun">*</span>
                         </div>
                         <div class="list-input">
-                            <textarea class="form-control" rows="5" name="message" placeholder="Within 300 characters ..."></textarea>
+                            <textarea class="form-control" rows="5" name="description" placeholder="Within 1000 characters ..."></textarea>
                         </div>
                     </div>
 
@@ -177,21 +190,21 @@
                             <strong>Price</strong> <span class="gs-color-dsun">*</span>
                         </div>
                         <div class="list-input">
-                            <input type="text" class="form-control input-sm list-input" name="cash" /> &nbsp;&nbsp;<small>AUD$ / night</small>
+                            <input type="text" class="form-control input-sm list-input" name="price" /> &nbsp;&nbsp;<small>AUD$ / night</small>
                         </div>
                     </div>
 
                     <div id="list-bargain">
                         <div class="list-text">
-                            <strong>Parking</strong>
+                            <strong>Alidada Match</strong><a href="#"><span style="margin-left: 7px;" class="fui-question-circle gs-color-greensea"></span></a>
                         </div>
                         <div class="list-input">
                             <label class="radio">
-                                <input type="radio" name="bargain" id="list-radio-true" value="true" data-toggle="radio">
+                                <input type="radio" name="alidadamatch" value="true" data-toggle="radio">
                                 Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </label>
                             <label class="radio">
-                                <input type="radio" name="bargain" id="list-radio-true" value="false" data-toggle="radio" checked="">
+                                <input type="radio" name="alidadamatch" value="false" data-toggle="radio" checked="">
                                 No
                             </label>
                             <div class="gs-clear"></div>
@@ -201,9 +214,9 @@
                     <div id="list-time">
                         <div class="list-text"><strong>Available Date</strong> <span class="gs-color-dsun">*</span></div>
                         <div class="input-daterange input-group list-input" id="datepicker">
-                            <input type="text" class="input-sm form-control" name="checkindate" />
+                            <input type="text" class="input-sm form-control" name="start_date" />
                             <span class="input-group-addon input-sm">to</span>
-                            <input type="text" class="input-sm form-control" name="checkindate" />
+                            <input type="text" class="input-sm form-control" name="end_date" />
                         </div>
                     </div>
 
@@ -270,6 +283,8 @@
 <script src="js/dropzone.custom.js"></script>
 <script src="js/formCheck.js"></script>
 <!-- <script src="../js/deleteUpload.js"></script> -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM_XHyreD0F1r-uT2f6OtCDnkWfcfHxy8&libraries=places"
+        type="text/javascript"></script>
 <script>
     $(document).ready(function() {
         $('.input-daterange').datepicker({
@@ -280,6 +295,73 @@
     $("select").select2({
         dropdownCssClass : 'dropdown-inverse'
     });
+
+    // This example displays an address form, using the autocomplete feature
+    // of the Google Places API to help users fill in the information.
+
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+    var placeSearch, autocomplete;
+    var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+    };
+
+    function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+            document.getElementById(component).value = '';
+            document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+            var addressType = place.address_components[i].types[0];
+            if (componentForm[addressType]) {
+                var val = place.address_components[i][componentForm[addressType]];
+                document.getElementById(addressType).value = val;
+            }
+        }
+    }
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle({
+                    center: geolocation,
+                    radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
 </script>
 </body>
 </html>

@@ -275,12 +275,23 @@ public class DBDao {
      */
     public void addPost(Post post) throws SQLException {
         Connection conn = DBUtil.getConn();
-        String sql = "insert into Post" + "(text, url, post_by, post_date) " +
-                "values(?, ?, ?, CURRENT_TIMESTAMP())";
+        String sql = "insert into Post" + "(title, city, address, type, demands, amenities, photos, description, price," +
+                " alidadamatch, start_date, end_date, post_date, post_by, stick_date) " +
+                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP(), ?, CURRENT_TIMESTAMP())";
         PreparedStatement ptmt = conn.prepareStatement(sql);
-        ptmt.setString(1, post.getText());
-        ptmt.setString(2, post.getUrl());
-        ptmt.setInt(3, post.getPost_by());
+        ptmt.setString(1, post.getTitle());
+        ptmt.setString(2, post.getCity());
+        ptmt.setString(3, post.getAddress());
+        ptmt.setString(4, post.getType());
+        ptmt.setString(5, post.getDemands());
+        ptmt.setString(6, post.getAmenities());
+        ptmt.setInt(7, post.getPhotos());
+        ptmt.setString(8, post.getDescription());
+        ptmt.setInt(9, post.getPrice());
+        ptmt.setString(10, post.getAlidadamatch());
+        ptmt.setTimestamp(11, post.getStart_date());
+        ptmt.setTimestamp(12, post.getEnd_date());
+        ptmt.setInt(13, post.getPost_by());
         ptmt.execute();
     }
 
@@ -292,21 +303,70 @@ public class DBDao {
     public List<Post> listAllPosts() throws SQLException {
         List<Post> posts = new ArrayList<Post>();
         Connection conn = DBUtil.getConn();
-        String sql = "select * from Post order by post_date DESC";
+        String sql = "select * from Post order by stick_date DESC";
         PreparedStatement ptmt = conn.prepareStatement(sql);
         ResultSet rs = ptmt.executeQuery();
         while (rs.next()) {
             Post post = new Post();
             post.setId(rs.getInt("id"));
-            post.setText(rs.getString("text"));
-            post.setUrl(rs.getString("url"));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getTimestamp("start_date"));
+            post.setEnd_date(rs.getTimestamp("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
             post.setLikes(rs.getInt("likes"));
             post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
             post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
-            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setStatus(rs.getInt("status"));
             posts.add(post);
         }
         return posts;
+    }
+
+    /**
+     * Get one post detail
+     *
+     * @throws SQLException
+     */
+    public Post getPostDetail(Integer id) throws SQLException {
+        Post post = new Post();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from Post where id = " + id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            post.setId(rs.getInt("id"));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getTimestamp("start_date"));
+            post.setEnd_date(rs.getTimestamp("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setLikes(rs.getInt("likes"));
+            post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
+            post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
+            post.setStatus(rs.getInt("status"));
+        }
+        return post;
     }
 
     /**

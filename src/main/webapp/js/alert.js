@@ -5,8 +5,8 @@ $('.cd-button-group .btn-success').click(function() {
 //Details.html
 //check availability
 $('.cd-item-info #cd-bid-submit').click(function() {
-    var check_in = $('.cd-item-info #cd-bid input').val();
-    var check_out = $('.cd-item-info #cd-gin input').val();
+    var check_in = $('#start_date').val();
+    var check_out = $('#end_date').val();
     checkAvailability(check_in, check_out);
 });
 //Book
@@ -25,16 +25,31 @@ function stickToTop(node) {
         url: "",
         type: "stick"
     })
-    .done(function(data) {
-        swal("Great!", "Stick this post to the top successfully! It seems other users are more likely to see this post.", "success");
-        node.setAttribute("disabled","disabled");
-    })
-    .error(function(data) {
-        swal("Please refresh the page", "Sorry, something wrong!", "error");
-    });
+        .done(function(data) {
+            swal("Great!", "Stick this post to the top successfully! It seems other users are more likely to see this post.", "success");
+            node.setAttribute("disabled","disabled");
+        })
+        .error(function(data) {
+            swal("Please refresh the page", "Sorry, something wrong!", "error");
+        });
 };
 //check availability
 function checkAvailability(check_in, check_out) {
+    swal({
+        title: "Booking history",
+        text: "The place is available from <b>" + check_in + "</b> to <b>"  + check_out + ".</b>" +
+        "<p style='margin: 15px 0;'>And the following dates will not be available:</p>" +
+        "<p><ul><li class='gs-color-dorange'>2018-10-14 ~ 2018-10-18</li></ul></p>",
+        html: true,
+        type: "info",
+        showCancelButton: false,
+        closeOnConfirm: true,
+        confirmButtonText: "Okay!",
+        confirmButtonColor: "#2ECC71"
+    });
+};
+//Book
+function bookNow(check_in, check_out) {
     if(check_in == '' || check_out == '') {
         swal("Oops", "Tell us how long you would like to stay with us.", "error");
         return;
@@ -44,78 +59,79 @@ function checkAvailability(check_in, check_out) {
         return;
     }
     swal({
-      title: "Checking availability",
-      text: "Check if the place is available from <b>" + check_in + "</b> to <b>"  + check_out + "</b>",
-      html: true,
-      type: "info",
-      showCancelButton: true,
-      closeOnConfirm: false,
-      confirmButtonText: "Check it!",
-      confirmButtonColor: "#2ECC71"
+        title: "Are you sure?",
+        text: "Are you sure that you want to book the place from <b>" + check_in + "</b> to <b>"  + check_out + "</b>?",
+        html: true,
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        confirmButtonText: "Yes, Get it!",
+        confirmButtonColor: "#2ECC71"
     }, function() {
-      $.ajax({
-        url: "/available",
-        type: "availability"
-      })
-      .done(function(data) {
-        swal("Available dates", "someone booked the date already! Please change your schedule.", "success");
-      })
-      .error(function(data) {
-        swal("Please refresh the page", "Sorry, there was someone higher than you at this moment!", "error");
-      });
-    });
-};
-//Book
-function bookNow(check_in, check_out) {
-    swal({
-      title: "Are you sure?", 
-      text: "Are you sure that you want to book the place from <b>" + check_in + "</b> to <b>"  + check_out + "</b>?",
-      html: true,
-      type: "warning",
-      showCancelButton: true,
-      closeOnConfirm: false,
-      confirmButtonText: "Yes, Get it!",
-      confirmButtonColor: "#2ECC71"
-    }, function() {
-      $.ajax({
-        url: "/book",
-        type: "BID"
-      })
-      .done(function(data) {
-        swal("Well Done!", "You book it successfully! ", "success");
-      })
-      .error(function(data) {
-        swal("Please refresh the page", "Hold on, there was someone faster than you!", "error");
-      });
+        $.ajax({
+            url: "/book",
+            type: "BID"
+        })
+            .done(function(data) {
+                swal("Well Done!", "You book it successfully! ", "success");
+            })
+            .error(function(data) {
+                swal("Please refresh the page", "Hold on, there was someone faster than you!", "error");
+            });
     });
 };
 
 //remove separator from number
 function remove_num_separator(num){
-  var number = num.replace(/\,/g, '');
-  return number;
+    var number = num.replace(/\,/g, '');
+    return number;
 };
 
 //add separator to number
 function add_num_separator(num){
-  var number = '',
-    num = num.toString();
-  num = num_reverse(num);
-  for(var i = 0, len = num.length; i < len; i++) {
-    if(i != 0 && i % 3 == 0) {
-      number += ',';
+    var number = '',
+        num = num.toString();
+    num = num_reverse(num);
+    for(var i = 0, len = num.length; i < len; i++) {
+        if(i != 0 && i % 3 == 0) {
+            number += ',';
+        }
+        number += num[i];
     }
-    number += num[i];
-  }
-  number = num_reverse(number);
-  return number;
+    number = num_reverse(number);
+    return number;
 };
 
 //reverse string of number
 function num_reverse(num){
-  var result = '';
-  for(var i = num.length; i > 0; i--) {
-    result += num.charAt(i - 1);
-  }
-  return result;  
+    var result = '';
+    for(var i = num.length; i > 0; i--) {
+        result += num.charAt(i - 1);
+    }
+    return result;
 };
+
+//remove one post from the watchlist
+function remove_watchlist(id) {
+    swal({
+        title: "Are you sure?",
+        text: "Are you sure you want to remove the post from your watchlist?",
+        html: true,
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        confirmButtonText: "Yes, I'm sure!",
+        confirmButtonColor: "#2ECC71"
+    }, function() {
+        $.ajax({
+            url: "/book",
+            type: "BID"
+        })
+            .done(function(data) {
+                swal("Successfully", "You removed it.", "success");
+            })
+            .error(function(data) {
+                swal("Please refresh the page", "Sorry, somethin!", "error");
+            });
+    });
+}

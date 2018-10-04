@@ -52,33 +52,18 @@ function checkSignin() {
 
 function checkList() {
     var list_title = $("#list-title input[name='title']");
-    var title_str =  /^\S{1,25}$/;
-    var list_categories = $("#list-categories select[name='typeId']");
+    var title_str =  /^\S{1,50}$/;
     var list_description = $("#list-description textarea[name='description']");
-    var description_str =  /^\S{1,300}$/;
-    var list_startbid = $("#list-startbid input[name='startBid']");
-    var list_cash = $("#list-cash input[name='cash']");
+    var description_str =  /^\S{1,1000}$/;
 
     // alert(list_categories.val());
 
     if(!title_str.test(list_title.val())) {
-        listErrorMessage("Not none or within 25 characters in title!");
-        return false;
-    }
-    if(!list_categories.val()) {
-        listErrorMessage("Please select a category!");
+        listErrorMessage("Please enter a title and within 50 characters!");
         return false;
     }
     if(!description_str.test(list_description.val())) {
         listErrorMessage("Not none or within 300 characters in description!");
-        return false;
-    }
-    if(!list_startbid.val() && !list_cash.val()) {
-        listErrorMessage("Don't forget select a Listing type!");
-        return false;
-    }
-    if(list_startbid.val() && list_cash.val()) {
-        listErrorMessage("Just choose one listing type, clear the other input in listing type!");
         return false;
     }
 }

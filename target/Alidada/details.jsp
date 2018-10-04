@@ -1,4 +1,6 @@
 <%@ page import="model.User" %>
+<%@ page import="model.Post" %>
+<%@ page import="java.util.Locale" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +38,9 @@
 <body style="padding-top: 70px;">
 <!-- /custom navbar -->
 <%@include file="nav.jsp"%>
-
+<%
+    Post post = (Post) request.getAttribute("post");
+%>
 <!-- container -->
 <div class="gs-container container">
     <!-- info alert -->
@@ -52,7 +56,7 @@
 
     <div>
         <p class="cd-title">
-            Mouzinho 134 - Hist Center - Orange
+            <%=post.getTitle()%>
             <button id="stick" class="btn btn-sm btn-success" style="margin-left: 20px;">
                 <span class="glyphicon glyphicon-pushpin"></span> Stick to top
             </button>
@@ -85,13 +89,7 @@
 
             <div>
                 <section class="cd-content">
-                    <p>Sit back in a private plunge pool and enjoy an uninterrupted vista of Table Mountain, the city skyline, and the ocean beyond.
-                        The views are just as good from inside this chic and modern penthouse, where sunlight pours in through walls of windows.
-                    </p>
-                    <p>The apartment is in a truly wonderful neighbourhood - Vredehoek. It is centrally located in Cape Town's City Bowl. The area
-                        is safe, clean, and beautifully situated on the slopes of famous Table Mountain. It's the perfect base for exploring the city.
-                    </p>
-
+                    <%=post.getDescription()%>
                     <div class="cd-content-warning">The lister assumes full responsibility for this listing</div>
                     <div class="cd-content-flag">
                         <a><span class="fui fui-trash"></span> Flag as inappropriates</a>
@@ -106,14 +104,30 @@
                     <ul>
                         <li>
                             <div class="updates-date">Strucutre</div>
-                            <div class="updates-description"><b>1 bedroom</b> <b>1 bed</b> <b>1.5 baths</b></div>
+                            <div class="updates-description">
+                                <%
+                                    String demand[] = post.getDemands().split(",");
+                                    for(int i = 0; i < demand.length; i++){
+                                %>
+                                <b><%=demand[i]%></b>
+                                <%
+                                    }
+                                %>
+                            </div>
                             <div class="gs-clear"></div>
                         </li>
                         <li>
                             <div class="updates-date">Amenties</div>
-                            <div class="updates-description"><b>Free parking</b> <b>Pool</b> <b>Washer</b> <b>Dryer</b> <b>Dishwasher</b>
-                                <b>Wireless Internet</b> <b>TV</b> <b>Hair dryer</b> <b>Coffee maker</b> <b>Pool</b> <b>Bathroom essentials</b>
-                                <b>Bedroom comforts</b> <b>Full kitchen</b></div>
+                            <div class="updates-description">
+                                <%
+                                    String amenity[] = post.getAmenities().split(",");
+                                    for(int i = 0; i < amenity.length; i++){
+                                %>
+                                <b><%=amenity[i]%></b>
+                                <%
+                                    }
+                                %>
+                            </div>
                             <div class="gs-clear"></div>
                         </li>
                     </ul>
@@ -203,7 +217,7 @@
                 </div>
                 <div class="seller-info">
                     <div class="name">
-                        <a href="#"><b>MonsterCritic</b></a>
+                        <a href="#"><b><%=post.getPoster()%></b></a>
                     </div>
                     <div class="fans" onselectstart="return false">
                         <small><a id="be-fans"><span class="fui-heart fan"></span> <span class="be-fans-text">Become a fan</span></a>
@@ -223,7 +237,7 @@
 
             <div class="cd-item-info">
                 <ul>
-                    <li><span class="cd-item-icon fui-tag"></span><span class="cd-item-bid">350</span>
+                    <li><span class="cd-item-icon fui-tag"></span><span class="cd-item-bid"><%=post.getPrice()%></span>
                         <small> $AUD / night</small>
                     </li>
                     <li class="cd-alert-warning"><span class="cd-item-icon fui-calendar"></span>
@@ -256,9 +270,13 @@
                             <div class="gs-clear"></div>
                         </form>
                     </li>
+                    <input id="start_date" value="<%=post.getStart_date()%>" hidden/>
+                    <input id="end_date" value="<%=post.getEnd_date()%>" hidden/>
 
                     <li><span class="cd-item-icon fui-time"></span>
-                        <small><b class="cd-item-calendar">Wednesday, May 27, 2015 12:44:40</b></small>
+                        <small><b class="cd-item-calendar">
+                            <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(post.getPost_date().getTime())%>
+                        </b></small>
                     </li>
                     <li onselectstart="return false"><a id="cd-add-watchlist"><span
                             class="cd-item-icon fui-heart watch"></span>
@@ -267,12 +285,12 @@
                         <small> (<span class="watching-num">21</span> watching)</small>
                     </li>
                     <li><span class="cd-item-icon fui-location"></span>
-                        <small><b class="cd-item-location gs-color-dsun">Sydney Centre </b></small>
+                        <small><b class="cd-item-location gs-color-dsun"><%=post.getCity()%> </b></small>
                         <span class="cd-item-icon fui-home" style="padding-left: 40px;"></span>
-                        <small><b class="cd-item-location">House </b></small>
+                        <small><b class="cd-item-location"><%=post.getType()%> </b></small>
                     </li>
                     <li>
-                        <small style="margin-left: 35px;"><b>38 College St, Darlinghurst NSW 2000</b></small>
+                        <small style="margin-left: 35px;"><b><%=post.getAddress()%></b></small>
                     </li>
                 </ul>
             </div>
