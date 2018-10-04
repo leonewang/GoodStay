@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URISyntaxException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -41,9 +42,11 @@ public class PostServlet extends HttpServlet {
             String description = request.getParameter("description");
             Integer price = Integer.valueOf(request.getParameter("price"));
             String alidadamatch = request.getParameter("alidadamatch");
-            Timestamp start_date = Timestamp.valueOf(request.getParameter("start_date"));
-            Timestamp end_date = Timestamp.valueOf(request.getParameter("end_date"));
+            Date start_date = Date.valueOf(request.getParameter("start_date"));
+            Date end_date = Date.valueOf(request.getParameter("end_date"));
             Integer post_by = Integer.valueOf(request.getParameter("id"));
+            String placeid = request.getParameter("placeid");
+            String coordinate = request.getParameter("coordinate");
 
             System.out.println("title: " + title);
             System.out.println("address: " + address);
@@ -53,6 +56,8 @@ public class PostServlet extends HttpServlet {
             System.out.println("description: " + description);
             System.out.println("alidadamatch: " + alidadamatch);
             System.out.println("start_date: " + start_date);
+            System.out.println("placeid: " + placeid);
+            System.out.println("coordinate: " + coordinate);
 
             DBDao dbdao = new DBDao();
             Post post = new Post();
@@ -70,6 +75,8 @@ public class PostServlet extends HttpServlet {
             post.setEnd_date(end_date);
             post.setPost_by(post_by);
             post.setPoster(dbdao.getUser(post_by).getUser_name());
+            post.setPlaceid(placeid);
+            post.setCoordinate(coordinate);
             dbdao.addPost(post);
             dbdao.addLog(post_by, "post", " Posted a new message.");
             request.getRequestDispatcher("/wall.jsp").forward(request, response);

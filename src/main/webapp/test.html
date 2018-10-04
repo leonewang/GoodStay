@@ -7,150 +7,390 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Leone Wang">
-    <title>Notification | GoodStay</title>
+    <title>Post | GoodStay</title>
+    <!-- Loading Bootstrap -->
     <!-- Bootstrap core CSS -->
-    <!-- <link href="assets/flat-ui/css/bootstrap-responsive.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/assets/bootstrap.css">
     <link rel="stylesheet" href="css/assets/flat-ui.css">
+    <link rel="stylesheet" href="css/vendor/dropzone.css">
+    <link rel="stylesheet" href="css/assets/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/vendor/sweetalert.css">
     <link rel="stylesheet" href="css/doc.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/cd-doc.css">
+    <link rel="stylesheet" href="css/dropzone.custom.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="shortcut icon" href="images/icons/favicon.ico">
+    <!-- <link href="assets/flat-ui/css/bootstrap-responsive.css" rel="stylesheet"> -->
+    <script src="js/vendor/modernizr.js"></script>
     <style>
-        .notification {
-            background-color: #ecf0f5;
-            border-radius: 6px;
-            position: relative;
-            padding: 20px;
-            margin: 10px 0 15px 0;
+        .list-unlock {
+            font-size: 0.9em;
+            margin: -5px 0 15px 27%;
+            padding: 10px 20px;
+            width: 65%;
+            background-color: #ECF0F1;
+            border-radius: 3px;
         }
-
-        .notification:before {
-            content: "";
-            border-style: solid;
-            border-width: 0 9px 9px 9px;
-            border-color: transparent transparent #ecf0f5 transparent;
-            height: 0px;
-            position: absolute;
-            left: 23px;
-            top: -9px;
-            width: 0px;
-            -webkit-transform: rotate(360deg);
+        #infowindow-content {
+            display: none;
+        }
+        #map #infowindow-content {
+            display: inline;
+        }
+        #map {
+            height: 300px;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body style="padding-top: 70px;">
 <!-- /custom navbar -->
 <%@include file="nav.jsp"%>
-<div class="container">
-    <div>
-        <div><h4>Questions? You’re in the right place.</h4></div>
+<div class="gs-container container">
+    <div id="list-alert" class="alert alert-success alert-dismissible" role="alert">
+        <span class="gs-alert-icon fui-info-circle"></span><span class="gs-color-dsun"><strong>Get 1,000 Bonus Credits for listing Apartment & Unit today!</strong></span><strong> Also get 1,000 Bonus Credits by filling your details! <a>Click to do it! </a></strong>
+        <p>
+            <small>To receive this bonus:</small>
+        </p>
+        <ol>
+            <li>Go to the Post page:<strong><a class="alert-link" href="http://localhost:8080/post.jsp">www.goodstay.com/post</a></strong></li>
+            <li>Describe your place, and don't forget tell us the <strong class="gs-color-greensea">dwelling type</strong>
+            </li>
+            <li>Add at least <strong>1 photo</strong> and offer <strong>an appropriate price</strong> on it.
+            </li>
+            <li>List somewhere good! Deleted or prohibited places will not qualify. Posting must be newly listed during the promotion.</li>
+        </ol>
+    </div>
+    <!-- /custom alert -->
 
-        <!-- info alert -->
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <span class="gs-alert-icon fui-info-circle"></span>You will find how it works soon. Discover unique places to stay anywhere in the world.
-        </div>
+    <div class="gs-content">
+        <div class="gs-content-left">
+            <div class="list-form">
+                <form action="/PostServlet" method="post">
+                    <input type="text" name="id" value="<%=user.getId()%>" hidden/>
+                    <div id="list-title">
+                        <div class="list-text">
+                            <strong>Title</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <input type="text" class="form-control" name="title" placeholder="Within 100 characters ..." />
+                        </div>
+                    </div>
 
-        <b>What is Alidada Match?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    <a href="#"><b>AlidadaMatchSystem</b></a> which enables the buyer to simply leave the detail of his interest with the maximum price and the intended period to stay, the system will then search for the corresponding matches found & notify to the buyer. Likewise, for advertisers, once they have selected the AlidadaMatch the system will find the potential buyers that have expressed their interest, and able to give a list so the renter can contact the owner. This intelligent system simplified the process between two & only making relevant information visible to them, we are confident with this feature the process will be more enjoyable.
-                </span>
+                    <div id="list-address">
+                        <div class="list-text">
+                            <strong>Address</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <input id="pac-input" type="text" class="form-control" name="address" onFocus="geolocate()"
+                                   placeholder="e.g. 3/17 Mascot Drive, Eastlakes NSW" onkeydown="if(event.keyCode==13){return false;}"/>
+                        </div>
+                    </div>
+
+                    <div style="display: none;">
+                        <input type="text" value="" name="placeid" id="placeid"/>
+                        <input type="text" value="" name="coordinate" id="coordinate"/>
+                    </div>
+
+                    <div id="list-area">
+                        <div class="list-text">
+                            <strong>City</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <input id="locality" type="text" class="form-control" name="city" placeholder="e.g. Mascot"/>
+                        </div>
+                    </div>
+
+                    <div id="list-dwelling">
+                        <div class="list-text">
+                            <strong>Dwelling Type</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <select data-toggle="select" class="form-control select select-primary" name="type" style="min-width: 150px; width: 175px;">
+                                <option value="Apartment & Unit">Apartment & Unit</option>
+                                <option value="House">House</option>
+                                <option value="Townhouse & Villa">Townhouse & Villa</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="list-categories">
+                        <div class="list-text">
+                            <strong>Demands</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <select multiple="multiple" class="form-control multiselect multiselect-primary" name="demands" style="width: 100%;">
+                                <optgroup label="People">
+                                    <option value="1 People">1 People</option>
+                                    <option value="2 People" selected>2 People</option>
+                                    <option value="3 People">3 People</option>
+                                    <option value="More than 3 People">More than 3 People</option>
+                                </optgroup>
+                                <optgroup label="Bedroom">
+                                    <option value="1 Bedroom" selected>1 Bedroom</option>
+                                    <option value="2 Bedrooms">2 Bedrooms</option>
+                                    <option value="3 Bedrooms">3 Bedrooms</option>
+                                    <option value="More than 3 Bedrooms">More than 3 Bedrooms</option>
+                                </optgroup>
+                                <optgroup label="Bed">
+                                    <option value="1 Bed">1 Bed</option>
+                                    <option value="2 Beds">2 Beds</option>
+                                    <option value="3 Beds">3 Beds</option>
+                                    <option value="More than 3 Beds">More than 3 Beds</option>
+                                </optgroup>
+                                <optgroup label="Bathroom">
+                                    <option value="1 Bathroom">1 Bathroom</option>
+                                    <option value="1.5 Bathrooms">1.5 Bathrooms</option>
+                                    <option value="2 Bathrooms">2 Bathrooms</option>
+                                    <option value="More than 2 Bathrooms">More than 2 Bathrooms</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="list-amenities">
+                        <div class="list-text">
+                            <strong>Amenities</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <select multiple="multiple" class="form-control multiselect multiselect-primary" name="amenities" style="width: 100%;">
+                                <optgroup label="Commons">
+                                    <option value="Wireless Internet" selected>Wireless Internet</option>
+                                    <option value="Free parking">Free parking</option>
+                                    <option value="Washer">Washer</option>
+                                    <option value="Dryer" selected>Dryer</option>
+                                    <option value="Hair dryer">Hair dryer</option>
+                                    <option value="Bathroom essentials">Bathroom essentials</option>
+                                    <option value="Bedroom comforts">Bedroom comforts</option>
+                                </optgroup>
+                                <optgroup label="Uncommons">
+                                    <option value="Pool" >Pool</option>
+                                    <option value="Dishwasher">Dishwasher</option>
+                                    <option value="Coffee maker">Coffee maker</option>
+                                    <option value="Full kitchen">Full kitchen</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="list-photo">
+                        <div class="list-text">
+                            <strong>Photo</strong> <span class="gs-color-dsun">&nbsp;&nbsp;</span>
+                        </div>
+                        <div class="list-dropzone list-input">
+                            <div id="dropz" class="dropzone list-right"></div>
+                            <input id="photos" type="text" name="photos" value="1" hidden/>
+                        </div>
+                    </div>
+
+                    <div id="list-photo-tip">
+                        <span class="fui-heart gs-color-pink"></span><small class="gs-color-dsun gs-text-sm"> &nbsp;&nbsp;Your first image will appear in search results!</small>
+                    </div>
+
+                    <div id="list-description">
+                        <div class="list-text">
+                            <strong>Description</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <textarea class="form-control" rows="5" name="description" placeholder="Within 1000 characters ..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="list-unlock gs-color-dclouds"><small><span class="fui-check-circle"></span>
+                        &nbsp;Make a quick deal by introducing your place <a href="#">in details</a> !</small>
+                    </div>
+
+                    <div id="list-cash">
+                        <div class="list-text">
+                            <strong>Price</strong> <span class="gs-color-dsun">*</span>
+                        </div>
+                        <div class="list-input">
+                            <input type="text" class="form-control input-sm list-input" name="price" /> &nbsp;&nbsp;<small>AUD$ / night</small>
+                        </div>
+                    </div>
+
+                    <div id="list-bargain">
+                        <div class="list-text">
+                            <strong>Alidada Match</strong><a href="#"><span style="margin-left: 7px;" class="fui-question-circle gs-color-greensea"></span></a>
+                        </div>
+                        <div class="list-input">
+                            <label class="radio">
+                                <input type="radio" name="alidadamatch" value="true" data-toggle="radio">
+                                Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="alidadamatch" value="false" data-toggle="radio" checked="">
+                                No
+                            </label>
+                            <div class="gs-clear"></div>
+                        </div>
+                    </div>
+
+                    <div id="list-time">
+                        <div class="list-text"><strong>Available Date</strong> <span class="gs-color-dsun">*</span></div>
+                        <div class="input-daterange input-group list-input" id="datepicker">
+                            <input type="text" class="input-sm form-control" name="start_date" />
+                            <span class="input-group-addon input-sm">to</span>
+                            <input type="text" class="input-sm form-control" name="end_date" />
+                        </div>
+                    </div>
+
+                    <!-- <div id="list-relist">
+                        <div class="list-input">
+                            <div class="bootstrap-switch-square">
+                                <input type="checkbox" checked data-toggle="switch" id="list-switch" data-on-text="<span class='fui-check'></span>" data-off-text="<span class='fui-cross'></span>" />
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div id="list-submit">
+                        <button type="submit" class="btn btn-primary btn-embossed btn-block">Submit</button>
+                    </div>
+
+                    <div id="list-rule">
+                        <p class="gs-color-dclouds">
+                            By clicking 'Submit', you agree to abide by our <a href="#">listing rules and terms</a> of use. You also agree to follow through on your listing
+                            regardless of the amount of money. Users who are in violation of these terms may be suspended.
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
 
-        <b>How do I book a stay?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    The website is a marketplace that allows people like you to list and find accommodation. It has been designed to help you find the perfect holiday accommodation based on your wants and needs.
-                </span><p></p>
-                <a><b>Search</b></a><br>
-                <span>Start by entering your travel destination, dates and number of guests on our <a href="/wall.jsp">homepage</a>. You can easily refine your search results by selecting a more specific location, a price range or other preferences. You can also use the map to explore various regions and areas. Be sure to review the details of properties you’re interested in including photos, reviews and features.</span><p></p>
-                <a><b>Book</b></a><br>
-                <span>Once you find a property that’s right for you, click on the <b>Book Now!</b> button. You will be provided with one of two options for submitting a booking request depending upon the owner or property manager’s preference.</span>
+        <div class="gs-content-right">
+
+            <div id="map"></div>
+            <div id="infowindow-content">
+                <span id="place-name"  class="title"></span><br>
+                Place ID <span id="place-id"></span><br>
+                <span id="place-address"></span><br>
+                <span id="place-coordinate"></span>
+            </div>
+
+            <h2 style="border: none; margin-top: -35px;">Where is the place?</h2>
+            <div id="first-row">
+                <small>Just try to <strong>fill in the address</strong>, then you will get the location shown in tha map above. (Google Map API Used.)</small>
+            </div>
+            <h2 style="border: none;">Tips here</h2>
+            <div id="third-row">
+                <small>Maybe you can try to <strong>add more photos</strong> & <strong>write an introduction explicitly</strong>, then it would get a better placement in search & attract more users on your listing.</small><br>
+                <small>Also, beware of <strong>Internet Fraud</strong>, you should double check <strong> poster's personal information & feedbacks from other users</strong></a>.<br /> You can also make a phone call or just go for a look.</small>
+            </div>
+
+            <h2 id="list-error-title" class="gs-hidden">Something wrong</h2>
+            <div id="fourth-row" class="gs-hidden error">
+                <small>test line</small>
             </div>
         </div>
-
-        <b>What do I do if I do not receive a response to my enquiry?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    Website encourages travellers to call property managers rather than communicate with them via email. You can usually find a property manager’s contact details in the enquiry confirmation email that you receive from GoodStay making your initial enquiry or booking request.
-                </span>
-            </div>
-        </div>
-
-        <b>How do I contact a property owner or manager to make a booking?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    Contacting an owner or property manager in order to book a property is best completed by first going to the website.
-                </span><p></p>
-                <span><b>1.</b> Locate the listing on the website by entering their property name or property ID in the search field. </span><br>
-                <span><b>2.</b> Click on <b>Book Now!</b> to make a booking or <b>Send a message</b> to send an enquiry to the owner.</span><br>
-                <span><b>3.</b> Fill in the form with your details.</span><br>
-                <span><b>4.</b> Submit.</span><p></p>
-                <span>Once the form has successfully been submitted, you will see a confirmation page on the website, including the next steps to follow. A confirmation email will then be sent to the email address you have made your Enquiry or Booking request usually within fifteen minutes</span>
-            </div>
-        </div>
-
-        <b>How long does it usually take for a listing owner/manager to respond to a booking request?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    We encourage property owners and managers to respond to booking requests within 24 hours. If an owner doesn't confirm your booking within 24 hours, your booking will expire and no charge will be placed your credit card. We recommend making a booking request on other properties in the area.
-                </span>
-            </div>
-        </div>
-
-        <b>How do I reset my password?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    Follow these steps to reset your password:
-                </span><p></p>
-                <span><b>1.</b> Navigate to the Admin login page. You can do this by your web browser, and then selecting Owner Login.</span><br>
-                <span><b>2.</b> Under the “Reset your password” section, enter the email address you use for receiving enquiries and booking requests.</span><br>
-                <span><b>3.</b> An email will be sent to the above email address with instructions to reset your password.</span><p></p>
-                <span>If you experience any problems with this, please contact our support team using the <a>Message icon</a> button at the right bottom of this page.</span>
-            </div>
-        </div>
-
-        <b>How do I view my booking details?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    Your booking details can be found within your first confirmation email from Goodstay. This email has important information such as the property manager's name, email address and phone number.
-                </span><p></p>
-                <span><b>1.</b> Navigate to the Admin login page. You can do this by your web browser, and then selecting Owner Login.</span><br>
-                <span><b>2.</b> Under the “Reset your password” section, enter the email address you use for receiving enquiries and booking requests.</span><br>
-                <span><b>3.</b> An email will be sent to the above email address with instructions to reset your password.</span><p></p>
-                <span>If you experience any problems with this, please contact our support team using the <a>Message icon</a> button at the right bottom of this page.</span>
-            </div>
-        </div>
-
-        <b>Why post page always show the new advertisement?</b>
-        <div>
-            <div class="notification gs-text-md">
-                <span>
-                    Firstly, when user post a new advertisement, it enables most of users to watch the new advertisement immediately in post page, it also makes users to watch different advertisement in different time rather than always the same information.
-                </span><p></p>
-                <span>Secondly, update new information is important for users to know different type of advertisement, as different property provider, they also hope to publish their advertisement immediately, then users can search their property soon, for visitor, they can book fast if they find a suitable room, for provider, the post page ensure them to release their room fast.</span>
-                </div>
-        </div>
-
     </div>
 </div>
+<!-- /container -->
 
 <!-- /custom footer -->
 <%@include file="footer.jsp"%>
 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/assets/jquery.min.js"></script>
-<script src="js/assets/flat-ui.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/assets/flat-ui.js"></script>
+<!-- To enable mobile swipe -->
+<script src="js/assets/jquery.mobile.min.js"></script>
 <script src="js/assets/application.js"></script>
+<script src="js/vendor/imagesloaded.pkgd.js"></script>
+<script src="js/vendor/velocity.min.js"></script>
+<script src="js/vendor/sweetalert-dev.js"></script>
+<script src="js/vendor/dropzone.js"></script>
+<script src="js/assets/bootstrap-datepicker.min.js"></script>
+<!-- Custom jquery sentences -->
+<script src="js/backtop.js"></script>
+<script src="js/goto-stuff.js"></script>
+<script src="js/alert.js"></script>
+<script src="js/dropzone.custom.js"></script>
+<script src="js/formCheck.js"></script>
+<!-- <script src="../js/deleteUpload.js"></script> -->
+<script>
+    $(document).ready(function() {
+        $('.input-daterange').datepicker({
+            format: "yyyy-mm-dd"
+        });
+    });
+
+    $("select").select2({
+        dropdownCssClass : 'dropdown-inverse'
+    });
+
+    // This sample uses the Place Autocomplete widget requesting only a place
+    // ID to allow the user to search for and locate a place. The sample
+    // then reverse geocodes the place ID and displays an info window
+    // containing the place ID and other information about the place that the
+    // user has selected.
+
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -33.8688, lng: 151.2195},
+            zoom: 13
+        });
+
+        var input = document.getElementById('pac-input');
+
+        var autocomplete = new google.maps.places.Autocomplete(
+            input, {placeIdOnly: true});
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        var placeID = document.getElementById('placeid');
+        var placeCoordinate = document.getElementById('coordinate');
+        infowindow.setContent(infowindowContent);
+        var geocoder = new google.maps.Geocoder;
+        var marker = new google.maps.Marker({
+            map: map
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+
+        autocomplete.addListener('place_changed', function() {
+            infowindow.close();
+            var place = autocomplete.getPlace();
+
+            if (!place.place_id) {
+                return;
+            }
+            geocoder.geocode({'placeId': place.place_id}, function(results, status) {
+
+                if (status !== 'OK') {
+                    window.alert('Geocoder failed due to: ' + status);
+                    return;
+                }
+                map.setZoom(13);
+                map.setCenter(results[0].geometry.location);
+                // Set the position of the marker using the place ID and location.
+                marker.setPlace({
+                    placeId: place.place_id,
+                    location: results[0].geometry.location
+                });
+                marker.setVisible(true);
+                infowindowContent.children['place-name'].textContent = place.name;
+                infowindowContent.children['place-id'].textContent = place.place_id;
+                infowindowContent.children['place-address'].textContent = results[0].formatted_address;
+                infowindowContent.children['place-coordinate'].textContent = results[0].geometry.location;
+                placeID.setAttribute('value', place.place_id);
+                placeCoordinate.setAttribute('value', results[0].geometry.location);
+                infowindow.open(map, marker);
+            });
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM_XHyreD0F1r-uT2f6OtCDnkWfcfHxy8&libraries=places&callback=initMap"
+        async defer></script>
 </body>
 </html>

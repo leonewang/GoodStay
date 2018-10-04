@@ -275,23 +275,25 @@ public class DBDao {
      */
     public void addPost(Post post) throws SQLException {
         Connection conn = DBUtil.getConn();
-        String sql = "insert into Post" + "(title, city, address, type, demands, amenities, photos, description, price," +
+        String sql = "insert into Post" + "(title, city, address, placeid, coordinate, type, demands, amenities, photos, description, price," +
                 " alidadamatch, start_date, end_date, post_date, post_by, stick_date) " +
-                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP(), ?, CURRENT_TIMESTAMP())";
+                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, CURRENT_TIMESTAMP(), ?, CURRENT_TIMESTAMP())";
         PreparedStatement ptmt = conn.prepareStatement(sql);
         ptmt.setString(1, post.getTitle());
         ptmt.setString(2, post.getCity());
         ptmt.setString(3, post.getAddress());
-        ptmt.setString(4, post.getType());
-        ptmt.setString(5, post.getDemands());
-        ptmt.setString(6, post.getAmenities());
-        ptmt.setInt(7, post.getPhotos());
-        ptmt.setString(8, post.getDescription());
-        ptmt.setInt(9, post.getPrice());
-        ptmt.setString(10, post.getAlidadamatch());
-        ptmt.setTimestamp(11, post.getStart_date());
-        ptmt.setTimestamp(12, post.getEnd_date());
-        ptmt.setInt(13, post.getPost_by());
+        ptmt.setString(4, post.getPlaceid());
+        ptmt.setString(5, post.getCoordinate());
+        ptmt.setString(6, post.getType());
+        ptmt.setString(7, post.getDemands());
+        ptmt.setString(8, post.getAmenities());
+        ptmt.setInt(9, post.getPhotos());
+        ptmt.setString(10, post.getDescription());
+        ptmt.setInt(11, post.getPrice());
+        ptmt.setString(12, post.getAlidadamatch());
+        ptmt.setDate(13, post.getStart_date());
+        ptmt.setDate(14, post.getEnd_date());
+        ptmt.setInt(15, post.getPost_by());
         ptmt.execute();
     }
 
@@ -312,6 +314,8 @@ public class DBDao {
             post.setTitle(rs.getString("title"));
             post.setCity(rs.getString("city"));
             post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
             post.setType(rs.getString("type"));
             post.setDemands(rs.getString("demands"));
             post.setAmenities(rs.getString("amenities"));
@@ -319,8 +323,8 @@ public class DBDao {
             post.setDescription(rs.getString("description"));
             post.setPrice(rs.getInt("price"));
             post.setAlidadamatch(rs.getString("alidadamatch"));
-            post.setStart_date(rs.getTimestamp("start_date"));
-            post.setEnd_date(rs.getTimestamp("end_date"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
             post.setPost_date(rs.getTimestamp("post_date"));
             post.setLikes(rs.getInt("likes"));
             post.setPost_by(rs.getInt("post_by"));
@@ -349,6 +353,8 @@ public class DBDao {
             post.setTitle(rs.getString("title"));
             post.setCity(rs.getString("city"));
             post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
             post.setType(rs.getString("type"));
             post.setDemands(rs.getString("demands"));
             post.setAmenities(rs.getString("amenities"));
@@ -356,8 +362,8 @@ public class DBDao {
             post.setDescription(rs.getString("description"));
             post.setPrice(rs.getInt("price"));
             post.setAlidadamatch(rs.getString("alidadamatch"));
-            post.setStart_date(rs.getTimestamp("start_date"));
-            post.setEnd_date(rs.getTimestamp("end_date"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
             post.setPost_date(rs.getTimestamp("post_date"));
             post.setLikes(rs.getInt("likes"));
             post.setPost_by(rs.getInt("post_by"));

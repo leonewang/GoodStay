@@ -1,4 +1,5 @@
 package model;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Post {
@@ -13,8 +14,8 @@ public class Post {
     private String description;
     private Integer price;
     private String alidadamatch;
-    private Timestamp start_date;
-    private Timestamp end_date;
+    private Date start_date;
+    private Date end_date;
     private Timestamp post_date;
     private Integer likes;
     private Integer post_by;
@@ -22,6 +23,8 @@ public class Post {
     private Timestamp stick_date;
     private Integer status;
     private String poster;
+    private String placeid;
+    private String coordinate;
 
     public Integer getId() {
         return id;
@@ -111,19 +114,19 @@ public class Post {
         this.alidadamatch = alidadamatch;
     }
 
-    public Timestamp getStart_date() {
+    public Date getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(Timestamp start_date) {
+    public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
 
-    public Timestamp getEnd_date() {
+    public Date getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(Timestamp end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 
@@ -183,4 +186,19 @@ public class Post {
         this.poster = poster;
     }
 
+    public String getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(String coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public String getPlaceid() {
+        return placeid;
+    }
+
+    public void setPlaceid(String placeid) {
+        this.placeid = placeid;
+    }
 }

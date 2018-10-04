@@ -32,12 +32,23 @@
             background-color: #ECF0F1;
             border-radius: 3px;
         }
+        #infowindow-content {
+            display: none;
+        }
+        #map #infowindow-content {
+            display: inline;
+        }
+        #map {
+            height: 300px;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body style="padding-top: 70px;">
 <!-- /custom navbar -->
 <%@include file="nav.jsp"%>
-
 <div class="gs-container container">
     <div id="list-alert" class="alert alert-success alert-dismissible" role="alert">
         <span class="gs-alert-icon fui-info-circle"></span><span class="gs-color-dsun"><strong>Get 1,000 Bonus Credits for listing Apartment & Unit today!</strong></span><strong> Also get 1,000 Bonus Credits by filling your details! <a>Click to do it! </a></strong>
@@ -58,7 +69,7 @@
     <div class="gs-content">
         <div class="gs-content-left">
             <div class="list-form">
-                <form  action="/PostServlet" method="post"<%-- onsubmit="return checkList();--%>">
+                <form action="/PostServlet" method="post">
                     <input type="text" name="id" value="<%=user.getId()%>" hidden/>
                     <div id="list-title">
                         <div class="list-text">
@@ -73,10 +84,15 @@
                         <div class="list-text">
                             <strong>Address</strong> <span class="gs-color-dsun">*</span>
                         </div>
-                        <div class="list-input" id="locationField">
-                            <input id="autocomplete" type="text" class="form-control" name="address" onFocus="geolocate()"
-                                   placeholder="e.g. 3/17 Mascot Drive, Eastlakes NSW"/>
+                        <div class="list-input">
+                            <input id="pac-input" type="text" class="form-control" name="address" onFocus="geolocate()"
+                                   placeholder="e.g. 3/17 Mascot Drive, Eastlakes NSW" onkeydown="if(event.keyCode==13){return false;}"/>
                         </div>
+                    </div>
+
+                    <div style="display: none;">
+                        <input type="text" value="" name="placeid" id="placeid"/>
+                        <input type="text" value="" name="coordinate" id="coordinate"/>
                     </div>
 
                     <div id="list-area">
@@ -113,24 +129,25 @@
                                     <option value="2 People" selected>2 People</option>
                                     <option value="3 People">3 People</option>
                                     <option value="More than 3 People">More than 3 People</option>
-                                    <optgroup label="Bedroom">
-                                        <option value="1 Bedroom" selected>1 Bedroom</option>
-                                        <option value="2 Bedrooms">2 Bedrooms</option>
-                                        <option value="3 Bedrooms">3 Bedrooms</option>
-                                        <option value="More than 3 Bedrooms">More than 3 Bedrooms</option>
-                                    </optgroup>
-                                    <optgroup label="Bed">
-                                        <option value="1 Bed">1 Bed</option>
-                                        <option value="2 Beds">2 Beds</option>
-                                        <option value="3 Beds">3 Beds</option>
-                                        <option value="More than 3 Beds">More than 3 Beds</option>
-                                    </optgroup>
-                                    <optgroup label="Bathroom">
-                                        <option value="1 Bathroom">1 Bathroom</option>
-                                        <option value="1.5 Bathrooms">1.5 Bathrooms</option>
-                                        <option value="2 Bathrooms">2 Bathrooms</option>
-                                        <option value="More than 2 Bathrooms">More than 2 Bathrooms</option>
-                                    </optgroup>
+                                </optgroup>
+                                <optgroup label="Bedroom">
+                                    <option value="1 Bedroom" selected>1 Bedroom</option>
+                                    <option value="2 Bedrooms">2 Bedrooms</option>
+                                    <option value="3 Bedrooms">3 Bedrooms</option>
+                                    <option value="More than 3 Bedrooms">More than 3 Bedrooms</option>
+                                </optgroup>
+                                <optgroup label="Bed">
+                                    <option value="1 Bed">1 Bed</option>
+                                    <option value="2 Beds">2 Beds</option>
+                                    <option value="3 Beds">3 Beds</option>
+                                    <option value="More than 3 Beds">More than 3 Beds</option>
+                                </optgroup>
+                                <optgroup label="Bathroom">
+                                    <option value="1 Bathroom">1 Bathroom</option>
+                                    <option value="1.5 Bathrooms">1.5 Bathrooms</option>
+                                    <option value="2 Bathrooms">2 Bathrooms</option>
+                                    <option value="More than 2 Bathrooms">More than 2 Bathrooms</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>
@@ -183,7 +200,9 @@
                         </div>
                     </div>
 
-                    <div class="list-unlock gs-color-dclouds"><small><span class="fui-check-circle"></span>&nbsp;Make a quick deal by introducing your place <a href="#">in details</a> !</small></div>
+                    <div class="list-unlock gs-color-dclouds"><small><span class="fui-check-circle"></span>
+                        &nbsp;Make a quick deal by introducing your place <a href="#">in details</a> !</small>
+                    </div>
 
                     <div id="list-cash">
                         <div class="list-text">
@@ -243,13 +262,23 @@
         </div>
 
         <div class="gs-content-right">
-            <h2 style="border: none; margin-top: -35px;">Quick deal?</h2>
-            <div id="first-row">
-                <small><strong>Tip:</strong> Maybe you can try to <strong>add more photos</strong> & <strong>write an introduction explicitly</strong>, then it would get a better placement in search & attract more users on your listing.</small>
+
+            <div id="map"></div>
+            <div id="infowindow-content">
+                <span id="place-name"  class="title"></span><br>
+                Place ID <span id="place-id"></span><br>
+                <span id="place-address"></span><br>
+                <span id="place-coordinate"></span>
             </div>
-            <h2 style="border: none;">Listing Summary</h2>
+
+            <h2 style="border: none; margin-top: -35px;">Where is the place?</h2>
+            <div id="first-row">
+                <small>Just try to <strong>fill in the address</strong>, then you will get the location shown in tha map above. (Google Map API Used.)</small>
+            </div>
+            <h2 style="border: none;">Tips here</h2>
             <div id="third-row">
-                <small>Beware of <strong>Internet Fraud</strong>, you should double check <strong> poster's personal information & feedbacks from other users</strong></a>.<br /> You can also make a phone call or just go for a look.</small>
+                <small>Maybe you can try to <strong>add more photos</strong> & <strong>write an introduction explicitly</strong>, then it would get a better placement in search & attract more users on your listing.</small><br>
+                <small>Also, beware of <strong>Internet Fraud</strong>, you should double check <strong> poster's personal information & feedbacks from other users</strong></a>.<br /> You can also make a phone call or just go for a look.</small>
             </div>
 
             <h2 id="list-error-title" class="gs-hidden">Something wrong</h2>
@@ -283,8 +312,6 @@
 <script src="js/dropzone.custom.js"></script>
 <script src="js/formCheck.js"></script>
 <!-- <script src="../js/deleteUpload.js"></script> -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM_XHyreD0F1r-uT2f6OtCDnkWfcfHxy8&libraries=places"
-        type="text/javascript"></script>
 <script>
     $(document).ready(function() {
         $('.input-daterange').datepicker({
@@ -296,72 +323,71 @@
         dropdownCssClass : 'dropdown-inverse'
     });
 
-    // This example displays an address form, using the autocomplete feature
-    // of the Google Places API to help users fill in the information.
+    // This sample uses the Place Autocomplete widget requesting only a place
+    // ID to allow the user to search for and locate a place. The sample
+    // then reverse geocodes the place ID and displays an info window
+    // containing the place ID and other information about the place that the
+    // user has selected.
 
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-    var placeSearch, autocomplete;
-    var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-    };
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -33.8688, lng: 151.2195},
+            zoom: 13
+        });
 
-    function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
+        var input = document.getElementById('pac-input');
 
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
-    }
+        var autocomplete = new google.maps.places.Autocomplete(
+            input, {placeIdOnly: true});
+        autocomplete.bindTo('bounds', map);
 
-    function fillInAddress() {
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        var placeID = document.getElementById('placeid');
+        var placeCoordinate = document.getElementById('coordinate');
+        infowindow.setContent(infowindowContent);
+        var geocoder = new google.maps.Geocoder;
+        var marker = new google.maps.Marker({
+            map: map
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
 
-        for (var component in componentForm) {
-            document.getElementById(component).value = '';
-            document.getElementById(component).disabled = false;
-        }
+        autocomplete.addListener('place_changed', function() {
+            infowindow.close();
+            var place = autocomplete.getPlace();
 
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        for (var i = 0; i < place.address_components.length; i++) {
-            var addressType = place.address_components[i].types[0];
-            if (componentForm[addressType]) {
-                var val = place.address_components[i][componentForm[addressType]];
-                document.getElementById(addressType).value = val;
+            if (!place.place_id) {
+                return;
             }
-        }
-    }
+            geocoder.geocode({'placeId': place.place_id}, function(results, status) {
 
-    // Bias the autocomplete object to the user's geographical location,
-    // as supplied by the browser's 'navigator.geolocation' object.
-    function geolocate() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var geolocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                var circle = new google.maps.Circle({
-                    center: geolocation,
-                    radius: position.coords.accuracy
+                if (status !== 'OK') {
+                    window.alert('Geocoder failed due to: ' + status);
+                    return;
+                }
+                map.setZoom(13);
+                map.setCenter(results[0].geometry.location);
+                // Set the position of the marker using the place ID and location.
+                marker.setPlace({
+                    placeId: place.place_id,
+                    location: results[0].geometry.location
                 });
-                autocomplete.setBounds(circle.getBounds());
+                marker.setVisible(true);
+                infowindowContent.children['place-name'].textContent = place.name;
+                placeID.setAttribute('value', place.place_id);
+                placeCoordinate.setAttribute('value', results[0].geometry.location);
+                infowindow.open(map, marker);
             });
-        }
+        });
     }
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM_XHyreD0F1r-uT2f6OtCDnkWfcfHxy8&libraries=places&callback=initMap"
+        async defer></script>
 </body>
 </html>
