@@ -285,22 +285,6 @@
         $('#checkoutdate').datepicker({
             format: "yyyy-mm-dd"
         });
-        $('.like').click(function() {
-            var a = $(this);
-            $.ajax({
-                url: "LikeServlet",
-                data: {
-                    id:  $(this).attr('like'),
-                    send_to: $(this).attr('send-to'),
-                    send_from: $(this).attr('send-from')
-                },
-                type: "GET",
-                datatype: "txt",
-                success: function(data){
-                    a.html("Liked");
-                }
-            });
-        });
     });
 </script>
 </body>

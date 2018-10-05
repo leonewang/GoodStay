@@ -255,10 +255,10 @@
                             <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(post.getPost_date().getTime())%>
                         </b></small>
                     </li>
-                    <li onselectstart="return false"><a id="cd-add-watchlist"><span
-                            class="cd-item-icon fui-heart watch"></span>
-                        <small><b class="cd-item-watch">Add to watchlist </b></small>
-                    </a>
+                    <li onselectstart="return false">
+                        <a id="cd-add-watchlist" href="#"><span class="cd-item-icon fui-heart watch"></span>
+                            <small><b class="cd-item-watch">Add to watchlist </b></small>
+                        </a>
                         <small> (<span class="watching-num"><%=post.getLikes()%></span> watching)</small>
                     </li>
                     <li><span class="cd-item-icon fui-location"></span>

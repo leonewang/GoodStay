@@ -45,9 +45,11 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img
-                        src="images/character/leone.jpg" height="40"
-                        width="40" alt="Leone" class="img-circle hidden-xs"><%=user.getUser_name()%> <b class="caret"></b></a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="images/character/leone.jpg" height="40" width="40" alt="Leone" class="img-circle hidden-xs">
+                        <%=user.getUser_name()%> <b class="caret"></b><span id="user_id" hidden><%=user.getId()%></span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="/ProfileServlet?id=<%=user.getId()%>" class="gs-text-md"><span class="glyphicon fui-user"
                                                                  aria-hidden="true"></span>Profile</a></li>

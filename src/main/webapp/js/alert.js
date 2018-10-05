@@ -34,9 +34,46 @@ function stickToTop(node) {
             node.setAttribute("disabled","disabled");
         })
         .error(function(data) {
-            swal("Please wait", "Sorry, you can only use stick to top once daily.", "error");
+            swal("Try later...", "Sorry, you can only use stick to top <b>once daily</b>.", "error");
         });
 };
+
+// Add to watch list
+$('#cd-add-watchlist').click(function() {
+    addToWatchlist(this);
+});
+
+function addToWatchlist(node) {
+    $.ajax({
+        url: "WatchlistServlet",
+        type: "GET",
+        dataType: "json",
+        data: {
+            post_id: $("#post_id").text(),
+            user_id: $("#user_id").text()
+        }
+    })
+        .done(function(data) {
+            swal("Great!", "You have put the post into your watch list and you can see it in your profile page later.", "success");
+            var remove_num, add_num;
+            var icon_heart = $('#cd-add-watchlist').find('.cd-item-icon'),
+                watching_num = $('#cd-add-watchlist').parent().find('.watching-num');
+            if(icon_heart.hasClass('watch')) {
+                icon_heart.removeClass('watch');
+                icon_heart.addClass('watching');
+                //add ajax sentences here
+
+                remove_num = parseInt(remove_num_separator(watching_num.html())) + 1;
+                add_num = add_num_separator(remove_num);
+                watching_num.html(add_num);
+                $('#cd-add-watchlist').find('.cd-item-watch').html('Now watching!');
+            }
+        })
+        .error(function(data) {
+            swal("Naughty man!", "It is already in your watch list", "error");
+        });
+};
+
 //check availability
 function checkAvailability(check_in, check_out) {
     swal({

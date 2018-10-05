@@ -446,16 +446,44 @@ public class DBDao {
     }
 
     /**
-     * Update post func
+     * Add to watch list func
      *
-     * @param id
+     * @param post_id, user_id
      * @throws SQLException
      */
-    public void updatePost(Integer id) throws SQLException {
+    public void addToWatchlist(String post_id, Integer user_id) throws SQLException {
         Connection conn = DBUtil.getConn();
-        String sql = "update Post set likes = likes + 1 where id = " + id;
+        String sql1 = "update Post set likes = likes + 1 where id = '" + post_id + "'";
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate(sql);
+        stmt.executeUpdate(sql1);
+        String sql2 = "insert into Watchlist(post_id, user_id)" +
+                " values(?, ?)";
+        PreparedStatement ptmt = conn.prepareStatement(sql2);
+        ptmt.setString(1, post_id);
+        ptmt.setInt(2, user_id);
+        ptmt.execute();
+    }
+
+    /**
+     * Add to watch list func
+     *
+     * @param post_id, user_id
+     * @throws SQLException
+     */
+    public Boolean isInWatchlist(String post_id, Integer user_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "select id from Watchlist where post_id = '" + post_id + "' and user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        int result = 0;
+        while (rs.next()) {
+            result = rs.getInt("id");
+        }
+        if(result != 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

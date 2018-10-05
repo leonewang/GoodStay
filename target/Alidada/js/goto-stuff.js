@@ -92,33 +92,6 @@ $(function() {
 		}); // end shown
 	}); // end each
 
-
-	//add to watch list
-	$('#cd-add-watchlist').click(function(){
-		var remove_num, add_num;
-		var icon_heart = $(this).find('.cd-item-icon'),
-			watching_num = $(this).parent().find('.watching-num');
-		if(icon_heart.hasClass('watch')) {
-			icon_heart.removeClass('watch');
-			icon_heart.addClass('watching');
-			//add ajax sentences here
-
-			remove_num = parseInt(remove_num_separator(watching_num.html())) + 1;
-			add_num = add_num_separator(remove_num);
-			watching_num.html(add_num);
-			$(this).find('.cd-item-watch').html('Now watching!');
-		} else {
-			icon_heart.removeClass('watching');
-			icon_heart.addClass('watch');
-			//add ajax sentences here
-
-			remove_num = parseInt(remove_num_separator(watching_num.html())) - 1;
-			add_num = add_num_separator(remove_num);
-			watching_num.html(add_num);
-			$(this).find('.cd-item-watch').html('Add to watchlist');
-		}	
-	});
-
 	//become a fan
 	$('#be-fans').click(function(){
 		var remove_num, add_num;
