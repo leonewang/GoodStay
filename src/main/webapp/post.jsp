@@ -1,4 +1,5 @@
 <%@ page import="model.User" %>
+<%@ page import="java.util.UUID" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,7 @@
             padding: 10px 20px;
             width: 65%;
             background-color: #ECF0F1;
-            border-radius: 3px;
+            border-radius: 5px;
         }
         #infowindow-content {
             display: none;
@@ -43,6 +44,15 @@
             border: 2px solid #bdc3c7;
             border-radius: 6px;
             margin-bottom: 30px;
+        }
+        #qiniupercent {
+            height: 15px;
+            width: 100%;
+            padding: 0;
+            margin: 10px 0 0 7%;
+            border: none;
+            border-radius: 3px;
+            background-color: #1ABC9C;
         }
     </style>
 </head>
@@ -71,6 +81,7 @@
             <div class="list-form">
                 <form action="/PostServlet" method="post">
                     <input type="text" name="id" value="<%=user.getId()%>" hidden/>
+                    <input type="text" name="postID" value="<%=UUID.randomUUID().toString()%>" id="post_id" hidden/>
                     <div id="list-title">
                         <div class="list-text">
                             <strong>Title</strong> <span class="gs-color-dsun">*</span>
@@ -181,14 +192,17 @@
                         <div class="list-text">
                             <strong>Photo</strong> <span class="gs-color-dsun">&nbsp;&nbsp;</span>
                         </div>
-                        <div class="list-dropzone list-input">
-                            <div id="dropz" class="dropzone list-right"></div>
-                            <input id="photos" type="text" name="photos" value="1" hidden/>
+                        <div class="list-input">
+                            <div id="container" style="width: 30%;float: left;">
+                                <a class="btn btn-sm btn-primary" id="pickfiles" href="#" style="width: 100%;">
+                                    <span id="image-num">Upload</span><span id="total-num"></span></a>
+                            </div>
+                            <div style="width: 65%;float: left;"><button type="button" id="qiniupercent" style="width: 0%;"></button></div>
                         </div>
                     </div>
 
                     <div id="list-photo-tip">
-                        <span class="fui-heart gs-color-pink"></span><small class="gs-color-dsun gs-text-sm"> &nbsp;&nbsp;Your first image will appear in search results!</small>
+                        <span class="fui-heart gs-color-pink"></span><small class="gs-color-dsun gs-text-sm"> &nbsp;&nbsp;Your first uploaded image will appear in search results!</small>
                     </div>
 
                     <div id="list-description">
@@ -301,22 +315,19 @@
 <script src="js/vendor/imagesloaded.pkgd.js"></script>
 <script src="js/vendor/velocity.min.js"></script>
 <script src="js/vendor/sweetalert-dev.js"></script>
-<script src="js/vendor/dropzone.js"></script>
 <script src="js/assets/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/plupload/2.1.9/moxie.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/plupload/2.1.9/plupload.dev.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.min.js"></script>
+<script src="js/qiniuImg.js"></script>
+
 <!-- Custom jquery sentences -->
 <script src="js/backtop.js"></script>
 <script src="js/goto-stuff.js"></script>
 <script src="js/alert.js"></script>
-<script src="js/dropzone.custom.js"></script>
 <script src="js/formCheck.js"></script>
 <!-- <script src="../js/deleteUpload.js"></script> -->
 <script>
-    $(document).ready(function() {
-        $('.input-daterange').datepicker({
-            format: "yyyy-mm-dd"
-        });
-    });
-
     $("select").select2({
         dropdownCssClass : 'dropdown-inverse'
     });
@@ -359,7 +370,6 @@
         autocomplete.addListener('place_changed', function() {
             infowindow.close();
             var place = autocomplete.getPlace();
-            alert(place.address_components[2]);
 
             if (!place.place_id) {
                 return;
@@ -385,6 +395,29 @@
             });
         });
     }
+
+    /*
+	页面加载完毕 发起请求获取七牛token
+	* 之后调用上传组件构造方法[qiniuImg.js]
+	*/
+    function getTokenMessage() {
+        $.ajax({
+            url: "UptokenServlet",
+            type: 'POST',
+            data: {},
+            dataType : 'html',
+            success: function (data) {
+                uploaderReady(data);
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        $('.input-daterange').datepicker({
+            format: "yyyy-mm-dd"
+        });
+        getTokenMessage();
+    });
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM_XHyreD0F1r-uT2f6OtCDnkWfcfHxy8&libraries=places&callback=initMap"
         async defer></script>

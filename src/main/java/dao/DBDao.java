@@ -252,19 +252,62 @@ public class DBDao {
     /**
      * Insert post func
      *
-     * @param binImage
+     * @param image
      * @throws SQLException
      */
-    public Integer addImage(String binImage) throws SQLException {
+    public void addImage(Image image) throws SQLException {
         Connection conn = DBUtil.getConn();
-        String sql = "insert into Image" + "(text, url, image_id, post_date) " +
-                "values(?, ?, ?, CURRENT_TIMESTAMP())";
+        String sql = "insert into Image" + "(post_id, content, date) " +
+                "values(?, ?, CURRENT_TIMESTAMP())";
         PreparedStatement ptmt = conn.prepareStatement(sql);
-//        ptmt.setString(1, post.getText());
-//        ptmt.setString(2, post.getUrl());
-//        ptmt.setInt(3, post.getImage_id());
+        ptmt.setString(1, image.getPostid());
+        ptmt.setString(2, image.getContent());
         ptmt.execute();
-        return null;
+        System.out.println("image inserted.");
+    }
+
+    /**
+     * Find all uploaded image by post id
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public List<Image> findImages(String id) throws SQLException {
+        List<Image> images = new ArrayList<Image>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from Image where post_id='"+ id + "'";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Image image = new Image();
+            image.setId(rs.getInt("id"));
+            image.setPostid(rs.getString("post_id"));
+            image.setContent(rs.getString("content"));
+            image.setDate(rs.getTimestamp("date"));
+            images.add(image);
+        }
+        return images;
+    }
+
+    /**
+     * Find the first uploaded image by post id
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public Image findImage(String id) throws SQLException {
+        Image image = new Image();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from Image where post_id='"+ id + "' limit 1";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            image.setId(rs.getInt("id"));
+            image.setPostid(rs.getString("post_id"));
+            image.setContent(rs.getString("content"));
+            image.setDate(rs.getTimestamp("date"));
+        }
+        return image;
     }
 
     /**
@@ -275,19 +318,19 @@ public class DBDao {
      */
     public void addPost(Post post) throws SQLException {
         Connection conn = DBUtil.getConn();
-        String sql = "insert into Post" + "(title, city, address, placeid, coordinate, type, demands, amenities, photos, description, price," +
+        String sql = "insert into Post" + "(id, title, city, address, placeid, coordinate, type, demands, amenities, description, price," +
                 " alidadamatch, start_date, end_date, post_date, post_by, stick_date) " +
-                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, CURRENT_TIMESTAMP(), ?, CURRENT_TIMESTAMP())";
+                "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, CURRENT_TIMESTAMP(), ?, CURRENT_TIMESTAMP())";
         PreparedStatement ptmt = conn.prepareStatement(sql);
-        ptmt.setString(1, post.getTitle());
-        ptmt.setString(2, post.getCity());
-        ptmt.setString(3, post.getAddress());
-        ptmt.setString(4, post.getPlaceid());
-        ptmt.setString(5, post.getCoordinate());
-        ptmt.setString(6, post.getType());
-        ptmt.setString(7, post.getDemands());
-        ptmt.setString(8, post.getAmenities());
-        ptmt.setInt(9, post.getPhotos());
+        ptmt.setString(1, post.getId());
+        ptmt.setString(2, post.getTitle());
+        ptmt.setString(3, post.getCity());
+        ptmt.setString(4, post.getAddress());
+        ptmt.setString(5, post.getPlaceid());
+        ptmt.setString(6, post.getCoordinate());
+        ptmt.setString(7, post.getType());
+        ptmt.setString(8, post.getDemands());
+        ptmt.setString(9, post.getAmenities());
         ptmt.setString(10, post.getDescription());
         ptmt.setInt(11, post.getPrice());
         ptmt.setString(12, post.getAlidadamatch());
@@ -310,7 +353,7 @@ public class DBDao {
         ResultSet rs = ptmt.executeQuery();
         while (rs.next()) {
             Post post = new Post();
-            post.setId(rs.getInt("id"));
+            post.setId(rs.getString("id"));
             post.setTitle(rs.getString("title"));
             post.setCity(rs.getString("city"));
             post.setAddress(rs.getString("address"));
@@ -342,14 +385,14 @@ public class DBDao {
      *
      * @throws SQLException
      */
-    public Post getPostDetail(Integer id) throws SQLException {
+    public Post getPostDetail(String id) throws SQLException {
         Post post = new Post();
         Connection conn = DBUtil.getConn();
-        String sql = "select * from Post where id = " + id;
+        String sql = "select * from Post where id = '" + id + "'";
         PreparedStatement ptmt = conn.prepareStatement(sql);
         ResultSet rs = ptmt.executeQuery();
         while (rs.next()) {
-            post.setId(rs.getInt("id"));
+            post.setId(rs.getString("id"));
             post.setTitle(rs.getString("title"));
             post.setCity(rs.getString("city"));
             post.setAddress(rs.getString("address"));

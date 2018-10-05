@@ -30,7 +30,7 @@ Dropzone.options.dropz = {
 };
 
 $("#dropz").dropzone({
-	url : "/GotoStuff/uploadAction",
+	url : "/uploadAction",
 	thumbnailWidth: 105,
 	thumbnailHeight: 105,
 	maxFiles : 4,

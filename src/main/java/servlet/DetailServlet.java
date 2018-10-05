@@ -21,7 +21,7 @@ public class DetailServlet extends HttpServlet {
             String id = request.getParameter("id");
             DBDao dbdao = new DBDao();
 
-            request.setAttribute("post", dbdao.getPostDetail(Integer.valueOf(id)));
+            request.setAttribute("post", dbdao.getPostDetail(id));
             request.getRequestDispatcher("/details.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();

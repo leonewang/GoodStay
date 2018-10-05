@@ -3,6 +3,7 @@
 <%@ page import="model.Post" %>
 <%@ page import="dao.DBDao" %>
 <%@ page import="java.util.Locale" %>
+<%@ page import="model.Image" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -181,12 +182,13 @@
                                 } else {
                                     href = "/FriendProfileServlet?id=";
                                 }
+                                Image image = new DBDao().findImage(post.getId());
                         %>
                         <a href="/DetailServlet?id=<%=post.getId()%>">
                             <div class="col-xs-12 col-sm-6 col-md-4 item">
                                 <div class="tile">
                                     <img src="images/icons/svg/ribbon-popular.svg" alt="ribbon" class="tile-hot-ribbon">
-                                    <img data-src="holder.js/100%x200" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzQ4IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDM0OCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMzQ4IiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzMS4xNzk2ODc1IiB5PSIxMDAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjJweDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4zNDh4MjAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+                                    <img alt="100%x200" src="<%=image.getContent()%>" style="height: 200px; width: 100%; display: block;">
                                     <a role="button" disabled="disabled" class="btn btn-sm btn-primary btn-block"
                                        style="margin-top: 10px; background-color: #95A5A6; color: #fff;">
                                         <%

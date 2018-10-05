@@ -3,7 +3,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Post {
-    private Integer id;
+    private String id;
     private String title;
     private String city;
     private String address;
@@ -26,11 +26,11 @@ public class Post {
     private String placeid;
     private String coordinate;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -1,6 +1,7 @@
 <%@ page import="model.User" %>
 <%@ page import="model.Post" %>
 <%@ page import="java.util.Locale" %>
+<%@ page import="model.Image" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +46,7 @@
 <%@include file="nav.jsp"%>
 <%
     Post post = (Post) request.getAttribute("post");
+    List<Image> images = new DBDao().findImages(post.getId());
 %>
 <!-- container -->
 <div class="gs-container container">
@@ -71,12 +73,14 @@
         <div class="gs-content-left">
             <section class="cd-single-item cd-slider-active">
                 <div class="cd-slider-wrapper">
-                    <ul class="cd-slider">
-                        <li class="selected"><img src="https://z1.muscache.cn/im/pictures/7c85b432-33fe-4ebd-8abf-dad0576183fc.jpg?aki_policy=xx_large" alt="Product Image 1"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/64c2efd8-d81c-4611-a5f9-a9f4df274fe4.jpg?aki_policy=x_large" alt="Product Image 2"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/20334448/48387d04_original.jpg?aki_policy=x_large" alt="Product Image 3"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/20334317/fb23306e_original.jpg?aki_policy=x_large" alt="Product Image 4"></li>
-                        <li><img src="https://z1.muscache.cn/im/pictures/20334595/c4c0724f_original.jpg?aki_policy=x_large" alt="Product Image 5"></li>
+                    <ul class="cd-slider" id="list-images">
+                        <%
+                            for (Image image: images){
+                        %>
+                        <li><img src="<%=image.getContent()%>" alt="Post Image"></li>
+                        <%
+                            }
+                        %>
                     </ul>
                     <!-- cd-slider -->
 
@@ -375,8 +379,6 @@
 <!-- /container -->
 <%
     String[] co = post.getCoordinate().split(",");
-    System.out.println(co[0].substring(1));
-    System.out.println(co[1].substring(1, co[1].length()-1));
 %>
 
 <!-- /custom footer -->
@@ -404,6 +406,7 @@
 <!-- <script src="js/deleteUpload.js"></script> -->
 <script>
     $(document).ready(function() {
+        $('#list-images').find('li:first-child').addClass('selected');
         $('#check-in').datepicker({
             format: "yyyy-mm-dd"
         });

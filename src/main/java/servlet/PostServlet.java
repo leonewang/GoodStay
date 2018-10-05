@@ -24,6 +24,7 @@ import java.util.UUID;
 public class PostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            String id = request.getParameter("postID");
             String title = request.getParameter("title");
             String address = request.getParameter("address");
             String city = request.getParameter("city");
@@ -38,7 +39,6 @@ public class PostServlet extends HttpServlet {
             for(int i = 0; i < amenity.length; i++) {
                 amenities += amenity[i] + ",";
             }
-            Integer photos = Integer.valueOf(request.getParameter("photos"));
             String description = request.getParameter("description");
             Integer price = Integer.valueOf(request.getParameter("price"));
             String alidadamatch = request.getParameter("alidadamatch");
@@ -48,6 +48,7 @@ public class PostServlet extends HttpServlet {
             String placeid = request.getParameter("placeid");
             String coordinate = request.getParameter("coordinate");
 
+            System.out.println("ID: " + id);
             System.out.println("title: " + title);
             System.out.println("address: " + address);
             System.out.println("type: " + type);
@@ -61,13 +62,13 @@ public class PostServlet extends HttpServlet {
 
             DBDao dbdao = new DBDao();
             Post post = new Post();
+            post.setId(id);
             post.setTitle(title);
             post.setAddress(address);
             post.setCity(city);
             post.setType(type);
             post.setDemands(demands);
             post.setAmenities(amenities);
-            post.setPhotos(photos);
             post.setDescription(description);
             post.setPrice(price);
             post.setAlidadamatch(alidadamatch);

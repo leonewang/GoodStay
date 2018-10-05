@@ -80,6 +80,14 @@
     <servlet-name>SearchGraphServlet</servlet-name>
     <servlet-class>servlet.SearchGraphServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UptokenServlet</servlet-name>
+    <servlet-class>servlet.UptokenServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>servlet.ImageServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -157,6 +165,14 @@
   <servlet-mapping>
     <servlet-name>SearchGraphServlet</servlet-name>
     <url-pattern>/SearchGraphServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UptokenServlet</servlet-name>
+    <url-pattern>/UptokenServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/ImageServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
