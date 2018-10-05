@@ -41,7 +41,7 @@
 <body style="padding-top: 70px;">
 <!-- /custom navbar -->
 <%@include file="nav.jsp"%>
-<div class="container">
+<div class="container" style="min-height: 710px;">
     <div>
         <div><h4>Notifications</h4></div>
         <div>

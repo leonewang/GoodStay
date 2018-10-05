@@ -459,6 +459,37 @@ public class DBDao {
     }
 
     /**
+     * Update Stick Date func
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public void updateStickTime(String id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "update Post set stick_date = CURRENT_TIMESTAMP() where id = '" + id + "'";
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql);
+    }
+
+    /**
+     * Get all the friends of the target user
+     *
+     * @param post_id
+     * @throws SQLException
+     */
+    public Timestamp getStickTime(String post_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "select stick_date from Post where id = '" + post_id + "'";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        Timestamp stickDate = null;
+        while (rs.next()) {
+            stickDate = rs.getTimestamp("stick_date");
+        }
+        return stickDate;
+    }
+
+    /**
      * Add friend func
      *
      * @param user_id, friend_id, username

@@ -229,7 +229,7 @@
 
                     <div id="list-bargain">
                         <div class="list-text">
-                            <strong>Alidada Match</strong><a href="#"><span style="margin-left: 7px;" class="fui-question-circle gs-color-greensea"></span></a>
+                            <strong>Alidada Match</strong><a href="/help.jsp"><span style="margin-left: 7px;" class="fui-question-circle gs-color-greensea"></span></a>
                         </div>
                         <div class="list-input">
                             <label class="radio">

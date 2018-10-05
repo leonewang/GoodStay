@@ -22,15 +22,19 @@ $('#stick').click(function() {
 
 function stickToTop(node) {
     $.ajax({
-        url: "",
-        type: "stick"
+        url: "StickServlet",
+        type: "GET",
+        dataType: "json",
+        data: {
+            post_id: $("#post_id").text()
+        }
     })
         .done(function(data) {
             swal("Great!", "Stick this post to the top successfully! It seems other users are more likely to see this post.", "success");
             node.setAttribute("disabled","disabled");
         })
         .error(function(data) {
-            swal("Please refresh the page", "Sorry, something wrong!", "error");
+            swal("Please wait", "Sorry, you can only use stick to top once daily.", "error");
         });
 };
 //check availability

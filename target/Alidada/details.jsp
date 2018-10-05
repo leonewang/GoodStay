@@ -61,7 +61,7 @@
 
     <div>
         <p class="cd-title">
-            <%=post.getTitle()%>
+            <%=post.getTitle()%><span id="post_id" hidden><%=post.getId()%></span>
             <button id="stick" class="btn btn-sm btn-success" style="margin-left: 20px;">
                 <span class="glyphicon glyphicon-pushpin"></span> Stick to top
             </button>
@@ -96,7 +96,7 @@
 
             <div>
                 <section class="cd-content">
-                    <p><%=post.getDescription()%></p>
+                    <p style="white-space: pre-wrap;"><%=post.getDescription()%></p>
                     <div class="cd-content-warning">The lister assumes full responsibility for this listing</div>
                     <div class="cd-content-flag">
                         <a><span class="fui fui-trash"></span> Flag as inappropriates</a>
@@ -157,37 +157,6 @@
                     </h2>
                     <div id="cd-media-list">
                         <ul class="media-list">
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"><img class="media-object" src="images/character/blank.jpg" height="65" width="65"></a>
-                                </div>
-                                <div class="media-body">
-                                    <div>
-                                        <b><a>blank</a></b> We stayed at Gabriel's apartment as a treat for my 30th birthday.
-                                        The views are incredible – waking up to a panorama of the city was pretty special and
-                                        the roof terrace with its little pool are wonderful too.
-                                    </div>
-                                    <div class="media-date">
-                                        Feb 19, 2017 09:25:36
-                                    </div>
-                                    <div class="gs-clear"></div>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#"><img class="media-object" src="images/character/betrayal.jpg" height="65" width="65"></a>
-                                </div>
-                                <div class="media-body">
-                                    <div>
-                                        <b><a>betrayal</a></b> Gabriels flat is absolutely amazing1 Great location with uninterupted
-                                        views of Cape Town. I highly reccomend this flat to anyone wanting to stay in Cape Town!
-                                    </div>
-                                    <div class="media-date">
-                                        Jul 12, 2018 23:32:10
-                                    </div>
-                                    <div class="gs-clear"></div>
-                                </div>
-                            </li>
                             <li class="media">
                                 <div class="media-left">
                                     <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
@@ -290,7 +259,7 @@
                             class="cd-item-icon fui-heart watch"></span>
                         <small><b class="cd-item-watch">Add to watchlist </b></small>
                     </a>
-                        <small> (<span class="watching-num">21</span> watching)</small>
+                        <small> (<span class="watching-num"><%=post.getLikes()%></span> watching)</small>
                     </li>
                     <li><span class="cd-item-icon fui-location"></span>
                         <small><b class="cd-item-location gs-color-dsun"><%=post.getCity()%> </b></small>
