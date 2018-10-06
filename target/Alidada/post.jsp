@@ -414,7 +414,8 @@
 
     $(document).ready(function(){
         $('.input-daterange').datepicker({
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            autoclose: true
         });
         getTokenMessage();
     });

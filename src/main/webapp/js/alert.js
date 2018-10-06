@@ -34,7 +34,8 @@ function stickToTop(node) {
             node.setAttribute("disabled","disabled");
         })
         .error(function(data) {
-            swal("Try later...", "Sorry, you can only use stick to top <b>once daily</b>.", "error");
+            swal("Try later...", "Sorry, you can only use stick to top once daily.", "error");
+            node.setAttribute("disabled","disabled");
         });
 };
 
@@ -71,16 +72,22 @@ function addToWatchlist(node) {
         })
         .error(function(data) {
             swal("Naughty man!", "It is already in your watch list", "error");
+            var remove_num, add_num;
+            var icon_heart = $('#cd-add-watchlist').find('.cd-item-icon');
+            if(icon_heart.hasClass('watch')) {
+                icon_heart.removeClass('watch');
+                icon_heart.addClass('watching');
+                //add ajax sentences here
+                $('#cd-add-watchlist').find('.cd-item-watch').html('Now watching!');
+            }
         });
 };
 
 //check availability
 function checkAvailability(check_in, check_out) {
     swal({
-        title: "Booking history",
-        text: "The place is available from <b>" + check_in + "</b> to <b>"  + check_out + ".</b>" +
-        "<p style='margin: 15px 0;'>And the following dates will not be available:</p>" +
-        "<p><ul><li class='gs-color-dorange'>2018-10-14 ~ 2018-10-18</li></ul></p>",
+        title: "Time Available",
+        text: "The place is available from <b>" + check_in + "</b> to <b>"  + check_out + ".</b>",
         html: true,
         type: "info",
         showCancelButton: false,
@@ -96,7 +103,7 @@ function bookNow(check_in, check_out) {
         return;
     }
     if(check_in > check_out) {
-        swal("Oops", "Naughty, Naughty! Try an correct date period!", "error");
+        swal("Oops", "Try an correct date period!", "error");
         return;
     }
     swal({
@@ -106,15 +113,22 @@ function bookNow(check_in, check_out) {
         type: "warning",
         showCancelButton: true,
         closeOnConfirm: false,
-        confirmButtonText: "Yes, Get it!",
+        confirmButtonText: "Confirm",
         confirmButtonColor: "#2ECC71"
     }, function() {
         $.ajax({
-            url: "/book",
-            type: "BID"
+            url: "BookServlet",
+            type: "GET",
+            dataType: "html",
+            data: {
+                post_id: $("#post_id").text(),
+                user_id: $("#user_id").text(),
+                start_date: $("#check-in").val(),
+                end_date: $("#check-out").val()
+            }
         })
             .done(function(data) {
-                swal("Well Done!", "You book it successfully! ", "success");
+                swal("Well Done!", "You book it successfully! You can see your booking in you profile page later.", "success");
             })
             .error(function(data) {
                 swal("Please refresh the page", "Hold on, there was someone faster than you!", "error");

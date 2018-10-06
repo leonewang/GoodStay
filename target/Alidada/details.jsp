@@ -1,7 +1,7 @@
-<%@ page import="model.User" %>
-<%@ page import="model.Post" %>
-<%@ page import="java.util.Locale" %>
-<%@ page import="model.Image" %>
+<%@ page import="model.*" %>
+<%@ page import="java.sql.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -190,23 +190,20 @@
 
             <div class="gs-seller">
                 <div class="seller-thumb">
-                    <a><img src="images/character/leone.jpg" height="70" width="70"></a>
+                    <a><img src="images/character/leone.jpg" height="76" width="76"></a>
                 </div>
                 <div class="seller-info">
                     <div class="name">
-                        <a href="#"><b><%=post.getPoster()%></b></a>
+                        <b>Hi, I'm <%=post.getPoster()%></b>
                     </div>
-                    <div class="fans" onselectstart="return false">
-                        <small><a id="be-fans"><span class="fui-heart fan"></span> <span class="be-fans-text">Become a fan</span></a>
-                            (<span class="fans-num">32</span> fans)
+                    <div>
+                        <small>Joined in <%=new java.text.SimpleDateFormat("MMMM yyyy", Locale.US).format(user.getCreate_date().getTime())%></small>
+                    </div>
+                    <div>
+                        <small>
+                            <a class="btn btn-sm btn-primary" style="margin-right: 8px;"><span class="be-fans-text">Contact</span></a>
+                            <a href="profile.jsp?user_id=<%=user.getId()%>"><b><span class="be-fans-text">View profile</span></b></a>
                         </small>
-                    </div>
-                    <div class="badges">
-                        <a href="#"><img src="images/badge/266770060211131.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111311.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111312.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111313.png" height="25" width="25"></a>
-                        <a href="#"><img src="images/badge/2667700602111314.png" height="25" width="25"></a>
                     </div>
                 </div>
                 <div class="gs-clear"></div>
@@ -221,8 +218,9 @@
                         <span id="cd-alert-text">You will stay with us from</span></li>
                     <li class="no-icon">
                         <form>
-                            <div id="cd-bid">
-                                <input type="text" id="check-in" class="form-control" placeholder="yyyy-mm-dd"/>
+                            <div id="cd-bid" class="has-feedback">
+                                <input style="padding: 0 0 0 30px;" id="check-in" type="text" value="" placeholder="Check in" class="form-control">
+                                <span style="left: 0px; padding: 0 0 0 3px;" class="form-control-feedback fui-calendar"></span>
                             </div>
                             <div id="cd-bid-submit">
                                 <input type="button" value="Available?" class="btn btn-primary">
@@ -238,8 +236,9 @@
                     </li>
                     <li class="no-icon">
                         <form>
-                            <div id="cd-gin">
-                                <input type="text" id="check-out" class="form-control" placeholder="yyyy-mm-dd"/>
+                            <div id="cd-gin" class="has-feedback">
+                                <input style="padding: 0 0 0 30px;" id="check-out" type="text" value="" placeholder="Check out" class="form-control"/>
+                                <span style="left: 0px; padding: 0 0 0 3px;" class="form-control-feedback fui-calendar"></span>
                             </div>
                             <div id="cd-gin-submit">
                                 <input type="button" value="Book now!" class="btn btn-primary">
@@ -373,14 +372,86 @@
 <script src="js/dropzone.custom.js"></script>
 <script src="js/formCheck.js"></script>
 <!-- <script src="js/deleteUpload.js"></script> -->
+<%
+    List<Booking> bookings = new DBDao().listAllBooking(post.getId());
+%>
 <script>
     $(document).ready(function() {
         $('#list-images').find('li:first-child').addClass('selected');
         $('#check-in').datepicker({
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            datesDisabled: [
+                <%
+                List<String> res_dates = new ArrayList();
+                for(int i = 0; i < bookings.size(); i++) {
+                    Booking booking = bookings.get(i);
+                    Date start_date = booking.getStart_date();
+                    Date end_date = booking.getEnd_date();
+                    String tmp_date = "";
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(start_date);
+                    SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+
+                    while(!tmp_date.equals(String.valueOf(ft.format(end_date)))) {
+                        tmp_date = String.valueOf(ft.format(calendar.getTime()));
+                        res_dates.add(tmp_date);
+                        calendar.add(Calendar.DATE, 1);
+                        tmp_date = String.valueOf(ft.format(calendar.getTime()));
+                    }
+                    res_dates.add(tmp_date);
+                }
+                for(int j = 0; j < res_dates.size() - 1; j++) {
+                %>
+                new Date("<%=res_dates.get(j)%>"),
+                <%
+                }
+                %> new Date("<%=res_dates.get(res_dates.size() - 1)%>")
+
+            ], // new Date("2018-10-15"), new Date("2018-10-16")
+            startDate: new Date("<%=post.getStart_date()%>"),
+            endDate: new Date("<%=post.getEnd_date()%>")
+        }).on('changeDate',function(e){
+            var startTime = e.date;
+            $('#check-out').datepicker('setStartDate',startTime);
         });
+
         $('#check-out').datepicker({
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            datesDisabled: [
+                <%
+                res_dates = new ArrayList();
+                for(int i = 0; i < bookings.size(); i++) {
+                    Booking booking = bookings.get(i);
+                    Date start_date = booking.getStart_date();
+                    Date end_date = booking.getEnd_date();
+                    String tmp_date = "";
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(start_date);
+                    SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+
+                    while(!tmp_date.equals(String.valueOf(ft.format(end_date)))) {
+                        tmp_date = String.valueOf(ft.format(calendar.getTime()));
+                        res_dates.add(tmp_date);
+                        calendar.add(Calendar.DATE, 1);
+                        tmp_date = String.valueOf(ft.format(calendar.getTime()));
+                    }
+                    res_dates.add(tmp_date);
+                }
+                for(int j = 0; j < res_dates.size() - 1; j++) {
+                %>
+                new Date("<%=res_dates.get(j)%>"),
+                <%
+                }
+                %> new Date("<%=res_dates.get(res_dates.size() - 1)%>")
+
+            ], // new Date("2018-10-15"), new Date("2018-10-16")
+            startDate: new Date("<%=post.getStart_date()%>"),
+            endDate: new Date("<%=post.getEnd_date()%>")
+        }).on('changeDate',function(e){
+            var endTime = e.date;
+            $('#check-in').datepicker('setEndDate',endTime);
         });
     });
     // This example requires the Places library. Include the libraries=places

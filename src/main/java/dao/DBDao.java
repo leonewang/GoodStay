@@ -500,6 +500,50 @@ public class DBDao {
     }
 
     /**
+     * Make booking func
+     *
+     * @param user_id, friend_id, username
+     * @throws SQLException
+     */
+    public void makeBooking(String post_id, Integer user_id, Date start_date,
+                          Date end_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "insert into Booking(post_id, user_id, start_date, end_date, date)" +
+                " values(?, ?, ?, ?, CURRENT_TIMESTAMP())";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ptmt.setString(1, post_id);
+        ptmt.setInt(2, user_id);
+        ptmt.setDate(3, start_date);
+        ptmt.setDate(4, end_id);
+        ptmt.execute();
+    }
+
+    /**
+     * List all booking by post_id func
+     *
+     * @throws SQLException
+     */
+    public List<Booking> listAllBooking(String post_id) throws SQLException {
+        List<Booking> bookings = new ArrayList<Booking>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from Booking where post_id = '" + post_id + "'";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Booking booking = new Booking();
+            booking.setId(rs.getString("id"));
+            booking.setPost_id(rs.getString("post_id"));
+            booking.setUser_id(rs.getInt("user_id"));
+            booking.setStart_date(rs.getDate("start_date"));
+            booking.setEnd_date(rs.getDate("end_date"));
+            booking.setDate(rs.getTimestamp("date"));
+            bookings.add(booking);
+        }
+        return bookings;
+    }
+
+
+    /**
      * Get all the friends of the target user
      *
      * @param post_id

@@ -256,10 +256,12 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#checkindate').datepicker({
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            autoclose: true
         });
         $('#checkoutdate').datepicker({
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            autoclose: true
         });
     });
 </script>
