@@ -465,7 +465,7 @@ public class DBDao {
     }
 
     /**
-     * Add to watch list func
+     * Check if post is in the watch list func
      *
      * @param post_id, user_id
      * @throws SQLException
@@ -497,6 +497,79 @@ public class DBDao {
         String sql = "update Post set stick_date = CURRENT_TIMESTAMP() where id = '" + id + "'";
         Statement stmt = conn.createStatement();
         stmt.executeUpdate(sql);
+    }
+
+
+    /**
+     * Get user's watchlist func
+     *
+     * @throws SQLException
+     */
+    public List<Post> getWatchlist(int user_id) throws SQLException {
+        List<Post> posts = new ArrayList<Post>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from watchlist w inner join post p on w.post_id = p.id where user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Post post = new Post();
+            post.setId(rs.getString(4));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setLikes(rs.getInt("likes"));
+            post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
+            post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
+            post.setStatus(rs.getInt("status"));
+            posts.add(post);
+        }
+        return posts;
+    }
+
+    /**
+     * Get user's watchlist id func
+     *
+     * @throws SQLException
+     */
+    public List<Integer> getWatchlistID(int user_id) throws SQLException {
+        List<Integer> ids = new ArrayList<Integer>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select id from watchlist where user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            ids.add(rs.getInt("id"));
+        }
+        return ids;
+    }
+
+    /**
+     * Remove from watchlist func
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public void removeWatchlist(int id, String post_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql1 = "delete from watchlist where id = " + id;
+        String sql2 = "update Post set likes = likes - 1 where id = '" + post_id + "'";
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql1);
+        stmt.executeUpdate(sql2);
     }
 
     /**

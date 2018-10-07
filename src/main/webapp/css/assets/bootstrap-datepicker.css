@@ -290,16 +290,16 @@
 .datepicker table tr td.active:hover,
 .datepicker table tr td.active.disabled,
 .datepicker table tr td.active.disabled:hover {
-  background-color: #006dcc;
-  background-image: -moz-linear-gradient(to bottom, #08c, #0044cc);
-  background-image: -ms-linear-gradient(to bottom, #08c, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#0044cc));
-  background-image: -webkit-linear-gradient(to bottom, #08c, #0044cc);
-  background-image: -o-linear-gradient(to bottom, #08c, #0044cc);
-  background-image: linear-gradient(to bottom, #08c, #0044cc);
+  background-color: #1ABC9C;
+  background-image: -moz-linear-gradient(to bottom, #1ABC9C, #1ABC9C);
+  background-image: -ms-linear-gradient(to bottom, #1ABC9C, #1ABC9C);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1ABC9C), to(#1ABC9C));
+  background-image: -webkit-linear-gradient(to bottom, #1ABC9C, #1ABC9C);
+  background-image: -o-linear-gradient(to bottom, #1ABC9C, #1ABC9C);
+  background-image: linear-gradient(to bottom, #1ABC9C, #1ABC9C);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#08c', endColorstr='#0044cc', GradientType=0);
-  border-color: #0044cc #0044cc #002a80;
+  border-color: #1ABC9C #1ABC9C #1ABC9C;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   color: #fff;
@@ -325,7 +325,7 @@
 .datepicker table tr td.active:hover[disabled],
 .datepicker table tr td.active.disabled[disabled],
 .datepicker table tr td.active.disabled:hover[disabled] {
-  background-color: #0044cc;
+  background-color: #1ABC9C;
 }
 .datepicker table tr td.active:active,
 .datepicker table tr td.active:hover:active,
@@ -335,7 +335,7 @@
 .datepicker table tr td.active:hover.active,
 .datepicker table tr td.active.disabled.active,
 .datepicker table tr td.active.disabled:hover.active {
-  background-color: #003399 \9;
+  background-color: #1ABC9C \9;
 }
 .datepicker table tr td span {
   display: block;

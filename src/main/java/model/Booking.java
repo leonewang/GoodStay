@@ -9,6 +9,7 @@ public class Booking {
     private Date start_date;
     private Date end_date;
     private Timestamp date;
+    private Integer status;
 
     public String getId() {
         return id;
@@ -57,4 +58,13 @@ public class Booking {
     public void setDate(Timestamp date) {
         this.date = date;
     }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
 }

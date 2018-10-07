@@ -167,7 +167,7 @@ function num_reverse(num){
 };
 
 //remove one post from the watchlist
-function remove_watchlist(id) {
+function remove_watchlist(id, post_id) {
     swal({
         title: "Are you sure?",
         text: "Are you sure you want to remove the post from your watchlist?",
@@ -179,14 +179,19 @@ function remove_watchlist(id) {
         confirmButtonColor: "#2ECC71"
     }, function() {
         $.ajax({
-            url: "/book",
-            type: "BID"
+            url: "RemoveWatchlistServlet",
+            type: "GET",
+            dataType: "html",
+            data: {
+                id: id,
+                post_id: post_id
+            }
         })
             .done(function(data) {
-                swal("Successfully", "You removed it.", "success");
+                swal("Removed", "New watchlist will present since refresh.", "success");
             })
             .error(function(data) {
-                swal("Please refresh the page", "Sorry, somethin!", "error");
+                swal("Please refresh the page", "Sorry, something wrong!", "error");
             });
     });
 }

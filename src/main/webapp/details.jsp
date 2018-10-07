@@ -62,10 +62,16 @@
     <div>
         <p class="cd-title">
             <%=post.getTitle()%><span id="post_id" hidden><%=post.getId()%></span>
+            <%
+                if (post.getPost_by().equals(user.getId())) {
+            %>
             <button id="stick" class="btn btn-sm btn-success" style="margin-left: 20px;">
                 <span class="glyphicon glyphicon-pushpin"></span> Stick to top
             </button>
             <a href="#" class="gs-color-green gs-text-sm"><span class="fui-question-circle "></span></a>
+            <%
+                }
+            %>
         </p>
     </div>
 
@@ -202,7 +208,7 @@
                     <div>
                         <small>
                             <a class="btn btn-sm btn-primary" style="margin-right: 8px;"><span class="be-fans-text">Contact</span></a>
-                            <a href="profile.jsp?user_id=<%=user.getId()%>"><b><span class="be-fans-text">View profile</span></b></a>
+                            <a href="profile.jsp?user_id=<%=post.getPost_by()%>"><b><span class="be-fans-text">View profile</span></b></a>
                         </small>
                     </div>
                 </div>
@@ -381,9 +387,12 @@
         $('#check-in').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true,
+            <%
+            List<String> res_dates = new ArrayList();
+            if(bookings.size() > 0) {
+            %>
             datesDisabled: [
                 <%
-                List<String> res_dates = new ArrayList();
                 for(int i = 0; i < bookings.size(); i++) {
                     Booking booking = bookings.get(i);
                     Date start_date = booking.getStart_date();
@@ -409,6 +418,9 @@
                 %> new Date("<%=res_dates.get(res_dates.size() - 1)%>")
 
             ], // new Date("2018-10-15"), new Date("2018-10-16")
+            <%
+            }
+            %>
             startDate: new Date("<%=post.getStart_date()%>"),
             endDate: new Date("<%=post.getEnd_date()%>")
         }).on('changeDate',function(e){
@@ -419,6 +431,9 @@
         $('#check-out').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true,
+            <%
+            if(bookings.size() > 0) {
+            %>
             datesDisabled: [
                 <%
                 res_dates = new ArrayList();
@@ -447,6 +462,9 @@
                 %> new Date("<%=res_dates.get(res_dates.size() - 1)%>")
 
             ], // new Date("2018-10-15"), new Date("2018-10-16")
+            <%
+            }
+            %>
             startDate: new Date("<%=post.getStart_date()%>"),
             endDate: new Date("<%=post.getEnd_date()%>")
         }).on('changeDate',function(e){

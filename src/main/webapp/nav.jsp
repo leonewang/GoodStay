@@ -51,7 +51,7 @@
                         <%=user.getUser_name()%> <b class="caret"></b><span id="user_id" hidden><%=user.getId()%></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/ProfileServlet?id=<%=user.getId()%>" class="gs-text-md"><span class="glyphicon fui-user"
+                        <li><a href="/profile.jsp?user_id=<%=user.getId()%>" class="gs-text-md"><span class="glyphicon fui-user"
                                                                  aria-hidden="true"></span>Profile</a></li>
                         <li><a href="#" class="gs-text-md"><span class="glyphicon fui-document"
                                                                  aria-hidden="true"></span>Friends</a></li>

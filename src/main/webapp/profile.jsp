@@ -1,4 +1,10 @@
 <%@ page import="model.User" %>
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Bool" %>
+<%@ page import="javafx.geometry.Pos" %>
+<%@ page import="model.Post" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="model.Image" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +37,13 @@
 <body style="padding-top: 70px;">
 <!-- /custom navbar -->
 <%@include file="nav.jsp"%>
+<%
+    User u = dbdao.getUser(Integer.valueOf(request.getParameter("user_id")));
+    Boolean sameUser = false;
+    if (u.getUser_name().equals(user.getUser_name())) {
+        sameUser = true;
+    }
+%>
 
 <!-- container -->
 <div class="gs-container container" style="height: 710px;">
@@ -40,25 +53,28 @@
                 <span class="fui-clip"></span> Info
             </h2>
 
-            <p class="cd-title">Welcome, I'm Leone.</p>
+            <p class="cd-title">Welcome, I'm <%=u.getName()%>.</p>
 
 
             <div class="gs-seller" style="margin-bottom: 15px;">
                 <div class="seller-thumb">
-                    <a><img src="images/character/leone.jpg" height="140" width="140"></a>
+                    <a><img src="images/character/leone.jpg" height="115" width="115"></a>
                 </div>
                 <div class="seller-info">
                     <div class="name" style="font-size: 1.1em; margin-bottom: 9px;">
-                        <a href="#"><b>Leone Wang</b></a>
-                    </div>
-                    <div class="fans" onselectstart="return false">
-                        <small><a id="be-fans"><span class="fui-heart fan"></span> Become a fan</span></a>
-                            (<span class="fans-num">23</span> fans)
-                        </small>
+                        <a href="#"><b><%=u.getUser_name()%></b></a>
                     </div>
                     <div><small><b>Joined in July 2018</b></small></div>
                     <div><small><a href="#"><span class="fui-eye"></span> Report this user</a></small></div>
+                    <%
+                        if (sameUser) {
+                    %>
                     <div><small><a href="/EditProfileServlet?id=<%=user.getId()%>" class="btn btn-sm btn-primary">Edit Profile</a></small></div>
+                    <%  }  else { %>
+                    <div><small><a href="/ContactServlet?send_id=<%=user.getId()%>&rec_id=<%=u.getId()%>" class="btn btn-sm btn-primary">Contact</a></small></div>
+                    <%
+                        }
+                    %>
                 </div>
                 <div class="gs-clear"></div>
             </div>
@@ -69,15 +85,15 @@
                     <div style="height: 5px;border-bottom-style: solid;border-width: 2px;border-color: #BDC3C7;width: 100%;"></div>
                 </div>
                 <ul>
-                    <li><span class="cd-item-icon fui-user"></span><span class="cd-item-bid">01</span>
+                    <li><span class="cd-item-icon fui-user"></span><span class="cd-item-bid"><%=u.getId()%></span>
                         <small> Unique ID</small>
                     </li>
                     <li><span class="cd-item-icon fui-mail"></span>
-                        <small><b class="cd-item-calendar">wangleone.me@gmail.com</b> (Verified)</small>
+                        <small><b class="cd-item-calendar"><%=u.getEmail()%></b> (Verified)</small>
                     </li>
                     <li><a href=""><span
                             class="cd-item-icon fui-chat"></span>
-                        <small><b class="cd-item-watch">0426475811</b></small>
+                        <small><b class="cd-item-watch"><%=u.getMobile()%></b></small>
                     </a>
                         <small>(Verified)</small>
                     </li>
@@ -91,16 +107,26 @@
                     <div class="list-nav list-input">
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills btn nav-justified" role="tablist">
-                            <li role="presentation"><a id="btn-credit" href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews & Comments</a></li>
-                            <li role="presentation" class="active"><a id="btn-cash" href="#watch" aria-controls="watch" role="tab" data-toggle="tab">Watch list</a></li>
+                            <li role="presentation" class="active"><a id="btn-credit" href="#review" aria-controls="review" role="tab" data-toggle="tab">Reviews & Comments</a></li>
+                            <%
+                                if (sameUser) {
+                            %>
+                            <li role="presentation"><a id="btn-cash" href="#watch" aria-controls="watch" role="tab" data-toggle="tab">Watch list</a></li>
                             <li role="presentation"><a id="btn-post" href="#post" aria-controls="post" role="tab" data-toggle="tab">My posts</a></li>
                             <li role="presentation"><a id="btn-order" href="#booking" aria-controls="booking" role="tab" data-toggle="tab">My bookings</a></li>
+                            <%
+                                } else {
+                            %>
+                            <li role="presentation"><a id="btn-post" href="#post" aria-controls="post" role="tab" data-toggle="tab">Current posts</a></li>
+                            <%
+                            }
+                            %>
                         </ul>
                     </div>
                 </div>
 
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane" id="review">
+                    <div role="tabpanel" class="tab-pane active" id="review">
                         <div class="cd-comments">
                             <h2>
                                 <span class="fui-chat"></span> Reviews & Comments
@@ -163,78 +189,92 @@
                         <!-- /cd-comments -->
                     </div>
 
-
-                    <div role="tabpanel" class="tab-pane active" id="watch">
+                    <%
+                        if (sameUser) {
+                    %>
+                    <div role="tabpanel" class="tab-pane" id="watch">
                         <div class="cd-comments">
                             <h2>
                                 <span class="fui-eye"></span> Watch List
-                                <div class="toolbar">
-                                    <div class="btn-toolbar">
-                                        <div class="btn-group">
-                                            <a class="btn btn-primary active" href="#fakelink"><span class="fui-heart"></span></a>
-                                            <a class="btn btn-primary" href="#fakelink"><span class="fui-time"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
                             </h2>
                             <div>
                                 <ul class="media-list">
+                                    <%
+                                        List<Post> watches = new ArrayList<Post>();
+                                        List<Integer> watchlist_ids = new ArrayList<Integer>();
+                                        watches = dbdao.getWatchlist(u.getId());
+                                        watchlist_ids = dbdao.getWatchlistID(u.getId());
+
+                                        if (watches.size() > 0) {
+                                            for (int i = 0; i < watches.size(); i++) {
+                                                Post watch = watches.get(i);
+                                                int watchlist_id = watchlist_ids.get(i);
+                                                Image image = dbdao.findImage(watch.getId());
+                                    %>
                                     <li class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/b8d2c410-84f9-439c-9eba-6d4bb337bedb.jpg?aki_policy=large" height="105" width="140"></a>
+                                            <a href="#"><img class="media-object" src="<%=image.getContent()%>" height="105" width="140"></a>
                                         </div>
                                         <div class="media-body">
                                             <div>
-                                                <b><a href="">J's APT 2 Bed Rooms + Free Portable Wi-Fi</a></b>
-                                                <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>6</b></span></small>
+                                                <b><a href=""><%=watch.getTitle()%></a></b>
+                                                <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b><%=watch.getLikes()%></b></span></small>
                                                 <p class="structure" style="margin: 0;">
-                                                    <small><span class="fui fui-home"></span><b>2 bedrooms</b> <b>4 beds</b> <b>1.5 baths</b></small>
+                                                    <small><span class="fui fui-home"></span>
+                                                        <%
+                                                            String demand[] = watch.getDemands().split(",");
+                                                            for(int j = 0; j < demand.length; j++){
+                                                        %>
+                                                        <b><%=demand[i]%></b>
+                                                        <%
+                                                            }
+                                                        %>
+                                                    </small>
                                                     <br>
-                                                    <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$350 / night</span></small>
-                                                    <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Apartment</span></small>
-                                                    <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Sydney Centre </span></small>
+                                                    <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$<%=watch.getPrice()%> / night</span></small>
+                                                    <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=watch.getType()%></span></small>
+                                                    <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=watch.getCity()%> </span></small>
                                                 </p>
                                             </div>
                                             <div class="media-date">
-                                                Feb 19, 2017 09:25:36<a class="gs-flag" style="display: none; float: right;" onclick="remove_watchlist(id);">
+                                                <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(watch.getPost_date().getTime())%>
+                                                <a class="gs-flag" style="display: none; float: right;" onclick="remove_watchlist(<%=watchlist_id%>, '<%=watch.getId()%>');">
                                                 <span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
                                             </div>
                                             <div class="gs-clear"></div>
                                         </div>
                                     </li>
-                                    <li class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/f539b3dd-2210-49a8-9b00-ca134975379f.jpg?aki_policy=xx_large" height="105" width="140"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                <b><a href="">Shinjuku 3 storied House!100m2 & 12pax & FREE PARKING</a></b>
-                                                <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>8</b></span></small>
-                                                <p class="structure" style="margin: 0;">
-                                                    <small><span class="fui fui-home"></span><b>4 bedrooms</b> <b>10 beds</b> <b>2.5 baths</b></small>
-                                                    <br>
-                                                    <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$290 / night</span></small>
-                                                    <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">House</span></small>
-                                                    <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Sydney Centre </span></small>
-                                                </p>
-                                            </div>
-                                            <div class="media-date">
-                                                Oct 03, 2018 23:236:19<a class="gs-flag" style="display: none; float: right;" onclick="remove_watchlist(id);">
-                                                <span class="fui fui-trash"></span> <b>Remove from watchlist</b></a>
-                                            </div>
-                                            <div class="gs-clear"></div>
-                                        </div>
-                                    </li>
+                                    <%
+                                            }
+                                        } else {
+                                    %>
+                                    <small>You don't have anything in your watchlist. Just start to browse.</small>
+                                    <%
+                                        }
+                                    %>
+
                                 </ul>
                             </div>
                             <div class="gs-clear"></div>
                         </div>
                     </div>
+                    <%
+                        }
+                    %>
 
                     <div role="tabpanel" class="tab-pane" id="post">
                         <div class="cd-comments">
                             <h2>
-                                <span class="fui-image"></span> My Posts
+                                <span class="fui-image"></span>
+                                <%
+                                    if (sameUser) {
+                                %> My Posts
+                                <%
+                                    } else {
+                                %> Current Posts
+                                <%
+                                    }
+                                %>
                                 <div class="toolbar">
                                     <div class="btn-toolbar">
                                         <div class="btn-group" role="tablist">
@@ -264,7 +304,14 @@
                                                     </p>
                                                 </div>
                                                 <div class="media-date">
-                                                    Aug 31, 2018 12:32:45<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-new"></span> <b>Edit the post</b></a>
+                                                    Aug 31, 2018 12:32:45<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-new"></span>
+                                                    <%
+                                                        if (sameUser) {
+                                                    %>
+                                                    <b>Edit the post</b></a>
+                                                    <%
+                                                        }
+                                                    %>
                                                 </div>
                                                 <div class="gs-clear"></div>
                                             </div>
@@ -305,6 +352,9 @@
                         </div>
                     </div>
 
+                    <%
+                        if (sameUser) {
+                    %>
                     <div role="tabpanel" class="tab-pane" id="booking">
                         <div class="cd-comments">
                             <h2>
@@ -380,6 +430,9 @@
                             <div class="gs-clear"></div>
                         </div>
                     </div>
+                    <%
+                        }
+                    %>
                 </div>
             </div>
         </div>

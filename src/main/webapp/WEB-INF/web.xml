@@ -96,6 +96,10 @@
     <servlet-name>BookServlet</servlet-name>
     <servlet-class>servlet.BookServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>RemoveWatchlistServlet</servlet-name>
+    <servlet-class>servlet.RemoveWatchlistServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -189,6 +193,10 @@
   <servlet-mapping>
     <servlet-name>BookServlet</servlet-name>
     <url-pattern>/BookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RemoveWatchlistServlet</servlet-name>
+    <url-pattern>/RemoveWatchlistServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
