@@ -100,6 +100,14 @@
     <servlet-name>RemoveWatchlistServlet</servlet-name>
     <servlet-class>servlet.RemoveWatchlistServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>EditPostServlet</servlet-name>
+    <servlet-class>servlet.EditPostServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeletePostServlet</servlet-name>
+    <servlet-class>servlet.DeletePostServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -197,6 +205,14 @@
   <servlet-mapping>
     <servlet-name>RemoveWatchlistServlet</servlet-name>
     <url-pattern>/RemoveWatchlistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditPostServlet</servlet-name>
+    <url-pattern>/EditPostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletePostServlet</servlet-name>
+    <url-pattern>/DeletePostServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>

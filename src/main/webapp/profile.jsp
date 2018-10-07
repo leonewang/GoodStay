@@ -225,7 +225,7 @@
                                                             String demand[] = watch.getDemands().split(",");
                                                             for(int j = 0; j < demand.length; j++){
                                                         %>
-                                                        <b><%=demand[i]%></b>
+                                                        <b><%=demand[j]%></b>
                                                         <%
                                                             }
                                                         %>
@@ -275,78 +275,66 @@
                                 <%
                                     }
                                 %>
-                                <div class="toolbar">
-                                    <div class="btn-toolbar">
-                                        <div class="btn-group" role="tablist">
-                                            <a class="btn btn-primary active" href="#activepost" aria-controls="activepost" role="tab" data-toggle="tab"><span class="fui-star-2"></span> Active</a>
-                                            <a class="btn btn-primary" href="#completedpost" aria-controls="completedpost" role="tab" data-toggle="tab"><span class="fui-time"></span> Completed</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </h2>
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="activepost">
-                                    <ul class="media-list">
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/89281220/ed6e8824_original.jpg?aki_policy=large" height="105" width="140"></a>
-                                            </div>
-                                            <div class="media-body">
-                                                <div>
-                                                    <b><a href="">Spacious! Shibuya House w/Garden</a></b>
-                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>1</b></span></small>
-                                                    <p class="structure" style="margin: 0;">
-                                                        <small><span class="fui fui-home"></span><b>3 bedrooms</b> <b>4 beds</b> <b>2 baths</b></small>
-                                                        <br>
-                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$388 / night</span></small>
-                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Unit</span></small>
-                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">South Sydney </span></small>
-                                                    </p>
-                                                </div>
-                                                <div class="media-date">
-                                                    Aug 31, 2018 12:32:45<a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-new"></span>
-                                                    <%
-                                                        if (sameUser) {
-                                                    %>
-                                                    <b>Edit the post</b></a>
-                                                    <%
-                                                        }
-                                                    %>
-                                                </div>
-                                                <div class="gs-clear"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div>
+                                <ul class="media-list">
+                                    <%
+                                        List<Post> posts = new ArrayList<Post>();
+                                        posts = dbdao.getMyActivePosts(u.getId());
 
-                                <div role="tabpanel" class="tab-pane" id="completedpost">
-                                    <ul class="media-list">
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/66915e3c-0d1f-4708-a8e0-17cfa658a944.jpg?aki_policy=large" height="105" width="140"></a>
+                                        if (posts.size() > 0) {
+                                            for (int i = 0; i < posts.size(); i++) {
+                                                Post post = posts.get(i);
+                                                Image image = dbdao.findImage(post.getId());
+                                    %>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img class="media-object" src="<%=image.getContent()%>" height="105" width="140"></a>
+                                        </div>
+                                        <div class="media-body">
+                                            <div>
+                                                <b><a href="DetailServlet?id=<%=post.getId()%>"><%=post.getTitle()%></a></b>
+                                                <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b><%=post.getLikes()%></b></span></small>
+                                                <p class="structure" style="margin: 0;">
+                                                    <small><span class="fui fui-home"></span>
+                                                        <%
+                                                            String demand[] = post.getDemands().split(",");
+                                                            for(int j = 0; j < demand.length; j++){
+                                                        %>
+                                                        <b><%=demand[j]%></b>
+                                                        <%
+                                                            }
+                                                        %>
+                                                    </small>
+                                                    <br>
+                                                    <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$<%=post.getPrice()%> / night</span></small>
+                                                    <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=post.getType()%></span></small>
+                                                    <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=post.getCity()%> </span></small>
+                                                </p>
                                             </div>
-                                            <div class="media-body">
-                                                <div>
-                                                    <b><a href="">Shinjuku! Free Wi-Fi + Good Location + Clean Room!</a></b>
-                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>8</b></span></small>
-                                                    <p class="structure" style="margin: 0;">
-                                                        <small><span class="fui fui-home"></span><b>4 bedrooms</b> <b>10 beds</b> <b>2.5 baths</b></small>
-                                                        <br>
-                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$420 / night</span></small>
-                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Apartment</span></small>
-                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Sydney Centre </span></small>
-                                                    </p>
-                                                </div>
-                                                <div class="media-date">
-                                                    Oct 03, 2018 23:26:19
-                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b>2018-08-10 ~ 2018-08-15</b>
-                                                    <a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-link"></span> <b>View it!</b></a>
-                                                </div>
-                                                <div class="gs-clear"></div>
+                                            <div class="media-date">
+                                                <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(post.getPost_date().getTime())%>
+                                                <a class="gs-flag" style="display: none; float: right;" href="editPost.jsp?post_id=<%=post.getId()%>">
+                                                <%
+                                                    if (sameUser) {
+                                                %>
+                                                    <span class="fui fui-new"></span><b> Edit the post</b></a>
+                                                <%
+                                                    }
+                                                %>
                                             </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                            <div class="gs-clear"></div>
+                                        </div>
+                                    </li>
+                                    <%
+                                            }
+                                        } else {
+                                    %>
+                                    <small>You don't have anything in your posts. Just start a post.</small>
+                                    <%
+                                        }
+                                    %>
+                                </ul>
                             </div>
                             <div class="gs-clear"></div>
                         </div>

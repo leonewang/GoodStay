@@ -573,6 +573,77 @@ public class DBDao {
     }
 
     /**
+     * Delete post func
+     *
+     * @param post_id
+     * @throws SQLException
+     */
+    public void deletePost(String post_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "delete from post where id = '" + post_id + "'";
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql);
+        System.out.println("post deleted.");
+    }
+
+    /**
+     * List all post func
+     *
+     * @throws SQLException
+     */
+    public List<Post> getMyActivePosts(Integer user_id) throws SQLException {
+        List<Post> posts = new ArrayList<Post>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from Post where status = 1 and post_by = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Post post = new Post();
+            post.setId(rs.getString("id"));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setLikes(rs.getInt("likes"));
+            post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
+            post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
+            post.setStatus(rs.getInt("status"));
+            posts.add(post);
+        }
+        return posts;
+    }
+
+    /**
+     * Update post func
+     *
+     * @param post
+     * @throws SQLException
+     */
+    public void updatePost(Post post) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "update post set title='" + post.getTitle() + "', city='" + post.getCity() + "', address='" + post.getAddress() +
+                "', placeid='" + post.getPlaceid() + "', coordinate='" + post.getCoordinate() + "', type='" + post.getType() +
+                "', demands='" + post.getDemands() + "', amenities='" + post.getAmenities() + "', description='" + post.getDescription() +
+                "', price=" + post.getPrice() + ", alidadamatch='" + post.getAlidadamatch() + "', start_date='" + post.getStart_date() +
+                "', end_date='" + post.getEnd_date() + "', stick_date=CURRENT_TIMESTAMP where id='" + post.getId() + "'";
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql);
+    }
+
+    /**
      * Make booking func
      *
      * @param user_id, friend_id, username

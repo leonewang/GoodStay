@@ -13,7 +13,7 @@ $('.cd-item-info #cd-bid-submit').click(function() {
 $('.cd-item-info #cd-gin-submit input').click(function() {
     var check_in = $('.cd-item-info #cd-bid input').val();
     var check_out = $('.cd-item-info #cd-gin input').val();
-    bookNow(check_in, check_out);
+    bookNow(this, check_in, check_out);
 });
 //Stick to top
 $('#stick').click(function() {
@@ -37,6 +37,42 @@ function stickToTop(node) {
             swal("Try later...", "Sorry, you can only use stick to top once daily.", "error");
             node.setAttribute("disabled","disabled");
         });
+};
+
+//Stick to top
+$('#delete-post').click(function() {
+    deletePost(this);
+});
+
+function deletePost(node) {
+    swal({
+        title: "Are you sure?",
+        text: "Are you sure that you want to delete the post permanently?",
+        html: true,
+        type: "warning",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        confirmButtonText: "Confirm",
+        confirmButtonColor: "#E74C3C"
+    }, function() {
+        $.ajax({
+            url: "DeletePostServlet",
+            type: "GET",
+            dataType: "html",
+            data: {
+                post_id: $("#post_id").val()
+            }
+        })
+            .done(function(data) {
+                swal("Removed!", "The post is removed permanently.", "success");
+                node.setAttribute("disabled","disabled");
+                $("#save-edit").setAttribute("disabled","disabled");
+            })
+            .error(function(data) {
+                swal("Try later...", "Sorry, Something wrong.", "error");
+                node.setAttribute("disabled","disabled");
+            });
+    })
 };
 
 // Add to watch list
@@ -97,7 +133,7 @@ function checkAvailability(check_in, check_out) {
     });
 };
 //Book
-function bookNow(check_in, check_out) {
+function bookNow(node, check_in, check_out) {
     if(check_in == '' || check_out == '') {
         swal("Oops", "Tell us how long you would like to stay with us.", "error");
         return;
@@ -129,6 +165,7 @@ function bookNow(check_in, check_out) {
         })
             .done(function(data) {
                 swal("Well Done!", "You book it successfully! You can see your booking in you profile page later.", "success");
+                node.setAttribute("disabled","disabled");
             })
             .error(function(data) {
                 swal("Please refresh the page", "Hold on, there was someone faster than you!", "error");
