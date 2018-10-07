@@ -247,7 +247,7 @@
                                 <span style="left: 0px; padding: 0 0 0 3px;" class="form-control-feedback fui-calendar"></span>
                             </div>
                             <div id="cd-gin-submit">
-                                <input type="button" value="Book now!" class="btn btn-primary">
+                                <input type="button" value="Book now!" class="btn btn-primary" <% if (post.getPost_by().equals(user.getId())) {%> disabled <% } %>>
                             </div>
                             <div class="gs-clear"></div>
                         </form>

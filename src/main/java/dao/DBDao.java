@@ -580,9 +580,15 @@ public class DBDao {
      */
     public void deletePost(String post_id) throws SQLException {
         Connection conn = DBUtil.getConn();
-        String sql = "delete from post where id = '" + post_id + "'";
+        String sql1 = "delete from post where id = '" + post_id + "'";
+        String sql2 = "delete from watchlist where post_id = '" + post_id + "'";
+        String sql3 = "delete from booking where post_id = '" + post_id + "'";
+        String sql4 = "delete from image where post_id = '" + post_id + "'";
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate(sql);
+        stmt.executeUpdate(sql1);
+        stmt.executeUpdate(sql2);
+        stmt.executeUpdate(sql3);
+        stmt.executeUpdate(sql4);
         System.out.println("post deleted.");
     }
 
