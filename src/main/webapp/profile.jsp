@@ -1,10 +1,9 @@
-<%@ page import="model.User" %>
 <%@ page import="com.sun.org.apache.xpath.internal.operations.Bool" %>
 <%@ page import="javafx.geometry.Pos" %>
-<%@ page import="model.Post" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Locale" %>
-<%@ page import="model.Image" %>
+<%@ page import="model.*" %>
+<%@ page import="java.awt.print.Book" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +45,7 @@
 %>
 
 <!-- container -->
-<div class="gs-container container" style="height: 710px;">
+<div class="gs-container container" style="min-height: 710px;">
     <div class="gs-content">
         <div class="gs-content-right">
             <h2 style="border: none;" class="visible-xs">
@@ -217,7 +216,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div>
-                                                <b><a href=""><%=watch.getTitle()%></a></b>
+                                                <b><a href="DetailServlet?id=<%=watch.getId()%>"><%=watch.getTitle()%></a></b>
                                                 <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b><%=watch.getLikes()%></b></span></small>
                                                 <p class="structure" style="margin: 0;">
                                                     <small><span class="fui fui-home"></span>
@@ -351,7 +350,8 @@
                                     <div class="btn-toolbar">
                                         <div class="btn-group" role="tablist">
                                             <a class="btn btn-primary active" href="#activebooking" aria-controls="activebooking" role="tab" data-toggle="tab"><span class="fui-star-2"></span> Active</a>
-                                            <a class="btn btn-primary" href="#completedbooking" aria-controls="completedbooking" role="tab" data-toggle="tab"><span class="fui-time"></span> Completed</a>
+                                            <a class="btn btn-primary" href="#waitingbooking" aria-controls="waitingbooking" role="tab" data-toggle="tab"><span class="fui-time"></span> Waiting</a>
+                                            <a class="btn btn-primary" href="#completedbooking" aria-controls="completedbooking" role="tab" data-toggle="tab"><span class="fui-document"></span> Completed</a>
                                         </div>
                                     </div>
                                 </div>
@@ -359,59 +359,174 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="activebooking">
                                     <ul class="media-list">
+                                        <%
+                                            List<Post> a_bookings = new ArrayList<Post>();
+                                            List<Booking> a_bookingsInfo = new ArrayList<Booking>();
+                                            a_bookings = dbdao.getMyActiveBookings(u.getId());
+                                            a_bookingsInfo = dbdao.getMyActiveBookingsInfo(u.getId());
+
+                                            if (a_bookings.size() > 0) {
+                                                for (int i = 0; i < a_bookings.size(); i++) {
+                                                    Post a_booking = a_bookings.get(i);
+                                                    Booking a_bookingInfo = a_bookingsInfo.get(i);
+                                                    Image image = dbdao.findImage(a_booking.getId());
+                                        %>
                                         <li class="media">
                                             <div class="media-left">
-                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/ecec9252-400d-48aa-9422-fd5462ea3c16.jpg?aki_policy=large" height="105" width="140"></a>
+                                                <a href="#"><img class="media-object" src="<%=image.getContent()%>" height="105" width="140"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div>
-                                                    <b><a href="">Spacious! Shibuya House w/Garden</a></b>
-                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>5</b></span></small>
+                                                    <b><a href="DetailServlet?id=<%=a_booking.getId()%>"><%=a_booking.getTitle()%></a></b>
+                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b><%=a_booking.getLikes()%></b></span></small>
                                                     <p class="structure" style="margin: 0;">
-                                                        <small><span class="fui fui-home"></span><b>3 bedrooms</b> <b>4 beds</b> <b>2 baths</b></small>
+                                                        <small><span class="fui fui-home"></span>
+                                                            <%
+                                                                String demand[] = a_booking.getDemands().split(",");
+                                                                for(int j = 0; j < demand.length; j++){
+                                                            %>
+                                                            <b><%=demand[j]%></b>
+                                                            <%
+                                                                }
+                                                            %>
+                                                        </small>
                                                         <br>
-                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$388 / night</span></small>
-                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Unit</span></small>
-                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">South Sydney </span></small>
+                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$<%=a_booking.getPrice()%> / night</span></small>
+                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=a_booking.getType()%></span></small>
+                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=a_booking.getCity()%> </span></small>
+                                                        <small><span class="cd-item-location" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><a href="review.jsp?post_id=<%=a_booking.getId()%>&user_id=<%=u.getId()%>"><span class="fui-new"></span> Write a review</a></span></small>
                                                     </p>
                                                 </div>
                                                 <div class="media-date">
-                                                    Sep 31, 2018 10:09:17
-                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b>2018-10-02 ~ 2018-10-08</b>
-                                                    <a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-link"></span> <b>View it!</b></a>
+                                                    <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(a_booking.getPost_date().getTime())%>
+                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b><%=a_bookingInfo.getStart_date()%> ~ <%=a_bookingInfo.getEnd_date()%></b>
+                                                    <a class="gs-flag cancel-booking" style="display: none; float: right;" user-id="<%=u.getId()%>" post-by="<%=a_booking.getPost_by()%>" book-id="<%=a_bookingInfo.getId()%>"><span class="fui fui-trash"></span> <b>Cancel</b></a>
                                                 </div>
                                                 <div class="gs-clear"></div>
                                             </div>
                                         </li>
+                                        <%
+                                            }
+                                        } else {
+                                        %>
+                                        <small>You don't have anything in your active list. Just go browsing.</small>
+                                        <%
+                                            }
+                                        %>
+                                    </ul>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="waitingbooking">
+                                    <ul class="media-list">
+                                        <%
+                                            List<Post> w_bookings = new ArrayList<Post>();
+                                            List<Booking> w_bookingsInfo = new ArrayList<Booking>();
+                                            w_bookings = dbdao.getMyWaitingBookings(u.getId());
+                                            w_bookingsInfo = dbdao.getMyWaitingBookingsInfo(u.getId());
+
+                                            if (w_bookings.size() > 0) {
+                                                for (int i = 0; i < w_bookings.size(); i++) {
+                                                    Post w_booking = w_bookings.get(i);
+                                                    Booking w_bookingInfo = w_bookingsInfo.get(i);
+                                                    Image image = dbdao.findImage(w_booking.getId());
+                                        %>
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#"><img class="media-object" src="<%=image.getContent()%>" height="105" width="140"></a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div>
+                                                    <b><a href="DetailServlet?id=<%=w_bookingInfo.getId()%>"><%=w_booking.getTitle()%></a></b>
+                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b><%=w_booking.getLikes()%></b></span></small>
+                                                    <p class="structure" style="margin: 0;">
+                                                        <small><span class="fui fui-home"></span>
+                                                            <%
+                                                                String demand[] = w_booking.getDemands().split(",");
+                                                                for(int j = 0; j < demand.length; j++){
+                                                            %>
+                                                            <b><%=demand[j]%></b>
+                                                            <%
+                                                                }
+                                                            %>
+                                                        </small>
+                                                        <br>
+                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$<%=w_booking.getPrice()%> / night</span></small>
+                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=w_booking.getType()%></span></small>
+                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=w_booking.getCity()%> </span></small>
+                                                    </p>
+                                                </div>
+                                                <div class="media-date">
+                                                    <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(w_booking.getPost_date().getTime())%>
+                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b><%=w_bookingInfo.getStart_date()%> ~ <%=w_bookingInfo.getEnd_date()%></b>
+                                                </div>
+                                                <div class="gs-clear"></div>
+                                            </div>
+                                        </li>
+                                        <%
+                                            }
+                                        } else {
+                                        %>
+                                        <small>You don't have anything in your waiting list. Just go browsing.</small>
+                                        <%
+                                            }
+                                        %>
                                     </ul>
                                 </div>
 
                                 <div role="tabpanel" class="tab-pane" id="completedbooking">
                                     <ul class="media-list">
+                                        <%
+                                            List<Post> c_bookings = new ArrayList<Post>();
+                                            List<Booking> c_bookingsInfo = new ArrayList<Booking>();
+                                            c_bookings = dbdao.getMyCompletedBookings(u.getId());
+                                            c_bookingsInfo = dbdao.getMyCompletedBookingsInfo(u.getId());
+
+                                            if (c_bookings.size() > 0) {
+                                                for (int i = 0; i < c_bookings.size(); i++) {
+                                                    Post c_booking = c_bookings.get(i);
+                                                    Booking c_bookingInfo = c_bookingsInfo.get(i);
+                                                    Image image = dbdao.findImage(c_booking.getId());
+                                        %>
                                         <li class="media">
                                             <div class="media-left">
-                                                <a href="#"><img class="media-object" src="https://a0.muscache.com/im/pictures/45604883/54451b1c_original.jpg?aki_policy=large" height="105" width="140"></a>
+                                                <a href="#"><img class="media-object" src="<%=image.getContent()%>" height="105" width="140"></a>
                                             </div>
                                             <div class="media-body">
                                                 <div>
-                                                    <b><a href="">Stunning home in central Tokyo</a></b>
-                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b>12</b></span></small>
+                                                    <b><a href="DetailServlet?id=<%=c_bookingInfo.getId()%>"><%=c_booking.getTitle()%></a></b>
+                                                    <small><span class="fui fui-heart gs-color-pink" style="margin-left: 10px;"> <b><%=c_booking.getLikes()%></b></span></small>
                                                     <p class="structure" style="margin: 0;">
-                                                        <small><span class="fui fui-home"></span><b>2 bedrooms</b> <b>2 beds</b> <b>1.5 baths</b></small>
+                                                        <small><span class="fui fui-home"></span>
+                                                            <%
+                                                                String demand[] = c_booking.getDemands().split(",");
+                                                                for(int j = 0; j < demand.length; j++){
+                                                            %>
+                                                            <b><%=demand[j]%></b>
+                                                            <%
+                                                                }
+                                                            %>
+                                                        </small>
                                                         <br>
-                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$289 / night</span></small>
-                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Unit</span></small>
-                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">Other Area </span></small>
+                                                        <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$<%=c_booking.getPrice()%> / night</span></small>
+                                                        <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=c_booking.getType()%></span></small>
+                                                        <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=c_booking.getCity()%> </span></small>
                                                     </p>
                                                 </div>
                                                 <div class="media-date">
-                                                    Oct 02, 2018 12:45:31
-                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b>2017-09-23 ~ 2017-09-29</b>
-                                                    <a class="gs-flag" style="display: none; float: right;" href="#"><span class="fui fui-link"></span> <b>View it!</b></a>
+                                                    <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(c_booking.getPost_date().getTime())%>
+                                                    <span class="fui fui-time" style="margin-left: 10px;"></span> <b><%=c_bookingInfo.getStart_date()%> ~ <%=c_bookingInfo.getEnd_date()%></b>
                                                 </div>
                                                 <div class="gs-clear"></div>
                                             </div>
                                         </li>
+                                        <%
+                                            }
+                                        } else {
+                                        %>
+                                        <small>You don't have anything in your completed list. Just go browsing.</small>
+                                        <%
+                                            }
+                                        %>
                                     </ul>
                                 </div>
                             </div>
@@ -460,6 +575,41 @@
             format: "yyyy-mm-dd"
         });
     });
+
+    $('.cancel-booking').click(function() {
+        cancel_booking(this);
+    });
+
+    function cancel_booking(node) {
+        swal({
+            title: "Are you sure?",
+            text: "Are you sure that you want to delete the post permanently?",
+            html: true,
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonText: "Confirm",
+            confirmButtonColor: "#E74C3C"
+        }, function () {
+            $.ajax({
+                url: "CancelBookingServlet",
+                type: "GET",
+                dataType: "html",
+                data: {
+                    sendto: $(node).attr("post-by"),
+                    sendfrom: $(node).attr("user-id"),
+                    bookingid: $(node).attr("book-id")
+                }
+            })
+                .done(function (data) {
+                    swal("Success!", "You have canceled the booking already.", "success");
+                    $(node).attr("hidden", "hidden");
+                })
+                .error(function (data) {
+                    swal("Sorry!", "Something wrong.", "error");
+                });
+        })
+    };
 </script>
 </body>
 </html>

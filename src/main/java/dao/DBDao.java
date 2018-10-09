@@ -3,6 +3,7 @@ package dao;
 import model.*;
 import util.DBUtil;
 
+import java.awt.print.Book;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -573,6 +574,289 @@ public class DBDao {
     }
 
     /**
+     * Get user's active bookings func
+     *
+     * @throws SQLException
+     */
+    public List<Post> getMyActiveBookings(Integer user_id) throws SQLException {
+        List<Post> posts = new ArrayList<Post>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select post.id, post.title, post.city, post.address, post.placeid, " +
+                "post.coordinate, post.type, post.demands, post.amenities, post.photos, post.description, " +
+                "post.price, post.alidadamatch, post.start_date, post.end_date, post.post_date, " +
+                "post.likes, post.post_by, post.reviews, post.stick_date, post.status " +
+                "from booking inner join post on post.id = booking.post_id where booking.status = 1 and user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Post post = new Post();
+            post.setId(rs.getString("id"));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setLikes(rs.getInt("likes"));
+            post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
+            post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
+            post.setStatus(rs.getInt("status"));
+            posts.add(post);
+        }
+        return posts;
+    }
+
+    /**
+     * Get user's active bookings' id func
+     *
+     * @throws SQLException
+     */
+    public List<Booking> getMyActiveBookingsInfo(Integer user_id) throws SQLException {
+        List<Booking> bookings = new ArrayList<Booking>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from booking where status = 1 and user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Booking booking = new Booking();
+            booking.setId(rs.getString("id"));
+            booking.setPost_id(rs.getString("post_id"));
+            booking.setUser_id(rs.getInt("user_id"));
+            booking.setStart_date(rs.getDate("start_date"));
+            booking.setEnd_date(rs.getDate("end_date"));
+            booking.setDate(rs.getTimestamp("date"));
+            booking.setStatus(rs.getInt("status"));
+            bookings.add(booking);
+        }
+        return bookings;
+    }
+
+    /**
+     * Get user's waiting bookings func
+     *
+     * @throws SQLException
+     */
+    public List<Post> getMyWaitingBookings(Integer user_id) throws SQLException {
+        List<Post> posts = new ArrayList<Post>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select post.id, post.title, post.city, post.address, post.placeid, " +
+                "post.coordinate, post.type, post.demands, post.amenities, post.photos, post.description, " +
+                "post.price, post.alidadamatch, post.start_date, post.end_date, post.post_date, " +
+                "post.likes, post.post_by, post.reviews, post.stick_date, post.status " +
+                "from booking inner join post on post.id = booking.post_id where booking.status = 0 and user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Post post = new Post();
+            post.setId(rs.getString("id"));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setLikes(rs.getInt("likes"));
+            post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
+            post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
+            post.setStatus(rs.getInt("status"));
+            posts.add(post);
+        }
+        return posts;
+    }
+
+    /**
+     * Get user's waiting bookings' id func
+     *
+     * @throws SQLException
+     */
+    public List<Booking> getMyWaitingBookingsInfo(Integer user_id) throws SQLException {
+        List<Booking> bookings = new ArrayList<Booking>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from booking where status = 0 and user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Booking booking = new Booking();
+            booking.setId(rs.getString("id"));
+            booking.setPost_id(rs.getString("post_id"));
+            booking.setUser_id(rs.getInt("user_id"));
+            booking.setStart_date(rs.getDate("start_date"));
+            booking.setEnd_date(rs.getDate("end_date"));
+            booking.setDate(rs.getTimestamp("date"));
+            booking.setStatus(rs.getInt("status"));
+            bookings.add(booking);
+        }
+        return bookings;
+    }
+
+    /**
+     * Get user's completed bookings func
+     *
+     * @throws SQLException
+     */
+    public List<Post> getMyCompletedBookings(Integer user_id) throws SQLException {
+        List<Post> posts = new ArrayList<Post>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select post.id, post.title, post.city, post.address, post.placeid, " +
+                "post.coordinate, post.type, post.demands, post.amenities, post.photos, post.description, " +
+                "post.price, post.alidadamatch, post.start_date, post.end_date, post.post_date, " +
+                "post.likes, post.post_by, post.reviews, post.stick_date, post.status " +
+                "from booking inner join post on post.id = booking.post_id where booking.status = 2 and user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Post post = new Post();
+            post.setId(rs.getString("id"));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setLikes(rs.getInt("likes"));
+            post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
+            post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
+            post.setStatus(rs.getInt("status"));
+            posts.add(post);
+        }
+        return posts;
+    }
+
+    /**
+     * Get user's completed bookings' id func
+     *
+     * @throws SQLException
+     */
+    public List<Booking> getMyCompletedBookingsInfo(Integer user_id) throws SQLException {
+        List<Booking> bookings = new ArrayList<Booking>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from booking where status = 2 and user_id = " + user_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Booking booking = new Booking();
+            booking.setId(rs.getString("id"));
+            booking.setPost_id(rs.getString("post_id"));
+            booking.setUser_id(rs.getInt("user_id"));
+            booking.setStart_date(rs.getDate("start_date"));
+            booking.setEnd_date(rs.getDate("end_date"));
+            booking.setDate(rs.getTimestamp("date"));
+            booking.setStatus(rs.getInt("status"));
+            bookings.add(booking);
+        }
+        return bookings;
+    }
+
+    /**
+     * Make booking func
+     *
+     * @param user_id, friend_id, username
+     * @throws SQLException
+     */
+    public int makeBooking(String post_id, Integer user_id, Date start_date,
+                            Date end_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "insert into Booking(post_id, user_id, start_date, end_date, date)" +
+                " values(?, ?, ?, ?, CURRENT_TIMESTAMP())";
+        PreparedStatement ptmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ptmt.setString(1, post_id);
+        ptmt.setInt(2, user_id);
+        ptmt.setDate(3, start_date);
+        ptmt.setDate(4, end_id);
+        ptmt.execute();
+        ResultSet idrs = ptmt.getGeneratedKeys();
+        int id = 0;
+        if (idrs.next()) {
+            id = idrs.getInt(1);
+        }
+        return id;
+    }
+
+    /**
+     * Agree booking func
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public void agreeBooking(Integer id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "update booking set status = 1 where id = " + id;
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql);
+    }
+
+    /**
+     * Decline booking func
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public void declineBooking(Integer id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "delete from booking where id = " + id;
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql);
+        System.out.println("booking deleted!");
+    }
+
+    /**
+     * List all booking by post_id func
+     *
+     * @throws SQLException
+     */
+    public List<Booking> listAllBooking(String post_id) throws SQLException {
+        List<Booking> bookings = new ArrayList<Booking>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from Booking where post_id = '" + post_id + "'";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Booking booking = new Booking();
+            booking.setId(rs.getString("id"));
+            booking.setPost_id(rs.getString("post_id"));
+            booking.setUser_id(rs.getInt("user_id"));
+            booking.setStart_date(rs.getDate("start_date"));
+            booking.setEnd_date(rs.getDate("end_date"));
+            booking.setDate(rs.getTimestamp("date"));
+            bookings.add(booking);
+        }
+        return bookings;
+    }
+
+    /**
      * Delete post func
      *
      * @param post_id
@@ -593,7 +877,7 @@ public class DBDao {
     }
 
     /**
-     * List all post func
+     * Get user's active posts func
      *
      * @throws SQLException
      */
@@ -648,50 +932,6 @@ public class DBDao {
         Statement stmt = conn.createStatement();
         stmt.executeUpdate(sql);
     }
-
-    /**
-     * Make booking func
-     *
-     * @param user_id, friend_id, username
-     * @throws SQLException
-     */
-    public void makeBooking(String post_id, Integer user_id, Date start_date,
-                          Date end_id) throws SQLException {
-        Connection conn = DBUtil.getConn();
-        String sql = "insert into Booking(post_id, user_id, start_date, end_date, date)" +
-                " values(?, ?, ?, ?, CURRENT_TIMESTAMP())";
-        PreparedStatement ptmt = conn.prepareStatement(sql);
-        ptmt.setString(1, post_id);
-        ptmt.setInt(2, user_id);
-        ptmt.setDate(3, start_date);
-        ptmt.setDate(4, end_id);
-        ptmt.execute();
-    }
-
-    /**
-     * List all booking by post_id func
-     *
-     * @throws SQLException
-     */
-    public List<Booking> listAllBooking(String post_id) throws SQLException {
-        List<Booking> bookings = new ArrayList<Booking>();
-        Connection conn = DBUtil.getConn();
-        String sql = "select * from Booking where post_id = '" + post_id + "'";
-        PreparedStatement ptmt = conn.prepareStatement(sql);
-        ResultSet rs = ptmt.executeQuery();
-        while (rs.next()) {
-            Booking booking = new Booking();
-            booking.setId(rs.getString("id"));
-            booking.setPost_id(rs.getString("post_id"));
-            booking.setUser_id(rs.getInt("user_id"));
-            booking.setStart_date(rs.getDate("start_date"));
-            booking.setEnd_date(rs.getDate("end_date"));
-            booking.setDate(rs.getTimestamp("date"));
-            bookings.add(booking);
-        }
-        return bookings;
-    }
-
 
     /**
      * Get all the friends of the target user
@@ -882,6 +1122,40 @@ public class DBDao {
             notices.add(notice);
         }
         return notices;
+    }
+
+    /**
+     * Get where the notification send from func
+     *
+     * @throws SQLException
+     */
+    public int getSendFrom(int notice_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "select send_from from notification where id = " + notice_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        int send_from = 0;
+        while (rs.next()) {
+            send_from = rs.getInt("send_from");
+        }
+        return send_from;
+    }
+
+    /**
+     * Get where the notification send to func
+     *
+     * @throws SQLException
+     */
+    public int getSendTo(int notice_id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "select send_to from notification where id = " + notice_id;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        int send_from = 0;
+        while (rs.next()) {
+            send_from = rs.getInt("send_to");
+        }
+        return send_from;
     }
 
     /**

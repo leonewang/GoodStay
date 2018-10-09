@@ -26,7 +26,15 @@ public class BookServlet extends HttpServlet {
             Date end_date = Date.valueOf(request.getParameter("end_date"));
 
             DBDao dbdao = new DBDao();
-            dbdao.makeBooking(post_id, user_id, start_date, end_date);
+            int book_id = dbdao.makeBooking(post_id, user_id, start_date, end_date);
+            System.out.println("book_id" + book_id);
+            // send notification to poster
+            int send_to = dbdao.getPostDetail(post_id).getPost_by();
+            int send_from = user_id;
+            String content = " want to book your place from <b>" + start_date + "</b> to <b>" + end_date +
+                    "</b>. <button class='btn btn-sm btn-primary agree' book-id='" + book_id + "' style='margin: 0 15px;'>Agree</button>" +
+                    " <button class='btn btn-sm btn-danger decline' book-id='" + book_id + "'>Decline</button>";
+            dbdao.sendNotification(send_to, send_from, content);
             PrintWriter out = response.getWriter();
             out.print("success");
         } catch (SQLException e) {

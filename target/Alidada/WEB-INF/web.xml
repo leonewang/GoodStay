@@ -108,6 +108,22 @@
     <servlet-name>DeletePostServlet</servlet-name>
     <servlet-class>servlet.DeletePostServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AgreeBookingServlet</servlet-name>
+    <servlet-class>servlet.AgreeBookingServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeclineBookingServlet</servlet-name>
+    <servlet-class>servlet.DeclineBookingServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SearchPostServlet</servlet-name>
+    <servlet-class>servlet.SearchPostServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CancelBookingServlet</servlet-name>
+    <servlet-class>servlet.CancelBookingServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -213,6 +229,22 @@
   <servlet-mapping>
     <servlet-name>DeletePostServlet</servlet-name>
     <url-pattern>/DeletePostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AgreeBookingServlet</servlet-name>
+    <url-pattern>/AgreeBookingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeclineBookingServlet</servlet-name>
+    <url-pattern>/DeclineBookingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchPostServlet</servlet-name>
+    <url-pattern>/SearchPostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CancelBookingServlet</servlet-name>
+    <url-pattern>/CancelBookingServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>

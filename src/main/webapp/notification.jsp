@@ -88,6 +88,46 @@
                 }
             });
         });
+
+        $('.agree').click(function() {
+            $(this).text("Agreed!");
+            $(this).attr("disabled", "disabled");
+            $(this).parent().next(".mark-read").attr("disabled", "disabled");
+            $(this).next(".decline").attr("disabled", "disabled");
+            $.ajax({
+                url: "AgreeBookingServlet",
+                data: {
+                    noticeid:  $('.mark-read').attr('notice-id'),
+                    bookingid: $(this).attr('book-id')
+                },
+                type: "GET",
+                datatype: "txt",
+                success: function(data){
+                    $(this).text("Agreed!");
+                    $(this).attr("disabled", "disabled");
+                }
+            });
+        });
+
+        $('.decline').click(function() {
+            $(this).text("Declined!");
+            $(this).attr("disabled", "disabled");
+            $(this).parent().next(".mark-read").attr("disabled", "disabled");
+            $(this).prev(".agree").attr("disabled", "disabled");
+            $.ajax({
+                url: "DeclineBookingServlet",
+                data: {
+                    noticeid:  $('.mark-read').attr('notice-id'),
+                    bookingid: $(this).attr('book-id')
+                },
+                type: "GET",
+                datatype: "txt",
+                success: function(data){
+                    $(this).text("Declined!");
+                    $(this).attr("disabled", "disabled");
+                }
+            });
+        });
     });
 </script>
 </body>
