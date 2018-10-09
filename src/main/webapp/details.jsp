@@ -167,19 +167,31 @@
                                 <div class="media-left">
                                     <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
                                 </div>
+                                <%
+                                    List<Review> reviews = dbdao.getPostReviews(post.getId());
+
+                                    if (reviews.size() > 0) {
+                                        for (int i = 0; i < reviews.size(); i++) {
+                                            Review review = reviews.get(i);
+                                %>
                                 <div class="media-body">
                                     <div>
-                                        <b><a>bignose</a></b> The windows in this Airbnb make it worth it alone but if that weren't enough
-                                        it also includes two incredible decks, a cute neighborhood with a grocery store, restaurants, and
-                                        coffee shops and is in walking distance of Table Mountain National Park. Gabriel was an accommodating
-                                        and friendly host. We only wish the weather had been warmer when we visited...but then again,
-                                        we may never have left this wonderful Airbnb if it was.
+                                        <b><a href="profile.jsp?user_id=<%=review.getUser_id()%>"><%=review.getUser_name()%></a></b>
+                                        <%=review.getContent()%>
                                     </div>
                                     <div class="media-date">
-                                        Aug 27, 2018 13:23:42
+                                        <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(review.getDate().getTime())%>
                                     </div>
                                     <div class="gs-clear"></div>
                                 </div>
+                                <%
+                                    }
+                                } else {
+                                %>
+                                <small>The post doesn't have any review yet.</small>
+                                <%
+                                    }
+                                %>
                             </li>
                         </ul>
                     </div>

@@ -447,6 +447,76 @@ public class DBDao {
     }
 
     /**
+     * Post a review func
+     *
+     * @param post_id, user_id
+     * @throws SQLException
+     */
+    public void postReview(String post_id, int post_by, int user_id, String user_name, String content) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "insert into review(post_id, post_by, user_id, user_name, content, date)" +
+                " values(?, ?, ?, ?, ?, CURRENT_TIMESTAMP())";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ptmt.setString(1, post_id);
+        ptmt.setInt(2, post_by);
+        ptmt.setInt(3, user_id);
+        ptmt.setString(4, user_name);
+        ptmt.setString(5, content);
+        ptmt.execute();
+        System.out.println("Review posted.");
+    }
+
+    /**
+     * Get user's reviews func
+     *
+     * @throws SQLException
+     */
+    public List<Review> getUserReviews(int post_by) throws SQLException {
+        List<Review> reviews = new ArrayList<Review>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from review where post_by = " + post_by;
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Review review = new Review();
+            review.setId(rs.getInt("id"));
+            review.setPost_id(rs.getString("post_id"));
+            review.setPost_by(rs.getInt("post_by"));
+            review.setUser_id(rs.getInt("user_id"));
+            review.setUser_name(rs.getString("user_name"));
+            review.setContent(rs.getString("content"));
+            review.setDate(rs.getTimestamp("date"));
+            reviews.add(review);
+        }
+        return reviews;
+    }
+
+    /**
+     * Get post reviews func
+     *
+     * @throws SQLException
+     */
+    public List<Review> getPostReviews(String post_id) throws SQLException {
+        List<Review> reviews = new ArrayList<Review>();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from review where post_id = '" + post_id + "'";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Review review = new Review();
+            review.setId(rs.getInt("id"));
+            review.setPost_id(rs.getString("post_id"));
+            review.setPost_by(rs.getInt("post_by"));
+            review.setUser_id(rs.getInt("user_id"));
+            review.setUser_name(rs.getString("user_name"));
+            review.setContent(rs.getString("content"));
+            review.setDate(rs.getTimestamp("date"));
+            reviews.add(review);
+        }
+        return reviews;
+    }
+
+    /**
      * Add to watch list func
      *
      * @param post_id, user_id
@@ -830,6 +900,19 @@ public class DBDao {
         Statement stmt = conn.createStatement();
         stmt.executeUpdate(sql);
         System.out.println("booking deleted!");
+    }
+
+    /**
+     * Complete a booking func
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public void completeBooking(Integer id) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "update booking set status = 2 where id = " + id;
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql);
     }
 
     /**

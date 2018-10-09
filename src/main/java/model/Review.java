@@ -3,27 +3,20 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Review {
-    private String id;
-    private Integer post_user;
+    private Integer id;
     private String post_id;
+    private Integer post_by;
     private Integer user_id;
+    private String user_name;
     private String content;
     private Timestamp date;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getPost_user() {
-        return post_user;
-    }
-
-    public void setPost_user(Integer post_user) {
-        this.post_user = post_user;
     }
 
     public String getPost_id() {
@@ -34,12 +27,12 @@ public class Review {
         this.post_id = post_id;
     }
 
-    public String getContent() {
-        return content;
+    public Integer getPost_by() {
+        return post_by;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setPost_by(Integer post_by) {
+        this.post_by = post_by;
     }
 
     public Integer getUser_id() {
@@ -48,6 +41,22 @@ public class Review {
 
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Timestamp getDate() {

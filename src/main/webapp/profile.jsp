@@ -94,7 +94,6 @@
                             class="cd-item-icon fui-chat"></span>
                         <small><b class="cd-item-watch"><%=u.getMobile()%></b></small>
                     </a>
-                        <small>(Verified)</small>
                     </li>
                 </ul>
             </div>
@@ -132,55 +131,35 @@
                             </h2>
                             <div>
                                 <ul class="media-list">
+                                    <%
+                                        List<Review> reviews = dbdao.getUserReviews(u.getId());
+
+                                        if (reviews.size() > 0) {
+                                            for (int i = 0; i < reviews.size(); i++) {
+                                                Review review = reviews.get(i);
+                                    %>
                                     <li class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="images/character/blank.jpg" height="65" width="65"></a>
+                                            <a href="#"><img class="media-object" src="images/character/leone.jpg" height="65" width="65"></a>
                                         </div>
                                         <div class="media-body">
                                             <div>
-                                                <b><a>blank</a></b> We stayed at Gabriel's apartment as a treat for my 30th birthday.
-                                                The views are incredible – waking up to a panorama of the city was pretty special – and
-                                                the roof terrace with its little pool are wonderful too.
+                                                <b><a><%=review.getUser_name()%></a></b> <%=review.getContent()%>
                                             </div>
                                             <div class="media-date">
-                                                Feb 19, 2017 09:25:36
+                                                <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(review.getDate().getTime())%>
                                             </div>
                                             <div class="gs-clear"></div>
                                         </div>
                                     </li>
-                                    <li class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="images/character/betrayal.jpg" height="65" width="65"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                <b><a>betrayal</a></b> Gabriels flat is absolutely amazing1 Great location with uninterupted
-                                                views of Cape Town. I highly reccomend this flat to anyone wanting to stay in Cape Town!
-                                            </div>
-                                            <div class="media-date">
-                                                Jul 12, 2018 23:32:10
-                                            </div>
-                                            <div class="gs-clear"></div>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <div>
-                                                <b><a>bignose</a></b> The windows in this Airbnb make it worth it alone but if that weren't enough
-                                                it also includes two incredible decks, a cute neighborhood with a grocery store, restaurants, and
-                                                coffee shops and is in walking distance of Table Mountain National Park. Gabriel was an accommodating
-                                                and friendly host. We only wish the weather had been warmer when we visited...but then again,
-                                                we may never have left this wonderful Airbnb if it was.
-                                            </div>
-                                            <div class="media-date">
-                                                Aug 27, 2018 13:23:42
-                                            </div>
-                                            <div class="gs-clear"></div>
-                                        </div>
-                                    </li>
+                                    <%
+                                        }
+                                    } else {
+                                    %>
+                                    <small>You don't have any review yet.</small>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </div>
                             <div class="gs-clear"></div>
@@ -394,7 +373,7 @@
                                                         <small><span class="label label-primary">PRICE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;">$<%=a_booking.getPrice()%> / night</span></small>
                                                         <small><span class="label label-success">TYPE</span><span style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=a_booking.getType()%></span></small>
                                                         <small><span class="label label-warning">AREA</span><span class="cd-item-location gs-color-dsun" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><%=a_booking.getCity()%> </span></small>
-                                                        <small><span class="cd-item-location" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><a href="review.jsp?post_id=<%=a_booking.getId()%>&user_id=<%=u.getId()%>"><span class="fui-new"></span> Write a review</a></span></small>
+                                                        <small><span class="cd-item-location" style="margin: 5px 0;padding: .3em .5em .3em;font-size: 90%;font-weight: bold;line-height: 1;white-space: nowrap;"><a href="review.jsp?post_id=<%=a_booking.getId()%>&user_id=<%=u.getId()%>&booking_id=<%=a_bookingInfo.getId()%>"><span class="fui-new"></span> Write a review</a></span></small>
                                                     </p>
                                                 </div>
                                                 <div class="media-date">
@@ -583,7 +562,7 @@
     function cancel_booking(node) {
         swal({
             title: "Are you sure?",
-            text: "Are you sure that you want to delete the post permanently?",
+            text: "Are you sure that you want to delete the booking?",
             html: true,
             type: "warning",
             showCancelButton: true,

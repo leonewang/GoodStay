@@ -124,6 +124,10 @@
     <servlet-name>CancelBookingServlet</servlet-name>
     <servlet-class>servlet.CancelBookingServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>PostReviewServlet</servlet-name>
+    <servlet-class>servlet.PostReviewServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -245,6 +249,10 @@
   <servlet-mapping>
     <servlet-name>CancelBookingServlet</servlet-name>
     <url-pattern>/CancelBookingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PostReviewServlet</servlet-name>
+    <url-pattern>/PostReviewServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
