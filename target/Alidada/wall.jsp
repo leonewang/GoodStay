@@ -49,7 +49,7 @@
         }
     </style>
 </head>
-<body style="padding-top: 70px;">
+<body style="padding-top: 95px;">
 <!-- /custom navbar -->
 <%@include file="nav.jsp"%>
 <%
@@ -60,7 +60,7 @@
 <div class="container">
     <div class="col-xs-12 gs-right">
         <!-- Pills Tab -->
-        <dixv class="row first-row" role="tabpanel">
+        <div class="row first-row" role="tabpanel">
             <div class="gs-sort">
                 <span class="gs-sort-content">Find your good stay</span>
                 <a id="save-search" href="#" onclick="jQuery('#flash-saved-search').show();">
@@ -254,32 +254,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Pills Tab -->
-
-            <div class="row text-center">
-                <div class="pagination pagination-minimal hidden-xs">
-                    <ul>
-                        <li class="previous"><a href="#" class="fui-arrow-left"></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li class="next"><a href="#" class="fui-arrow-right"></a></li>
-                    </ul>
-                </div>
-
-                <ul class="pagination-plain visible-xs">
-                    <li class="previous"><a href="#">← Previous</a></li>
-                    <li class="next"><a href="#">Newer →</a></li>
-                    <div class="gs-clear"></div>
-                </ul>
-
-            </div>
-        </dixv>
+        </div>
     </div>
 </div>
 

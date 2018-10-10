@@ -594,8 +594,6 @@ public class DBDao {
             post.setStatus(rs.getInt("status"));
             posts.add(post);
         }
-        System.out.println(posts.size());
-        System.out.println(sql);
         return posts;
     }
 

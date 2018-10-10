@@ -84,15 +84,6 @@ public class AdvancedSearchServlet extends HttpServlet {
                 type = "";
             }
             String city = request.getParameter("city");
-
-            System.out.println("min_price: " + min_price);
-            System.out.println("max_price: " + max_price);
-            System.out.println("demands: " + demands);
-            System.out.println("amenities: " + amenities);
-            System.out.println("check_in: " + check_in);
-            System.out.println("check_out: " + check_out);
-            System.out.println("type: " + type);
-            System.out.println("city: " + city);
             DBDao dbdao = new DBDao();
             List<Post> posts = dbdao.advancedSearch(min_price, max_price, demands, amenities, check_in, check_out, type, city);
             request.setAttribute("posts", posts);

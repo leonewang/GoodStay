@@ -140,11 +140,11 @@
                                     %>
                                     <li class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object" src="images/character/leone.jpg" height="65" width="65"></a>
+                                            <a href="profile.jsp?user_id=<%=review.getUser_id()%>"><img class="media-object" src="images/character/leone.jpg" height="65" width="65"></a>
                                         </div>
                                         <div class="media-body">
                                             <div>
-                                                <b><a><%=review.getUser_name()%></a></b> <%=review.getContent()%>
+                                                <b><a href="profile.jsp?user_id=<%=review.getUser_id()%>"><%=review.getUser_name()%></a></b> <%=review.getContent()%>
                                             </div>
                                             <div class="media-date">
                                                 <%=new java.text.SimpleDateFormat("EEE, MMM dd, yyyy HH:mm:ss", Locale.US).format(review.getDate().getTime())%>
