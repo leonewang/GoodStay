@@ -73,7 +73,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="about.jsp">About us</a></li>
                     <li><a href="help.jsp">Help</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -103,84 +102,99 @@
             <div class="row">
                 <!-- search -->
                 <div id="flash-saved-search" class="alert alert-success" role="alert">
-                    <form id="new-saved-search" accept-charset="UTF-8" action="/advance-search" method="post">
+                    <form id="new-saved-search" accept-charset="UTF-8" action="/AdvancedSearchServlet" method="post">
                         <div class="gs-alert-input" style="padding-top:2px;">
                             <div>
                                 <label style="padding-top:3px;">Price</label>
                             </div>
                             <div>
-                                <input class="form-control" placeholder="Min: $" style="width: 75px">
+                                <input name="min-price" class="form-control" placeholder="Min: $" style="width: 75px">
                             </div>
                             <div>
-                                <input class="form-control" placeholder="Max: $" style="width: 75px">
+                                <input name="max-price" class="form-control" placeholder="Max: $" style="width: 75px">
                             </div>
                             <div>
-                                <label style="padding-top:3px;">Structure</label>
+                                <label style="padding-top:3px;">Demands</label>
                             </div>
-                            <div class="list-input">
-                                <select data-toggle="select" multiple class="form-control multiselect multiselect-primary" name="typeId" style="width: 300px;">
+                            <div class="list-input" style="margin-right: 0px;">
+                                <select data-toggle="select" multiple class="form-control multiselect multiselect-primary" name="demands" style="width: 240px;">
+                                    <optgroup label="People">
+                                        <option value="1 People">1 People</option>
+                                        <option value="2 People" selected>2 People</option>
+                                        <option value="3 People">3 People</option>
+                                        <option value="More than 3 People">More than 3 People</option>
+                                    </optgroup>
                                     <optgroup label="Bedroom">
-                                        <option value="1">1 Bed</option>
-                                        <option value="2">2 Beds</option>
-                                        <option value="3">3 Beds</option>
-                                        <option value="4">More than 3 Beds</option>
+                                        <option value="1 Bedroom">1 Bedroom</option>
+                                        <option value="2 Bedrooms">2 Bedrooms</option>
+                                        <option value="3 Bedrooms">3 Bedrooms</option>
+                                        <option value="More than 3 Bedrooms">More than 3 Bedrooms</option>
+                                    </optgroup>
+                                    <optgroup label="Bed">
+                                        <option value="1 Bed">1 Bed</option>
+                                        <option value="2 Beds">2 Beds</option>
+                                        <option value="3 Beds">3 Beds</option>
+                                        <option value="More than 3 Beds">More than 3 Beds</option>
                                     </optgroup>
                                     <optgroup label="Bathroom">
-                                        <option value="5" selected>1 Bathroom</option>
-                                        <option value="6">2 Bathrooms</option>
-                                        <option value="7">3 Bathrooms</option>
-                                        <option value="8">More than 3 Bathrooms</option>
+                                        <option value="1 Bathroom">1 Bathroom</option>
+                                        <option value="1.5 Bathrooms">1.5 Bathrooms</option>
+                                        <option value="2 Bathrooms">2 Bathrooms</option>
+                                        <option value="More than 2 Bathrooms">More than 2 Bathrooms</option>
                                     </optgroup>
                                 </select>
                             </div>
                             <div>
-                                <label style="padding-top:3px;">Parking</label>
+                                <label style="padding-top:3px;">Amenities</label>
                             </div>
-                            <div class="list-input">
-                                <label class="radio" style="float: left;">
-                                    <input type="radio" name="parking" id="list-radio-true" value="true" data-toggle="radio">
-                                    Yes &nbsp;&nbsp;&nbsp;
-                                </label>
-                                <label class="radio" style="float: left;">
-                                    <input type="radio" name="parking" id="list-radio-true" value="false" data-toggle="radio" checked="">
-                                    No matter
-                                </label>
+                            <div class="list-input" style="margin-right: 0px;">
+                                <select data-toggle="select" multiple class="form-control multiselect multiselect-primary" name="amenities" style="width: 240px;">
+                                    <optgroup label="Commons">
+                                        <option value="Wireless Internet">Wireless Internet</option>
+                                        <option value="Free parking" selected>Free parking</option>
+                                        <option value="Washer">Washer</option>
+                                        <option value="Dryer">Dryer</option>
+                                        <option value="Hair dryer">Hair dryer</option>
+                                        <option value="Bathroom essentials">Bathroom essentials</option>
+                                        <option value="Bedroom comforts">Bedroom comforts</option>
+                                    </optgroup>
+                                    <optgroup label="Uncommons">
+                                        <option value="Pool" >Pool</option>
+                                        <option value="Dishwasher">Dishwasher</option>
+                                        <option value="Coffee maker">Coffee maker</option>
+                                        <option value="Full kitchen">Full kitchen</option>
+                                    </optgroup>
+                                </select>
                             </div>
                             <div>
                                 <label style="padding-top:3px;">Check in</label>
                             </div>
                             <div>
-                                <input id='checkindate' name="checkintime" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                                <input autocomplete="off" id='checkindate' name="check-in" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                             </div>
                             <div>
                                 <label style="padding-top:3px;">Check out</label>
                             </div>
                             <div>
-                                <input id='checkoutdate' name="checkouttime" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                                <input autocomplete="off" id='checkoutdate' name="check-out" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                             </div>
                             <div>
                                 <label style="padding-top:3px;">Type</label>
                             </div>
                             <div class="list-input">
                                 <select data-toggle="select" class="form-control select select-primary" name="type" style="min-width: 150px; width: 175px;">
-                                    <option value="1">Apartment & Unit</option>
-                                    <option value="2">House</option>
-                                    <option value="3">Townhouse & Villa</option>
-                                    <option value="4">Others</option>
+                                    <option value="All">All</option>
+                                    <option value="Apartment & Unit">Apartment & Unit</option>
+                                    <option value="House">House</option>
+                                    <option value="Townhouse & Villa">Townhouse & Villa</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </div>
                             <div>
-                                <label style="padding-top:3px;">Area</label>
+                                <label style="padding-top:3px;">City</label>
                             </div>
                             <div class="list-input" style="margin-bottom: 10px;">
-                                <select data-toggle="select" class="form-control select select-primary" name="type" style="min-width: 150px; width: 155px;">
-                                    <option value="1" selected>Sydney Centre</option>
-                                    <option value="2">West Sydney</option>
-                                    <option value="3">South Sydney</option>
-                                    <option value="4">East Sydney</option>
-                                    <option value="5">North Sydney</option>
-                                    <option value="6">Other areas</option>
-                                </select>
+                                <input name="city" class="form-control" placeholder="e.g. Mascot" style="width: 150px">
                             </div>
                         </div>
                         <div>
@@ -251,7 +265,7 @@
 
 <!-- Custom jquery sentences -->
 <script src="js/backtop.js"></script>
-<script src="Zjs/goto-stuff.js"></script>
+<script src="js/goto-stuff.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {

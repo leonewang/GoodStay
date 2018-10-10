@@ -64,7 +64,7 @@
             <div class="gs-sort">
                 <span class="gs-sort-content">Find your good stay</span>
                 <a id="save-search" href="#" onclick="jQuery('#flash-saved-search').show();">
-                    <small>advance search</small>
+                    <small>advanced search</small>
                 </a>
             </div>
             <div class="select-list-type">
@@ -78,79 +78,108 @@
             <div class="gs-clear"></div>
 
             <!-- search -->
-            <div id="flash-saved-search" class="alert alert-warning" role="alert" style="display:none;">
-                <form id="new-saved-search" accept-charset="UTF-8" action="/advance-search" method="post">
+            <div id="flash-saved-search" class="alert alert-warning" role="alert" style="display: none;">
+                <form id="new-saved-search" accept-charset="UTF-8" style="margin-bottom: 0;" action="/AdvancedSearchServlet" method="get">
                     <div class="gs-alert-input" style="padding-top:2px;">
                         <div>
                             <label style="padding-top:3px;">Price</label>
                         </div>
                         <div class="has-warning">
-                            <input class="form-control" placeholder="Min: $" style="width: 75px">
+                            <input name="min-price" class="form-control" placeholder="Min: $" style="width: 75px">
                         </div>
                         <div class="has-warning">
-                            <input class="form-control" placeholder="Max: $" style="width: 75px">
+                            <input name="max-price" class="form-control" placeholder="Max: $" style="width: 75px">
                         </div>
                         <div>
-                            <label style="padding-top:3px;">Structure</label>
+                            <label style="padding-top:3px;">Demands</label>
                         </div>
-                        <div class="list-input">
-                            <select data-toggle="select" multiple class="form-control multiselect multiselect-warning" name="typeId" style="width: 300px;">
+                        <div class="list-input" style="margin-right: 0;">
+                            <select data-toggle="select" multiple class="form-control multiselect multiselect-warning" name="demands" style="width: 235px;">
+                                <optgroup label="People">
+                                    <option value="1 People">1 People</option>
+                                    <option value="2 People" selected>2 People</option>
+                                    <option value="3 People">3 People</option>
+                                    <option value="More than 3 People">More than 3 People</option>
+                                </optgroup>
                                 <optgroup label="Bedroom">
-                                    <option value="1">1 Bed</option>
-                                    <option value="2">2 Beds</option>
-                                    <option value="3">3 Beds</option>
-                                    <option value="4">More than 3 Beds</option>
+                                    <option value="1 Bedroom">1 Bedroom</option>
+                                    <option value="2 Bedrooms">2 Bedrooms</option>
+                                    <option value="3 Bedrooms">3 Bedrooms</option>
+                                    <option value="More than 3 Bedrooms">More than 3 Bedrooms</option>
+                                </optgroup>
+                                <optgroup label="Bed">
+                                    <option value="1 Bed">1 Bed</option>
+                                    <option value="2 Beds">2 Beds</option>
+                                    <option value="3 Beds">3 Beds</option>
+                                    <option value="More than 3 Beds">More than 3 Beds</option>
                                 </optgroup>
                                 <optgroup label="Bathroom">
-                                    <option value="5" selected>1 Bathroom</option>
-                                    <option value="6">2 Bathrooms</option>
-                                    <option value="7">3 Bathrooms</option>
-                                    <option value="8">More than 3 Bathrooms</option>
+                                    <option value="1 Bathroom">1 Bathroom</option>
+                                    <option value="1.5 Bathrooms">1.5 Bathrooms</option>
+                                    <option value="2 Bathrooms">2 Bathrooms</option>
+                                    <option value="More than 2 Bathrooms">More than 2 Bathrooms</option>
                                 </optgroup>
                             </select>
                         </div>
                         <div>
-                            <label style="padding-top:3px;">Parking</label>
+                            <label style="padding-top:3px;">Amenities</label>
                         </div>
-                        <div class="list-input has-warning">
-                            <label class="radio has-warning" style="float: left;">
-                                <input type="radio" name="parking" id="list-radio-true" value="true" data-toggle="radio">
-                                Yes &nbsp;&nbsp;&nbsp;
-                            </label>
-                            <label class="radio has-warning" style="float: left;">
-                                <input type="radio" name="parking" id="list-radio-true" value="false" data-toggle="radio" checked="">
-                                No matter
-                            </label>
+                        <div class="list-input has-warning" style="margin-right: 0;">
+                            <select data-toggle="select" multiple class="form-control multiselect multiselect-warning" name="amenities" style="width: 235px;">
+                                <optgroup label="Commons">
+                                    <option value="Wireless Internet">Wireless Internet</option>
+                                    <option value="Free parking" selected>Free parking</option>
+                                    <option value="Washer">Washer</option>
+                                    <option value="Dryer">Dryer</option>
+                                    <option value="Hair dryer">Hair dryer</option>
+                                    <option value="Bathroom essentials">Bathroom essentials</option>
+                                    <option value="Bedroom comforts">Bedroom comforts</option>
+                                </optgroup>
+                                <optgroup label="Uncommons">
+                                    <option value="Pool" >Pool</option>
+                                    <option value="Dishwasher">Dishwasher</option>
+                                    <option value="Coffee maker">Coffee maker</option>
+                                    <option value="Full kitchen">Full kitchen</option>
+                                </optgroup>
+                            </select>
                         </div>
                         <div>
                             <label style="padding-top:3px;">Check in</label>
                         </div>
                         <div class="has-warning">
-                            <input id='checkindate' name="checkintime" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                            <input autocomplete="off" id='checkindate' name="check-in" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                         </div>
                         <div>
                             <label style="padding-top:3px;">Check out</label>
                         </div>
                         <div class="has-warning">
-                            <input id='checkoutdate' name="checkouttime" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
+                            <input autocomplete="off" id='checkoutdate' name="check-out" class="form-control" placeholder="yyyy-mm-dd" style="width: 110px">
                         </div>
                         <div>
-                            <label style="padding-top:3px;">Dwelling Type</label>
+                            <label style="padding-top:3px;">Type</label>
                         </div>
-                        <div class="list-input">
+                        <div class="list-input" style="margin-right: 0;">
                             <select data-toggle="select" class="form-control select select-warning" name="type" style="min-width: 150px; width: 175px;">
-                                <option value="1">Apartment & Unit</option>
-                                <option value="2">House</option>
-                                <option value="3">Townhouse & Villa</option>
-                                <option value="4">Others</option>
+                                <option value="All">All</option>
+                                <option value="Apartment & Unit">Apartment & Unit</option>
+                                <option value="House">House</option>
+                                <option value="Townhouse & Villa">Townhouse & Villa</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                         <div>
-                            <button class="btn btn-warning warning-save">Search</button>
+                            <label style="padding-top:3px;">City</label>
                         </div>
-                        <div style="font-size:14px;padding-top:13px;">
-                            <a href="#" class="alert-cancel alert-link" onclick="jQuery('#flash-saved-search').hide();">Cancel</a>
+                        <div class="list-input has-warning" style="margin-bottom: 10px;">
+                            <input name="city" class="form-control" placeholder="e.g. Mascot" style="width: 145px">
                         </div>
+                    </div>
+
+                    <div style="float: right;font-size:14px;padding-top:20px;">
+                        <a href="#" class="alert-cancel alert-link" onclick="jQuery('#flash-saved-search').hide();">Cancel</a>
+                    </div>
+                    <div>
+                        <button class="btn btn-warning btn-block warning-save">Search</button>
                     </div>
                 </form>
                 <div class="gs-clear"></div>
@@ -255,7 +284,7 @@
 </div>
 
 
-    <!-- /custom footbar -->
+<!-- /custom footbar -->
 <%@include file="footer.jsp"%>
 
 <script src="js/assets/jquery.min.js"></script>
@@ -284,7 +313,8 @@
             autoclose: true
         });
         $('#checkoutdate').datepicker({
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            autoclose: true
         });
     });
 </script>

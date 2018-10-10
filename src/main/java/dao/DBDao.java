@@ -536,6 +536,70 @@ public class DBDao {
     }
 
     /**
+     * Advanced search results func
+     *
+     * @throws SQLException
+     */
+    public List<Post> advancedSearch(String min_price, String max_price, String demands, String amenities, String check_in,
+                                     String check_out, String type, String city) throws SQLException {
+        List<Post> posts = new ArrayList<Post>();
+        Connection conn = DBUtil.getConn();
+        int mi_price = 0;
+        int ma_price = 0;
+        if(min_price.equals("")) {
+            mi_price = 0;
+        } else {
+            mi_price = Integer.valueOf(min_price);
+        }
+        if(max_price.equals("")) {
+            ma_price = 99999;
+        } else {
+            ma_price = Integer.valueOf(max_price);
+        }
+        if(check_in.equals("")) {
+            check_in = "2999-12-31";
+        }
+        if(check_out.equals("")) {
+            check_out = "1990-01-01";
+        }
+        String sql = "select * from post where price >= " + mi_price + " and price <= " + ma_price +
+                " and demands like '%" + demands + "%' and type like '%" + type + "%' " +
+                "and amenities like '%" + amenities + "%' and city like '%" + city + "%' " +
+                "and start_date <= '" + check_in + "' and end_date >= '" + check_out + "' order by stick_date DESC";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            Post post = new Post();
+            post.setId(rs.getString("id"));
+            post.setTitle(rs.getString("title"));
+            post.setCity(rs.getString("city"));
+            post.setAddress(rs.getString("address"));
+            post.setPlaceid(rs.getString("placeid"));
+            post.setCoordinate(rs.getString("coordinate"));
+            post.setType(rs.getString("type"));
+            post.setDemands(rs.getString("demands"));
+            post.setAmenities(rs.getString("amenities"));
+            post.setPhotos(rs.getInt("photos"));
+            post.setDescription(rs.getString("description"));
+            post.setPrice(rs.getInt("price"));
+            post.setAlidadamatch(rs.getString("alidadamatch"));
+            post.setStart_date(rs.getDate("start_date"));
+            post.setEnd_date(rs.getDate("end_date"));
+            post.setPost_date(rs.getTimestamp("post_date"));
+            post.setLikes(rs.getInt("likes"));
+            post.setPost_by(rs.getInt("post_by"));
+            post.setReviews(rs.getInt("reviews"));
+            post.setStick_date(rs.getTimestamp("stick_date"));
+            post.setPoster(getUser(rs.getInt("post_by")).getUser_name());
+            post.setStatus(rs.getInt("status"));
+            posts.add(post);
+        }
+        System.out.println(posts.size());
+        System.out.println(sql);
+        return posts;
+    }
+
+    /**
      * Check if post is in the watch list func
      *
      * @param post_id, user_id

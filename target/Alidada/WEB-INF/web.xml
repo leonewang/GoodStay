@@ -128,6 +128,10 @@
     <servlet-name>PostReviewServlet</servlet-name>
     <servlet-class>servlet.PostReviewServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AdvancedSearchServlet</servlet-name>
+    <servlet-class>servlet.AdvancedSearchServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -253,6 +257,10 @@
   <servlet-mapping>
     <servlet-name>PostReviewServlet</servlet-name>
     <url-pattern>/PostReviewServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdvancedSearchServlet</servlet-name>
+    <url-pattern>/AdvancedSearchServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
