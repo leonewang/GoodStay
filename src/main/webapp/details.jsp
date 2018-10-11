@@ -164,16 +164,16 @@
                     <div id="cd-media-list">
                         <ul class="media-list">
                             <li class="media">
-                                <div class="media-left">
-                                    <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
-                                </div>
                                 <%
                                     List<Review> reviews = dbdao.getPostReviews(post.getId());
 
                                     if (reviews.size() > 0) {
                                         for (int i = 0; i < reviews.size(); i++) {
-                                            Review review = reviews.get(i);
+                                                    Review review = reviews.get(i);
                                 %>
+                                <div class="media-left">
+                                    <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
+                                </div>
                                 <div class="media-body">
                                     <div>
                                         <b><a href="profile.jsp?user_id=<%=review.getUser_id()%>"><%=review.getUser_name()%></a></b>

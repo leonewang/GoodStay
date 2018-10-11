@@ -31,6 +31,9 @@
         .structure b {
             margin-left: 7px;
         }
+        .cd-comments h2 {
+            padding: 1em 0 5px 0;
+        }
     </style>
 </head>
 <body style="padding-top: 70px;">
@@ -163,6 +166,16 @@
                                 </ul>
                             </div>
                             <div class="gs-clear"></div>
+
+                            <h2 style="border-bottom-style:none;">
+                                <span class="fui-new"></span> Leave a message
+                            </h2>
+                            <div style="padding: 5px 0 15px 0;">
+                                <textarea id="message" rows="5" class="form-control" name="message" placeholder="Type anything do you want to ask <%=u.getName()%> about the place...within 1000 characters"></textarea>
+                            </div>
+                            <div>
+                                <button id="send-message" send-from="<%=user.getId()%>" send-to="<%=u.getId()%>" class="btn btn-primary btn-embossed btn-block">Send</button>
+                            </div>
                         </div>
                         <!-- /cd-comments -->
                     </div>
@@ -583,6 +596,41 @@
                 .done(function (data) {
                     swal("Success!", "You have canceled the booking already.", "success");
                     $(node).attr("hidden", "hidden");
+                })
+                .error(function (data) {
+                    swal("Sorry!", "Something wrong.", "error");
+                });
+        })
+    };
+
+    $('#send-message').click(function() {
+        send_message(this);
+    });
+
+    function send_message(node) {
+        swal({
+            title: "Send it?",
+            text: "Are you sure that you want to send the message?",
+            html: true,
+            type: "info",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonText: "Send",
+            confirmButtonColor: "#1ABC9C"
+        }, function () {
+            $.ajax({
+                url: "SendMessageServlet",
+                type: "GET",
+                dataType: "html",
+                data: {
+                    send_to: $(node).attr("send-to"),
+                    send_from: $(node).attr("send-from"),
+                    content: $("#message").val()
+                }
+            })
+                .done(function (data) {
+                    swal("Success!", "You have sent a message.", "success");
+                    $("#message").val("");
                 })
                 .error(function (data) {
                     swal("Sorry!", "Something wrong.", "error");

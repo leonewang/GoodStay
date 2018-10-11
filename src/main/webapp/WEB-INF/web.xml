@@ -132,6 +132,10 @@
     <servlet-name>AdvancedSearchServlet</servlet-name>
     <servlet-class>servlet.AdvancedSearchServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SendMessageServlet</servlet-name>
+    <servlet-class>servlet.SendMessageServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -261,6 +265,10 @@
   <servlet-mapping>
     <servlet-name>AdvancedSearchServlet</servlet-name>
     <url-pattern>/AdvancedSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendMessageServlet</servlet-name>
+    <url-pattern>/SendMessageServlet</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>

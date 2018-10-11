@@ -51,7 +51,7 @@
             %>
             <div class="notification">
                 <span class="gs-text-md">
-                    <a href="/FriendProfileServlet?id=<%=notice.getSend_from()%>"><b><%=dbdao.getUser(notice.getSend_from()).getUser_name()%></b></a><%=notice.getContent()%>
+                    <a href="/profile.jsp?user_id=<%=notice.getSend_from()%>"><b><%=dbdao.getUser(notice.getSend_from()).getUser_name()%></b></a><%=notice.getContent()%>
                 </span>
                 <button class="btn btn-sm btn-primary mark-read" notice-id="<%=notice.getId()%>" style="float: right">Mark as read</button>
             </div>
