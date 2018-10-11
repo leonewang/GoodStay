@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.Notification" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="model.UserImage" %>
 <%
     User user = (User) session.getAttribute("user");
     if (user == null) {
@@ -47,7 +48,10 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="images/character/leone.jpg" height="40" width="40" alt="Leone" class="img-circle hidden-xs">
+                        <%
+                            UserImage ui = dbdao.findUserImage(user.getId());
+                        %>
+                        <img src="<%=ui.getContent()%>" height="40" width="40" alt="Leone" class="img-circle hidden-xs">
                         <%=user.getUser_name()%> <b class="caret"></b><span id="user_id" hidden><%=user.getId()%></span>
                     </a>
                     <ul class="dropdown-menu">

@@ -26,9 +26,6 @@ public class SendMessageServlet extends HttpServlet {
             String content = request.getParameter("content");
             DBDao dbdao = new DBDao();
             dbdao.sendNotification(send_to, send_from, " sent you a message: " + content + " <a href='profile.jsp?user_id=" + send_from + "'>Click here to reply</a>");
-            System.out.println("send_to: " + send_to);
-            System.out.println("send_from: " + send_from);
-            System.out.println("content: " + content);
             response.getWriter().print("success");
         } catch (SQLException e) {
             e.printStackTrace();

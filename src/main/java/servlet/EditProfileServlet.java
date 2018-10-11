@@ -37,7 +37,7 @@ public class EditProfileServlet extends HttpServlet {
             dbdao.addLog(id, "editProfile", " Updated personal profile.");
             request.setAttribute("user", dbdao.getUser(id));
             request.getSession().setAttribute("user", dbdao.getUser(id));
-            request.getRequestDispatcher("/profile.jsp").forward(request, response);
+            request.getRequestDispatcher("/profile.jsp?user_id=" + id).forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -208,7 +208,10 @@
 
             <div class="gs-seller">
                 <div class="seller-thumb">
-                    <a><img src="images/character/leone.jpg" height="76" width="76"></a>
+                    <%
+                        UserImage poster_ui = dbdao.findUserImage(post.getPost_by());
+                    %>
+                    <a><img src="<%=poster_ui.getContent()%>" height="76" width="76"></a>
                 </div>
                 <div class="seller-info">
                     <div class="name">
@@ -219,7 +222,7 @@
                     </div>
                     <div>
                         <small>
-                            <a class="btn btn-sm btn-primary" style="margin-right: 8px;"><span class="be-fans-text">Contact</span></a>
+                            <a href="profile.jsp?user_id=<%=post.getPost_by()%>" class="btn btn-sm btn-primary" style="margin-right: 8px;"><span class="be-fans-text">Contact</span></a>
                             <a href="profile.jsp?user_id=<%=post.getPost_by()%>"><b><span class="be-fans-text">View profile</span></b></a>
                         </small>
                     </div>

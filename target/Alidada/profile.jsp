@@ -60,7 +60,10 @@
 
             <div class="gs-seller" style="margin-bottom: 15px;">
                 <div class="seller-thumb">
-                    <a><img src="images/character/leone.jpg" height="115" width="115"></a>
+                    <%
+                        UserImage userImage = dbdao.findUserImage(u.getId());
+                    %>
+                    <a><img src="<%=userImage.getContent()%>" height="115" width="115"></a>
                 </div>
                 <div class="seller-info">
                     <div class="name" style="font-size: 1.1em; margin-bottom: 9px;">
@@ -73,7 +76,7 @@
                     %>
                     <div><small><a href="/EditProfileServlet?id=<%=user.getId()%>" class="btn btn-sm btn-primary">Edit Profile</a></small></div>
                     <%  }  else { %>
-                    <div><small><a href="/ContactServlet?send_id=<%=user.getId()%>&rec_id=<%=u.getId()%>" class="btn btn-sm btn-primary">Contact</a></small></div>
+                    <div><small><a href="/profile.jsp?user_id=<%=u.getId()%>" class="btn btn-sm btn-primary">Contact</a></small></div>
                     <%
                         }
                     %>
@@ -140,10 +143,11 @@
                                         if (reviews.size() > 0) {
                                             for (int i = 0; i < reviews.size(); i++) {
                                                 Review review = reviews.get(i);
+                                                UserImage review_ui = dbdao.findUserImage(review.getUser_id());
                                     %>
                                     <li class="media">
                                         <div class="media-left">
-                                            <a href="profile.jsp?user_id=<%=review.getUser_id()%>"><img class="media-object" src="images/character/leone.jpg" height="65" width="65"></a>
+                                            <a href="profile.jsp?user_id=<%=review.getUser_id()%>"><img class="media-object" src="<%=review_ui.getContent()%>" height="65" width="65"></a>
                                         </div>
                                         <div class="media-body">
                                             <div>

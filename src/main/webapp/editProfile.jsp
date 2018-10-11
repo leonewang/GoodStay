@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="css/doc.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="shortcut icon" href="images/icons/favicon.ico">
+    <style>
+        #qiniupercent {
+            height: 15px;
+            width: 100%;
+            padding: 0;
+            margin: 10px 0 0 7%;
+            border: none;
+            border-radius: 3px;
+            background-color: #1ABC9C;
+        }
+    </style>
 </head>
 <body style="padding-top: 70px;">
 <!-- /custom navbar -->
@@ -36,10 +47,19 @@
         <div>
             <form action="/EditProfileServlet" method="post">
                 <div class="form-group">
-                    <input type="text" name="id" value="<%=user.getId()%>" hidden/>
+                    <input type="text" id="user-id" name="id" value="<%=user.getId()%>" hidden/>
                 </div>
-
-
+                <div class="form-group">
+                    <strong>Avatar</strong>
+                </div>
+                <div class="form-group">
+                    <div id="container" style="width: 30%;float: left;">
+                        <a class="btn btn-sm btn-primary" id="pickfiles" href="#" style="width: 100%;">
+                            <span id="image-num">Upload</span><span id="total-num"></span></a>
+                    </div>
+                    <div style="width: 65%;float: left;"><button type="button" id="qiniupercent" style="width: 0%;"></button></div>
+                </div>
+                <div class="gs-clear"></div>
                 <div class="form-group">
                     <strong>Username</strong>
                     <span class="fui-question-circle gs-color-greensea"></span>
@@ -107,5 +127,30 @@
 <script src="js/assets/jquery.min.js"></script>
 <script src="js/assets/flat-ui.min.js"></script>
 <script src="js/assets/application.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/plupload/2.1.9/moxie.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/plupload/2.1.9/plupload.dev.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.min.js"></script>
+<script src="js/qiniuUserImg.js"></script>
+<script>
+    /*
+	页面加载完毕 发起请求获取七牛token
+	* 之后调用上传组件构造方法[qiniuUserImg.js]
+	*/
+    function getTokenMessage() {
+        $.ajax({
+            url: "UptokenServlet",
+            type: 'POST',
+            data: {},
+            dataType : 'html',
+            success: function (data) {
+                uploaderReady(data);
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        getTokenMessage();
+    });
+</script>
 </body>
 </html>

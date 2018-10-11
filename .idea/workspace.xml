@@ -7,17 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6006627b-fbcd-45db-825b-f4ed1bdafb97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlet/SendMessageServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada.war" afterPath="$PROJECT_DIR$/target/Alidada.war" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/model/UserImage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlet/UserImageServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/qiniuUserImg.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/DBDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/DBDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlet/EditProfileServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlet/EditProfileServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlet/SendMessageServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlet/SendMessageServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/details.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/details.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/notification.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/notification.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/editProfile.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/editProfile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/nav.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/nav.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/Alidada/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/details.jsp" afterPath="$PROJECT_DIR$/target/Alidada/details.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/notification.jsp" afterPath="$PROJECT_DIR$/target/Alidada/notification.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/Alidada/profile.jsp" afterPath="$PROJECT_DIR$/target/Alidada/profile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/signup.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/signup.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,92 +35,157 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DBDao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DBDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/DBDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="1234" column="16" lean-forward="false" selection-start-line="1234" selection-start-column="16" selection-end-line="1234" selection-end-column="16" />
+            <state relative-caret-position="327">
+              <caret line="294" column="51" lean-forward="true" selection-start-line="294" selection-start-column="51" selection-end-line="294" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#20565#20571#0" expanded="true" />
-                <marker date="1539184056413" expanded="true" signature="384:551" ph="insert into User... " />
-                <marker date="1539184056413" expanded="true" signature="1168:1223" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="1985:2047" ph="select * fro... Admin" />
-                <marker date="1539184056413" expanded="true" signature="2574:2612" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="3490:3521" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="4387:4425" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="4845:4886" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="5906:5966" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="7159:7219" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="8381:8434" ph="update User " />
-                <marker date="1539184056413" expanded="true" signature="8751:9033" ph="update User " />
-                <marker date="1539184056413" expanded="true" signature="9361:9462" ph="insert into Image... " />
-                <marker date="1539184056413" expanded="true" signature="9993:10038" ph="select * fro... Image" />
-                <marker date="1539184056413" expanded="true" signature="10764:10817" ph="select * fro... Image" />
-                <marker date="1539184056413" expanded="true" signature="11412:11730" ph="insert into Post... " />
-                <marker date="1539184056413" expanded="true" signature="12766:12809" ph="select * fro... Post" />
-                <marker date="1539184056413" expanded="true" signature="14488:14530" ph="select * fro... Post" />
-                <marker date="1539184056413" expanded="true" signature="16106:16150" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="17175:17310" ph="insert into review... " />
-                <marker date="1539184056413" expanded="true" signature="17905:17942" ph="select * fro... review" />
-                <marker date="1539184056413" expanded="true" signature="18857:18911" ph="select * fro... review" />
-                <marker date="1539184056413" expanded="true" signature="19802:19864" ph="update Post " />
-                <marker date="1539184056413" expanded="true" signature="19973:20046" ph="insert into Watchlist... " />
-                <marker date="1539184056413" expanded="true" signature="21139:21515" ph="select * fro... post" />
-                <marker date="1539184056413" expanded="true" signature="23238:23311" ph="select id fr... Watchlist" />
-                <marker date="1539184056413" expanded="true" signature="23869:23941" ph="update Post " />
-                <marker date="1539184056413" expanded="false" signature="24228:24234" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="24304:24384" ph="select * fro... watchlist" />
-                <marker date="1539184056413" expanded="false" signature="26034:26043" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="26113:26154" ph="select id fr... watchlist" />
-                <marker date="1539184056413" expanded="true" signature="26622:26655" ph="delete from " />
-                <marker date="1539184056413" expanded="true" signature="26686:26748" ph="update Post " />
-                <marker date="1539184056413" expanded="false" signature="27086:27092" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="27162:27647" ph="select post.... booking" />
-                <marker date="1539184056413" expanded="false" signature="29325:29334" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="29404:29457" ph="select * fro... booking" />
-                <marker date="1539184056413" expanded="false" signature="30320:30326" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="30396:30881" ph="select post.... booking" />
-                <marker date="1539184056413" expanded="false" signature="32561:32570" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="32640:32693" ph="select * fro... booking" />
-                <marker date="1539184056413" expanded="false" signature="33560:33566" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="33636:34121" ph="select post.... booking" />
-                <marker date="1539184056413" expanded="false" signature="35805:35814" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="35884:35937" ph="select * fro... booking" />
-                <marker date="1539184056413" expanded="true" signature="36912:37038" ph="insert into Booking... " />
-                <marker date="1539184056413" expanded="true" signature="37687:37728" ph="update booki... " />
-                <marker date="1539184056413" expanded="true" signature="38052:38083" ph="delete from " />
-                <marker date="1539184056413" expanded="true" signature="38459:38500" ph="update booki... " />
-                <marker date="1539184056413" expanded="false" signature="38812:38821" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="38891:38946" ph="select * fro... Booking" />
-                <marker date="1539184056413" expanded="true" signature="39763:39808" ph="delete from " />
-                <marker date="1539184056413" expanded="true" signature="39834:39889" ph="delete from " />
-                <marker date="1539184056413" expanded="true" signature="39915:39968" ph="delete from " />
-                <marker date="1539184056413" expanded="true" signature="39994:40045" ph="delete from " />
-                <marker date="1539184056413" expanded="false" signature="40490:40496" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="40566:40616" ph="select * fro... Post" />
-                <marker date="1539184056413" expanded="true" signature="42286:42921" ph="update post " />
-                <marker date="1539184056413" expanded="true" signature="43270:43326" ph="select stick... Post" />
-                <marker date="1539184056413" expanded="true" signature="43919:44053" ph="insert into Friend... " />
-                <marker date="1539184056413" expanded="true" signature="44521:44576" ph="update Frien... " />
-                <marker date="1539184056413" expanded="true" signature="44903:44934" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="46007:46135" ph="select * fro... Friend" />
-                <marker date="1539184056413" expanded="true" signature="46750:46795" ph="select * fro... User" />
-                <marker date="1539184056413" expanded="true" signature="47249:47286" ph="update User " />
-                <marker date="1539184056413" expanded="true" signature="47637:47674" ph="update User " />
-                <marker date="1539184056413" expanded="true" signature="48100:48227" ph="insert into Notification... " />
-                <marker date="1539184056413" expanded="true" signature="48679:48737" ph="select * fro... Notification" />
-                <marker date="1539184056413" expanded="false" signature="48928:48942" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="49610:49656" ph="select send_... notification" />
-                <marker date="1539184056413" expanded="true" signature="50148:50192" ph="select send_... notification" />
-                <marker date="1539184056413" expanded="true" signature="50687:50744" ph="update Notif... " />
-                <marker date="1539184056413" expanded="true" signature="51119:51226" ph="insert into Log... " />
-                <marker date="1539184056413" expanded="true" signature="51691:51745" ph="select * fro... Log" />
-                <marker date="1539184056413" expanded="true" signature="52547:52613" ph="select * fro... post" />
-                <marker date="1539184056413" expanded="false" signature="52803:52811" ph="&lt;~&gt;" />
-                <marker date="1539184056413" expanded="true" signature="53254:53332" ph="select frien... Friend" />
-                <marker date="1539184056413" expanded="false" signature="53521:53529" ph="&lt;~&gt;" />
+                <element signature="e#22359#22365#0" expanded="true" />
+                <marker date="1539248202481" expanded="true" signature="385:552" ph="insert into User... " />
+                <marker date="1539248202481" expanded="true" signature="578:683" ph="insert into UserImage... " />
+                <marker date="1539248202481" expanded="true" signature="1646:1701" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="2463:2525" ph="select * fro... Admin" />
+                <marker date="1539248202481" expanded="true" signature="3052:3090" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="3968:3999" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="4865:4903" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="5323:5364" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="6384:6444" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="7637:7697" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="8859:8912" ph="update User " />
+                <marker date="1539248202481" expanded="true" signature="9229:9511" ph="update User " />
+                <marker date="1539248202481" expanded="true" signature="9848:9953" ph="insert into Image... " />
+                <marker date="1539248202481" expanded="true" signature="10482:10520" ph="select * fro... UserImage" />
+                <marker date="1539248202481" expanded="true" signature="10482:10525" ph="select * fro... Image" />
+                <marker date="1539248202481" expanded="true" signature="10482:10556" ph="select * fro... UserImage" />
+                <marker date="1539248202481" expanded="true" signature="11155:11256" ph="insert into Image... " />
+                <marker date="1539248202481" expanded="true" signature="11787:11832" ph="select * fro... Image" />
+                <marker date="1539248202481" expanded="true" signature="12558:12611" ph="select * fro... Image" />
+                <marker date="1539248202481" expanded="true" signature="13206:13524" ph="insert into Post... " />
+                <marker date="1539248202481" expanded="true" signature="14560:14603" ph="select * fro... Post" />
+                <marker date="1539248202481" expanded="true" signature="16282:16324" ph="select * fro... Post" />
+                <marker date="1539248202481" expanded="true" signature="17900:17944" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="18969:19104" ph="insert into review... " />
+                <marker date="1539248202481" expanded="true" signature="19699:19736" ph="select * fro... review" />
+                <marker date="1539248202481" expanded="true" signature="20651:20705" ph="select * fro... review" />
+                <marker date="1539248202481" expanded="true" signature="21596:21658" ph="update Post " />
+                <marker date="1539248202481" expanded="true" signature="21767:21840" ph="insert into Watchlist... " />
+                <marker date="1539248202481" expanded="true" signature="22933:23309" ph="select * fro... post" />
+                <marker date="1539248202481" expanded="true" signature="25032:25105" ph="select id fr... Watchlist" />
+                <marker date="1539248202481" expanded="true" signature="25663:25735" ph="update Post " />
+                <marker date="1539248202481" expanded="false" signature="26022:26028" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="26098:26178" ph="select * fro... watchlist" />
+                <marker date="1539248202481" expanded="false" signature="27828:27837" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="27907:27948" ph="select id fr... watchlist" />
+                <marker date="1539248202481" expanded="true" signature="28416:28449" ph="delete from " />
+                <marker date="1539248202481" expanded="true" signature="28480:28542" ph="update Post " />
+                <marker date="1539248202481" expanded="false" signature="28880:28886" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="28956:29441" ph="select post.... booking" />
+                <marker date="1539248202481" expanded="false" signature="31119:31128" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="31198:31251" ph="select * fro... booking" />
+                <marker date="1539248202481" expanded="false" signature="32114:32120" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="32190:32675" ph="select post.... booking" />
+                <marker date="1539248202481" expanded="false" signature="34355:34364" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="34434:34487" ph="select * fro... booking" />
+                <marker date="1539248202481" expanded="false" signature="35354:35360" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="35430:35915" ph="select post.... booking" />
+                <marker date="1539248202481" expanded="false" signature="37599:37608" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="37678:37731" ph="select * fro... booking" />
+                <marker date="1539248202481" expanded="true" signature="38706:38832" ph="insert into Booking... " />
+                <marker date="1539248202481" expanded="true" signature="39481:39522" ph="update booki... " />
+                <marker date="1539248202481" expanded="true" signature="39846:39877" ph="delete from " />
+                <marker date="1539248202481" expanded="true" signature="40253:40294" ph="update booki... " />
+                <marker date="1539248202481" expanded="false" signature="40606:40615" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="40685:40740" ph="select * fro... Booking" />
+                <marker date="1539248202481" expanded="true" signature="41557:41602" ph="delete from " />
+                <marker date="1539248202481" expanded="true" signature="41628:41683" ph="delete from " />
+                <marker date="1539248202481" expanded="true" signature="41709:41762" ph="delete from " />
+                <marker date="1539248202481" expanded="true" signature="41788:41839" ph="delete from " />
+                <marker date="1539248202481" expanded="false" signature="42284:42290" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="42360:42410" ph="select * fro... Post" />
+                <marker date="1539248202481" expanded="true" signature="44080:44715" ph="update post " />
+                <marker date="1539248202481" expanded="true" signature="45064:45120" ph="select stick... Post" />
+                <marker date="1539248202481" expanded="true" signature="45713:45847" ph="insert into Friend... " />
+                <marker date="1539248202481" expanded="true" signature="46315:46370" ph="update Frien... " />
+                <marker date="1539248202481" expanded="true" signature="46697:46728" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="47801:47929" ph="select * fro... Friend" />
+                <marker date="1539248202481" expanded="true" signature="48544:48589" ph="select * fro... User" />
+                <marker date="1539248202481" expanded="true" signature="49043:49080" ph="update User " />
+                <marker date="1539248202481" expanded="true" signature="49431:49468" ph="update User " />
+                <marker date="1539248202481" expanded="true" signature="49894:50021" ph="insert into Notification... " />
+                <marker date="1539248202481" expanded="true" signature="50473:50531" ph="select * fro... Notification" />
+                <marker date="1539248202481" expanded="false" signature="50722:50736" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="51404:51450" ph="select send_... notification" />
+                <marker date="1539248202481" expanded="true" signature="51942:51986" ph="select send_... notification" />
+                <marker date="1539248202481" expanded="true" signature="52481:52538" ph="update Notif... " />
+                <marker date="1539248202481" expanded="true" signature="52913:53020" ph="insert into Log... " />
+                <marker date="1539248202481" expanded="true" signature="53485:53539" ph="select * fro... Log" />
+                <marker date="1539248202481" expanded="true" signature="54341:54407" ph="select * fro... post" />
+                <marker date="1539248202481" expanded="false" signature="54597:54605" ph="&lt;~&gt;" />
+                <marker date="1539248202481" expanded="true" signature="55048:55126" ph="select frien... Friend" />
+                <marker date="1539248202481" expanded="false" signature="55315:55323" ph="&lt;~&gt;" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UptokenServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/UptokenServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/profile.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="136" column="33" lean-forward="true" selection-start-line="136" selection-start-column="33" selection-end-line="136" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/details.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="224" column="79" lean-forward="false" selection-start-line="224" selection-start-column="79" selection-end-line="224" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="12" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/signup.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditProfileServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/EditProfileServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,10 +194,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>color</find>
-      <find>listAllPosts</find>
-      <find>mm</find>
-      <find>format</find>
       <find>#fff</find>
       <find>Fla</find>
       <find>glyphicon glyphicon-thumb</find>
@@ -140,7 +203,6 @@
       <find>gs-flag</find>
       <find>cd_bid_num</find>
       <find>cdBidNum</find>
-      <find>image</find>
       <find>location</find>
       <find>price</find>
       <find>’</find>
@@ -157,6 +219,11 @@
       <find>Notification</find>
       <find>Cancel</find>
       <find>delete</find>
+      <find>user_id</find>
+      <find>post_id</find>
+      <find>id</find>
+      <find>image</find>
+      <find>leone</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,12 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/css/cd-doc.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/editProfile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/formCheck.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/help.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/dropzone.custom.js" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/Uptoken.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/QiniuUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/QianNiuUpload.java" />
@@ -186,7 +247,6 @@
         <option value="$PROJECT_DIR$/src/main/java/servlet/DetailServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Image.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/qiniuImg.js" />
-        <option value="$PROJECT_DIR$/src/main/java/servlet/ImageServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/StickServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/WatchlistServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/goto-stuff.js" />
@@ -194,7 +254,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/doc.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/assets/bootstrap-datepicker.css" />
         <option value="$PROJECT_DIR$/src/main/java/model/Booking.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/nav.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/RemoveWatchlistServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/dropzone.custom.css" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/DeletePostServlet.java" />
@@ -212,15 +271,23 @@
         <option value="$PROJECT_DIR$/src/main/webapp/test.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/AdvancedSearchServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/DBDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/searchResultNoLogin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/wall.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/searchResult.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/details.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/profile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/servlet/SendMessageServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/notification.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlet/SendMessageServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/UserImage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlet/ImageServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlet/UserImageServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/editProfile.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/qiniuUserImg.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/nav.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/signup.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlet/EditProfileServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/DBDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/profile.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/details.jsp" />
       </list>
     </option>
   </component>
@@ -383,14 +450,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="servlet" />
       <recent name="model" />
+      <recent name="servlet" />
       <recent name="util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/js/vendor" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
@@ -587,12 +654,12 @@
       <workItem from="1538881171973" duration="1041000" />
       <workItem from="1538882440069" duration="11000" />
       <workItem from="1538882543096" duration="65825000" />
-      <workItem from="1539182512866" duration="6514000" />
+      <workItem from="1539182512866" duration="11991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285267000" />
+    <option name="totallyTimeSpent" value="290744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="318" y="23" width="1602" height="1057" extended-state="0" />
@@ -643,67 +710,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/quick-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/LikeServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/goto-stuff.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="92" column="19" lean-forward="false" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/assets/bootstrap-datepicker.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="7" column="2562" lean-forward="false" selection-start-line="7" selection-start-column="2562" selection-end-line="7" selection-end-column="2562" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/cd-doc.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="335" column="15" lean-forward="false" selection-start-line="335" selection-start-column="15" selection-end-line="335" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Friend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/assets/bootstrap-datepicker.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5729">
-          <caret line="337" column="27" lean-forward="false" selection-start-line="337" selection-start-column="27" selection-end-line="337" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Booking.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -717,14 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/editProfile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -733,14 +731,6 @@
             <element signature="e#117893#117894#0" expanded="false" />
             <element signature="e#117955#117956#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/EditProfileServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,26 +865,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/post.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="62" column="83" lean-forward="false" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/PostServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="29" column="55" lean-forward="true" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#select#0;n#div#4;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#label#0;n#div#5;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#6;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#select#0;n#div#6;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#12;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#select#0;n#div#12;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#label#0;n#div#13;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#14;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#14;n#div#0;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#3;n#dixv#0;n#div#0;n#div#0;n#Post#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -910,14 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/nav.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1049,36 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="262" column="48" lean-forward="true" selection-start-line="262" selection-start-column="48" selection-end-line="262" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#select#0;n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#6;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#select#0;n#div#6;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#7;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#8;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#9;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#10;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#11;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#select#0;n#div#12;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#13;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#14;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#14;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#svg#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Notification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1091,14 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="136" column="39" lean-forward="true" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1129,117 +1070,251 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/SendMessageServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+        <state relative-caret-position="272">
+          <caret line="27" column="167" lean-forward="false" selection-start-line="27" selection-start-column="167" selection-end-line="27" selection-end-column="167" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/profile.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/PostServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="622" column="28" lean-forward="true" selection-start-line="622" selection-start-column="28" selection-end-line="622" selection-end-column="28" />
+        <state relative-caret-position="187">
+          <caret line="29" column="55" lean-forward="true" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/UserImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/net/Inet4Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="85" column="6" lean-forward="false" selection-start-line="85" selection-start-column="6" selection-end-line="85" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="140" column="36" lean-forward="false" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ImageServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/qiniuImg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="58" column="60" lean-forward="true" selection-start-line="58" selection-start-column="60" selection-end-line="59" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/qiniuUserImg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="55" column="57" lean-forward="true" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/UserImageServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="26" column="38" lean-forward="true" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/nav.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="39" column="45" lean-forward="true" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/editProfile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="57" column="94" lean-forward="true" selection-start-line="57" selection-start-column="94" selection-end-line="57" selection-end-column="94" />
           <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/details.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/UptokenServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="298" column="104" lean-forward="true" selection-start-line="298" selection-start-column="104" selection-end-line="298" selection-end-column="104" />
+        <state relative-caret-position="357">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/formCheck.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="12" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/signup.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/EditProfileServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/DBDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="1234" column="16" lean-forward="false" selection-start-line="1234" selection-start-column="16" selection-end-line="1234" selection-end-column="16" />
+        <state relative-caret-position="327">
+          <caret line="294" column="51" lean-forward="true" selection-start-line="294" selection-start-column="51" selection-end-line="294" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#20565#20571#0" expanded="true" />
-            <marker date="1539184056413" expanded="true" signature="384:551" ph="insert into User... " />
-            <marker date="1539184056413" expanded="true" signature="1168:1223" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="1985:2047" ph="select * fro... Admin" />
-            <marker date="1539184056413" expanded="true" signature="2574:2612" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="3490:3521" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="4387:4425" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="4845:4886" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="5906:5966" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="7159:7219" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="8381:8434" ph="update User " />
-            <marker date="1539184056413" expanded="true" signature="8751:9033" ph="update User " />
-            <marker date="1539184056413" expanded="true" signature="9361:9462" ph="insert into Image... " />
-            <marker date="1539184056413" expanded="true" signature="9993:10038" ph="select * fro... Image" />
-            <marker date="1539184056413" expanded="true" signature="10764:10817" ph="select * fro... Image" />
-            <marker date="1539184056413" expanded="true" signature="11412:11730" ph="insert into Post... " />
-            <marker date="1539184056413" expanded="true" signature="12766:12809" ph="select * fro... Post" />
-            <marker date="1539184056413" expanded="true" signature="14488:14530" ph="select * fro... Post" />
-            <marker date="1539184056413" expanded="true" signature="16106:16150" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="17175:17310" ph="insert into review... " />
-            <marker date="1539184056413" expanded="true" signature="17905:17942" ph="select * fro... review" />
-            <marker date="1539184056413" expanded="true" signature="18857:18911" ph="select * fro... review" />
-            <marker date="1539184056413" expanded="true" signature="19802:19864" ph="update Post " />
-            <marker date="1539184056413" expanded="true" signature="19973:20046" ph="insert into Watchlist... " />
-            <marker date="1539184056413" expanded="true" signature="21139:21515" ph="select * fro... post" />
-            <marker date="1539184056413" expanded="true" signature="23238:23311" ph="select id fr... Watchlist" />
-            <marker date="1539184056413" expanded="true" signature="23869:23941" ph="update Post " />
-            <marker date="1539184056413" expanded="false" signature="24228:24234" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="24304:24384" ph="select * fro... watchlist" />
-            <marker date="1539184056413" expanded="false" signature="26034:26043" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="26113:26154" ph="select id fr... watchlist" />
-            <marker date="1539184056413" expanded="true" signature="26622:26655" ph="delete from " />
-            <marker date="1539184056413" expanded="true" signature="26686:26748" ph="update Post " />
-            <marker date="1539184056413" expanded="false" signature="27086:27092" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="27162:27647" ph="select post.... booking" />
-            <marker date="1539184056413" expanded="false" signature="29325:29334" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="29404:29457" ph="select * fro... booking" />
-            <marker date="1539184056413" expanded="false" signature="30320:30326" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="30396:30881" ph="select post.... booking" />
-            <marker date="1539184056413" expanded="false" signature="32561:32570" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="32640:32693" ph="select * fro... booking" />
-            <marker date="1539184056413" expanded="false" signature="33560:33566" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="33636:34121" ph="select post.... booking" />
-            <marker date="1539184056413" expanded="false" signature="35805:35814" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="35884:35937" ph="select * fro... booking" />
-            <marker date="1539184056413" expanded="true" signature="36912:37038" ph="insert into Booking... " />
-            <marker date="1539184056413" expanded="true" signature="37687:37728" ph="update booki... " />
-            <marker date="1539184056413" expanded="true" signature="38052:38083" ph="delete from " />
-            <marker date="1539184056413" expanded="true" signature="38459:38500" ph="update booki... " />
-            <marker date="1539184056413" expanded="false" signature="38812:38821" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="38891:38946" ph="select * fro... Booking" />
-            <marker date="1539184056413" expanded="true" signature="39763:39808" ph="delete from " />
-            <marker date="1539184056413" expanded="true" signature="39834:39889" ph="delete from " />
-            <marker date="1539184056413" expanded="true" signature="39915:39968" ph="delete from " />
-            <marker date="1539184056413" expanded="true" signature="39994:40045" ph="delete from " />
-            <marker date="1539184056413" expanded="false" signature="40490:40496" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="40566:40616" ph="select * fro... Post" />
-            <marker date="1539184056413" expanded="true" signature="42286:42921" ph="update post " />
-            <marker date="1539184056413" expanded="true" signature="43270:43326" ph="select stick... Post" />
-            <marker date="1539184056413" expanded="true" signature="43919:44053" ph="insert into Friend... " />
-            <marker date="1539184056413" expanded="true" signature="44521:44576" ph="update Frien... " />
-            <marker date="1539184056413" expanded="true" signature="44903:44934" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="46007:46135" ph="select * fro... Friend" />
-            <marker date="1539184056413" expanded="true" signature="46750:46795" ph="select * fro... User" />
-            <marker date="1539184056413" expanded="true" signature="47249:47286" ph="update User " />
-            <marker date="1539184056413" expanded="true" signature="47637:47674" ph="update User " />
-            <marker date="1539184056413" expanded="true" signature="48100:48227" ph="insert into Notification... " />
-            <marker date="1539184056413" expanded="true" signature="48679:48737" ph="select * fro... Notification" />
-            <marker date="1539184056413" expanded="false" signature="48928:48942" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="49610:49656" ph="select send_... notification" />
-            <marker date="1539184056413" expanded="true" signature="50148:50192" ph="select send_... notification" />
-            <marker date="1539184056413" expanded="true" signature="50687:50744" ph="update Notif... " />
-            <marker date="1539184056413" expanded="true" signature="51119:51226" ph="insert into Log... " />
-            <marker date="1539184056413" expanded="true" signature="51691:51745" ph="select * fro... Log" />
-            <marker date="1539184056413" expanded="true" signature="52547:52613" ph="select * fro... post" />
-            <marker date="1539184056413" expanded="false" signature="52803:52811" ph="&lt;~&gt;" />
-            <marker date="1539184056413" expanded="true" signature="53254:53332" ph="select frien... Friend" />
-            <marker date="1539184056413" expanded="false" signature="53521:53529" ph="&lt;~&gt;" />
+            <element signature="e#22359#22365#0" expanded="true" />
+            <marker date="1539248202481" expanded="true" signature="385:552" ph="insert into User... " />
+            <marker date="1539248202481" expanded="true" signature="578:683" ph="insert into UserImage... " />
+            <marker date="1539248202481" expanded="true" signature="1646:1701" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="2463:2525" ph="select * fro... Admin" />
+            <marker date="1539248202481" expanded="true" signature="3052:3090" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="3968:3999" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="4865:4903" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="5323:5364" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="6384:6444" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="7637:7697" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="8859:8912" ph="update User " />
+            <marker date="1539248202481" expanded="true" signature="9229:9511" ph="update User " />
+            <marker date="1539248202481" expanded="true" signature="9848:9953" ph="insert into Image... " />
+            <marker date="1539248202481" expanded="true" signature="10482:10520" ph="select * fro... UserImage" />
+            <marker date="1539248202481" expanded="true" signature="10482:10525" ph="select * fro... Image" />
+            <marker date="1539248202481" expanded="true" signature="10482:10556" ph="select * fro... UserImage" />
+            <marker date="1539248202481" expanded="true" signature="11155:11256" ph="insert into Image... " />
+            <marker date="1539248202481" expanded="true" signature="11787:11832" ph="select * fro... Image" />
+            <marker date="1539248202481" expanded="true" signature="12558:12611" ph="select * fro... Image" />
+            <marker date="1539248202481" expanded="true" signature="13206:13524" ph="insert into Post... " />
+            <marker date="1539248202481" expanded="true" signature="14560:14603" ph="select * fro... Post" />
+            <marker date="1539248202481" expanded="true" signature="16282:16324" ph="select * fro... Post" />
+            <marker date="1539248202481" expanded="true" signature="17900:17944" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="18969:19104" ph="insert into review... " />
+            <marker date="1539248202481" expanded="true" signature="19699:19736" ph="select * fro... review" />
+            <marker date="1539248202481" expanded="true" signature="20651:20705" ph="select * fro... review" />
+            <marker date="1539248202481" expanded="true" signature="21596:21658" ph="update Post " />
+            <marker date="1539248202481" expanded="true" signature="21767:21840" ph="insert into Watchlist... " />
+            <marker date="1539248202481" expanded="true" signature="22933:23309" ph="select * fro... post" />
+            <marker date="1539248202481" expanded="true" signature="25032:25105" ph="select id fr... Watchlist" />
+            <marker date="1539248202481" expanded="true" signature="25663:25735" ph="update Post " />
+            <marker date="1539248202481" expanded="false" signature="26022:26028" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="26098:26178" ph="select * fro... watchlist" />
+            <marker date="1539248202481" expanded="false" signature="27828:27837" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="27907:27948" ph="select id fr... watchlist" />
+            <marker date="1539248202481" expanded="true" signature="28416:28449" ph="delete from " />
+            <marker date="1539248202481" expanded="true" signature="28480:28542" ph="update Post " />
+            <marker date="1539248202481" expanded="false" signature="28880:28886" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="28956:29441" ph="select post.... booking" />
+            <marker date="1539248202481" expanded="false" signature="31119:31128" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="31198:31251" ph="select * fro... booking" />
+            <marker date="1539248202481" expanded="false" signature="32114:32120" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="32190:32675" ph="select post.... booking" />
+            <marker date="1539248202481" expanded="false" signature="34355:34364" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="34434:34487" ph="select * fro... booking" />
+            <marker date="1539248202481" expanded="false" signature="35354:35360" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="35430:35915" ph="select post.... booking" />
+            <marker date="1539248202481" expanded="false" signature="37599:37608" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="37678:37731" ph="select * fro... booking" />
+            <marker date="1539248202481" expanded="true" signature="38706:38832" ph="insert into Booking... " />
+            <marker date="1539248202481" expanded="true" signature="39481:39522" ph="update booki... " />
+            <marker date="1539248202481" expanded="true" signature="39846:39877" ph="delete from " />
+            <marker date="1539248202481" expanded="true" signature="40253:40294" ph="update booki... " />
+            <marker date="1539248202481" expanded="false" signature="40606:40615" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="40685:40740" ph="select * fro... Booking" />
+            <marker date="1539248202481" expanded="true" signature="41557:41602" ph="delete from " />
+            <marker date="1539248202481" expanded="true" signature="41628:41683" ph="delete from " />
+            <marker date="1539248202481" expanded="true" signature="41709:41762" ph="delete from " />
+            <marker date="1539248202481" expanded="true" signature="41788:41839" ph="delete from " />
+            <marker date="1539248202481" expanded="false" signature="42284:42290" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="42360:42410" ph="select * fro... Post" />
+            <marker date="1539248202481" expanded="true" signature="44080:44715" ph="update post " />
+            <marker date="1539248202481" expanded="true" signature="45064:45120" ph="select stick... Post" />
+            <marker date="1539248202481" expanded="true" signature="45713:45847" ph="insert into Friend... " />
+            <marker date="1539248202481" expanded="true" signature="46315:46370" ph="update Frien... " />
+            <marker date="1539248202481" expanded="true" signature="46697:46728" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="47801:47929" ph="select * fro... Friend" />
+            <marker date="1539248202481" expanded="true" signature="48544:48589" ph="select * fro... User" />
+            <marker date="1539248202481" expanded="true" signature="49043:49080" ph="update User " />
+            <marker date="1539248202481" expanded="true" signature="49431:49468" ph="update User " />
+            <marker date="1539248202481" expanded="true" signature="49894:50021" ph="insert into Notification... " />
+            <marker date="1539248202481" expanded="true" signature="50473:50531" ph="select * fro... Notification" />
+            <marker date="1539248202481" expanded="false" signature="50722:50736" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="51404:51450" ph="select send_... notification" />
+            <marker date="1539248202481" expanded="true" signature="51942:51986" ph="select send_... notification" />
+            <marker date="1539248202481" expanded="true" signature="52481:52538" ph="update Notif... " />
+            <marker date="1539248202481" expanded="true" signature="52913:53020" ph="insert into Log... " />
+            <marker date="1539248202481" expanded="true" signature="53485:53539" ph="select * fro... Log" />
+            <marker date="1539248202481" expanded="true" signature="54341:54407" ph="select * fro... post" />
+            <marker date="1539248202481" expanded="false" signature="54597:54605" ph="&lt;~&gt;" />
+            <marker date="1539248202481" expanded="true" signature="55048:55126" ph="select frien... Friend" />
+            <marker date="1539248202481" expanded="false" signature="55315:55323" ph="&lt;~&gt;" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/post.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="136" column="33" lean-forward="true" selection-start-line="136" selection-start-column="33" selection-end-line="136" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/details.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="224" column="79" lean-forward="false" selection-start-line="224" selection-start-column="79" selection-end-line="224" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>

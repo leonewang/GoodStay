@@ -17,9 +17,11 @@ public class DBDao {
      */
     public void userRegister(User u) throws SQLException {
         Connection conn = DBUtil.getConn();
-        String sql = "insert into User" + "(user_name, password, email, name, gender, " +
+        String sql1 = "insert into User" + "(user_name, password, email, name, gender, " +
                 "DoB, code, state, create_date) values(?, ?, ?, ?, ?, ?, ?, 1, CURRENT_TIMESTAMP())";
-        PreparedStatement ptmt = conn.prepareStatement(sql);
+        String sql2 = "insert into UserImage" + "(user_id, content, date) " +
+                "values(?, ?, CURRENT_TIMESTAMP())";
+        PreparedStatement ptmt = conn.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
         ptmt.setString(1, u.getUser_name());
         ptmt.setString(2, u.getPassword());
         ptmt.setString(3, u.getEmail());
@@ -27,6 +29,15 @@ public class DBDao {
         ptmt.setString(5, u.getGender());
         ptmt.setDate(6, Date.valueOf(u.getDate_of_birth()));
         ptmt.setString(7, u.getCode());
+        ptmt.execute();
+        ResultSet idrs = ptmt.getGeneratedKeys();
+        int id = 0;
+        if (idrs.next()) {
+            id = idrs.getInt(1);
+        }
+        ptmt = conn.prepareStatement(sql2);
+        ptmt.setInt(1, id);
+        ptmt.setString(2, "http://pg36wkomn.bkt.clouddn.com/icon-512.png");
         ptmt.execute();
     }
 
@@ -251,7 +262,45 @@ public class DBDao {
     }
 
     /**
-     * Insert post func
+     * Insert image func
+     *
+     * @param image
+     * @throws SQLException
+     */
+    public void addUserImage(UserImage image) throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "insert into UserImage" + "(user_id, content, date) " +
+                "values(?, ?, CURRENT_TIMESTAMP())";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ptmt.setInt(1, image.getUser_id());
+        ptmt.setString(2, image.getContent());
+        ptmt.execute();
+        System.out.println("user image inserted.");
+    }
+
+    /**
+     * Find the user avatar image by user id
+     *
+     * @param id
+     * @throws SQLException
+     */
+    public UserImage findUserImage(Integer id) throws SQLException {
+        UserImage image = new UserImage();
+        Connection conn = DBUtil.getConn();
+        String sql = "select * from UserImage where user_id="+ id + " order by date DESC limit 1 ";
+        PreparedStatement ptmt = conn.prepareStatement(sql);
+        ResultSet rs = ptmt.executeQuery();
+        while (rs.next()) {
+            image.setId(rs.getInt("id"));
+            image.setUser_id(rs.getInt("user_id"));
+            image.setContent(rs.getString("content"));
+            image.setDate(rs.getTimestamp("date"));
+        }
+        return image;
+    }
+
+    /**
+     * Insert image func
      *
      * @param image
      * @throws SQLException

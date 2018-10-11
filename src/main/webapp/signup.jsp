@@ -10,6 +10,7 @@
     <!-- Bootstrap core CSS -->
     <!-- <link href="assets/flat-ui/css/bootstrap-responsive.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/assets/bootstrap.css">
+    <link rel="stylesheet" href="css/assets/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/assets/flat-ui.css">
     <link rel="stylesheet" href="css/demo.css">
     <link rel="stylesheet" href="css/index.css">
@@ -58,7 +59,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control login-field" value="" placeholder="Birthday (yyyy-mm-dd, optional)" id="dob" name="dob" /> <label
+                        <input autocomplete="off" type="text" class="form-control login-field" value="" placeholder="Birthday (yyyy-mm-dd, optional)" id="dob" name="dob" /> <label
                             class="login-field-icon fui-calendar"></label>
                     </div>
 
@@ -78,6 +79,15 @@
 <script src="js/assets/jquery.min.js"></script>
 <script src="js/assets/flat-ui.min.js"></script>
 <script src="js/assets/application.js"></script>
+<script src="js/assets/bootstrap-datepicker.min.js"></script>
 <script src="js/formCheck.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#dob').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true
+        });
+    });
+</script>
 </body>
 </html>
