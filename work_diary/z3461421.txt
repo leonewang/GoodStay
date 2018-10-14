@@ -1,0 +1,55 @@
+Week 1
+* No tutorial in this week
+
+Week 2
+* Discussed & planned out the features for the team
+* Summarized the features to epics discussed and added user stories.
+* Also added the introduction for the project proposal. 
+
+Week 3
+* Revised how to build Web Application
+* Designed & Implemented the Alidada Database
+* Implemented UserDAO & JSP updates DB through UserDAO
+* Implemented Registration from view and can register on the DB
+* Continue to implement Login Management
+* Formatted the project proposal. 
+
+Week 4
+* Continue to Implement Registration Servlet & Login Servlet
+* Reading how to properly implement the J2EE MVC Model 2
+
+Week 5
+* Login using either email address or username
+* Continued to study the ‘Designing Enterprise Applications with J2EE’
+
+Week 6
+* Learning JSTL
+* Implemented simple session management
+* Completed basic ListingDao
+* Implementing listing.jsp
+* Working on request URL processing for listing.jsp
+* Integrated the UI
+
+Week 7
+* Implemented search advertisement based on suburb
+* Working on solutions to get / set links of the images on the DB
+* Implemented the search using advertisement
+* Researched how to upload images in JSP
+
+Week 8
+* Implemented delete
+* Experimented the transmission of data between servlets
+* Sketched the basic UI for this website on paper
+* Developing ideas about how to handle requests & extend requests to perform delete
+
+Week 9
+* Implementing booking and foundations for booking
+* Tried to merge front end & back end (fix up the issues passed from GitHub)
+* Investigate errors with opening teammate’s project
+* Designing the booking process
+
+Week 10
+* Merge some interfaces with front-end
+
+Week 11 & Week 12
+* Check report with marking criteria
