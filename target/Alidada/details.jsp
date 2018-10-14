@@ -172,7 +172,7 @@
                                                     Review review = reviews.get(i);
                                 %>
                                 <div class="media-left">
-                                    <a href="#"><img class="media-object" src="images/character/bignose.jpg" height="65" width="65"></a>
+                                    <a href="#"><img class="media-object" src="<%=dbdao.findUserImage(review.getUser_id()).getContent()%>" height="65" width="65"></a>
                                 </div>
                                 <div class="media-body">
                                     <div>
