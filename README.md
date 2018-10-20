@@ -8,7 +8,13 @@ GoodStay is a web application that will allow providers to present their holiday
 
 **Others:** jdk1.8, mysql-connector-java:5.1.28, javax.servlet-api:3.1.0
 
-Please find the database sourse data `GoodStay_yyyymmdd.sql`.
+Before starting the project, please make sure that you have the same configuration and applications installed, and MySQL should have no root password.
+
+Please find the database source data Dump20181014.sql in the root folder. You should run this sql file first which will create all tables we need for the project before starting tomcat server so that you can have an access to the right database without errors. 
+
+You do not have to generate the war file by yourself, just find it in path GoodStay/target/Alidada.war, ​all the third-party libraries are included. Then put the war file into your tomcat webapp folder, and start tomcat by running ​startup command in your terminal.
+
+The project is now deployed successfully and the server will start automatically, so you can visit the website on your browser at ​[http://localhost:8080/​](http://localhost:8080/​).
 
 ## Weekly Tasks
 
