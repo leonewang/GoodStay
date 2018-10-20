@@ -1,0 +1,85 @@
+
+Week 2
+
+**  **
+
+- We search a lot of information  about the project, make some basic notices and made a basic plan including tools, background and epics.
+
+- Making a right direction of the project and consider some necessary features, unnecessary features and some potential features, this is important for us to write the proposal which is an plan for us to know the processor the project.
+
+** Plan for the next period **
+
+Next week we will finish the proposal
+
+
+Week 3
+
+** Planned and finished **
+
+- When we wrote the proposal, we consider the frame in detail and tutor gave us some useful information for example we should know users story first then design the features out. 
+
+We want to focus on these module in the project:
+1. Advertiser module
+2. Demander module
+3. Mainpage interface
+4. Profile management module
+5. Administration module
+6. Notification module
+
+
+Week 4
+
+** Planned and finished **
+
+After planning stage, our team had a beginning of the project this week, it is the first time to make a project for all team members, so we should confirm all the tools and some software are consistent, thus we will finish each process efficiently.
+
+** Plan for the next period **
+
+My task is building database, so next period I will try to take all the data information which is necessary for me to connect each module.
+
+
+Week 5 
+
+**Login Signup**
+Build database for login and signup, for login, signup, change information, we think about some detail personal  information.
+Research how to work to login
+
+
+Week 6
+Design post page database. List table, all detail information.
+Design post.jsp for database to check it works or not
+Integrate UI
+
+
+Week 7
+Search and upload image, find a third party cloud for store image rather than store in local.Research how to upload images in JSP, but it difficult to solve it, we spent most time on it.
+
+
+Week 8
+My post page: Google Map API, this is the important feature in this page, we spent much time to work it.  
+Delete function 
+Sketched a basic page to connect database
+
+
+Week 9
+Booking and post，in this week we review the post page and finish the booking function.
+About booking, we did all steps avoid to pay the bill at the last. When we design it ,the process is that the booking will be activated, during which time there are some feedback functions, in My Booking such as ‘comment’ or ‘cancel’, at last when user leave, the booking is completed status.
+
+
+
+Week 10
+The user profile page： My booking (active, waiting for completed), collection, my posting (review), comment ), we have perfected these features to ensure the user experience. Otherwise, notification also designed, it is like a message communication feature between publish and customers.
+
+
+Week 11
+Because next week, we have the project demo, so in this week, we spent much time to check our project to ensure all functions, we review each page and each module. Moreover, we finished some UI design, ensuring all pages with same style.
+
+
+Week 12
+About the project demo, each team member has a good performance, we display all pages and all features about our project to audience. For the project, during 13 weeks effort we learn a lot of knowledge and encounters many challenges, at last we finish the project well. In addition, we already started the project report, we will finish it this week.
+
+
+
+
+
+

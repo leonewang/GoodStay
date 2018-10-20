@@ -14,8 +14,17 @@ Please find the database sourse data `GoodStay_yyyymmdd.sql`.
 
 **Week 11 tasks**
 
-- Personal profile page (edit the basic info, showing my reservations(completed and active) / my watch list / my posts(completed and active) / others' reviews)
+- Personal profile page (edit the basic info, showing my bookings(completed / waiting / active) / my watch list / my posts(completed / active) / others' reviews)
 - Help and documentation
+- Post page should support image upload (by using third-party cloud server)
+- Booking system (booking / cancel / edit / write a review)
+- Message system
+- Notification system
+- Google map API (places) should be used for showing location info
+- Stick a post to top
+- User profile edit (include avatar upload)
+- Advanced search
+- Online customer service chat (by using Chatra)
 
 **Week 10 tasks**
 

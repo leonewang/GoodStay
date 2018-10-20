@@ -1,3 +1,37 @@
+Week 12：
+
+- Presentation
+- Final code
+- Report
+- Peer review
+
+
+---
+
+Week 11:
+
+** Planned and finished **
+
+- Personal profile page (edit the basic info, showing my reservations(completed and active) / my watch list / my posts(completed and active) / others' reviews)
+- Help and documentation
+- Post page should support image upload (by using third-party cloud server)
+- Booking system (booking / cancel / edit / write a review)
+- Message system
+- Notification system
+- Google map API (places) should be used for showing location info
+- User profile edit (avatar upload)
+- Advanced search
+- Online customer service chat (by using Chatra)
+
+** Plan for the next period **
+
+- Presentation
+- Final code
+- Report
+- Peer review
+
+---
+
 Week 10：
 
 ** Planned and finished **

@@ -67,10 +67,10 @@
                     <small>advanced search</small>
                 </a>
             </div>
-            <div class="select-list-type">
+            <div class="select-list-type" hidden>
                 <select id="select-list" class="form-control select select-primary select-block" style="min-width:150px;">
-                    <option value="0">Top Popularity</option>
-                    <option value="1">Latest List</option>
+                    <option value="0">Latest List</option>
+                    <option value="1">Top Popularity</option>
                     <option value="2">Lowest Price</option>
                     <option value="3">Highest Price</option>
                 </select>
@@ -191,10 +191,10 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <span class="gs-alert-icon fui-info-circle"></span>Earn credits by
+                <span class="gs-alert-icon fui-info-circle"></span>Start by
                 <strong><a class="alert-link" href="#">making a deal</a></strong>,
                 <strong><a class="alert-link" href="#">inviting friends</a></strong>, or
-                <strong><a class="alert-link" href="#">get it instantly in here.</a></strong>
+                <strong><a class="alert-link" href="#">post your place.</a></strong>
             </div>
 
             <div class="tab-content">
@@ -216,7 +216,9 @@
                         <a href="/DetailServlet?id=<%=post.getId()%>">
                             <div class="col-xs-12 col-sm-6 col-md-4 item">
                                 <div class="tile">
-                                    <img src="images/icons/svg/ribbon-popular.svg" alt="ribbon" class="tile-hot-ribbon">
+                                    <% if (post.getLikes() > 0) {%>
+                                        <img src="images/icons/svg/ribbon-popular.svg" alt="ribbon" class="tile-hot-ribbon">
+                                    <%}%>
                                     <img alt="100%x200" src="<%=image.getContent()%>" style="height: 200px; width: 100%; display: block;">
                                     <a role="button" disabled="disabled" class="btn btn-sm btn-primary btn-block"
                                        style="margin-top: 10px; background-color: #95A5A6; color: #fff;">

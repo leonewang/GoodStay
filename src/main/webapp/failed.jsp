@@ -28,14 +28,14 @@
     <div class="login">
         <div class="login-screen" style="padding: 123px 199px 33px 306px !important;">
             <div class="login-icon hidden-sm hidden-xs">
-                <a href="index.jsp"><img src="images/login/chat.svg" alt="Welcome to GoodStay" /></a>
+                <a href="index.jsp"><img src="images/login/house.svg" alt="Welcome to GoodStay" /></a>
                 <h4>
                     Welcome to <small>GoodStay</small>
                 </h4>
             </div>
             <form role="form">
                 <div class="login-icon-hidden hidden-md hidden-lg">
-                    <a href="index.jsp"><img src="images/login/chat.svg" alt="Welcome to GoodStay" /></a>
+                    <a href="index.jsp"><img src="images/login/house.svg" alt="Welcome to GoodStay" /></a>
                     <h4>Welcome to GoodStay</h4>
                 </div>
                 <div class="login-form">

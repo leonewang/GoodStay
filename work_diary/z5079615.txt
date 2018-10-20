@@ -1,0 +1,91 @@
+Week 2
+*The team has been formed
+* Discussed & planned out the features for the team
+* Summarized the features to epics discussed and added user stories.
+* Also added the introduction for the project proposal.
+
+-----
+
+Week 3
+* Revised how to build Web Application
+* Setting up the environment for the project including eclipse, tomcat, mySql Database.
+* Learning the login page UI from other similar website.
+* Continue to implement Login Management
+* Formatted the project proposal. 
+
+** Plan for the next period **
+
+* Combine with the Login part database.
+
+-----
+
+Week4
+*Continue learning about java web UI design from internet.
+*Testing different kind of web applications like airbnb, toady's sydney to compare the pros and cons.
+*Design the Goodstay web application's UI by drawing on paper.
+
+** Plan for the next period **
+
+* bigining the application UI design.
+
+-----
+
+Week5
+*Finish the login & register page UI design.
+*Implementing the email verification page.
+*Implement the retrieve password page.
+
+** Plan for the next period **
+
+*User main page design
+*Posting page design
+
+-----
+
+Week6
+*Implementing the advertisement posting page UI design.
+*Learning about Google map API and QiNiu Cloud Server API.
+*Communicate with the database design group member about the advertisement posting page function combining.
+
+** Plan for the next period **
+
+*Continue Implementing the advertisement posting page UI design.
+
+-----
+
+Week7
+*Continue Implementing the advertisement posting page UI design(adding more information input field).
+*Implementing the post listing page.
+
+** Plan for the next period **
+
+*Continue Implementing the post listing page UI design.
+
+-----
+
+Week8
+*Continue Implementing the post listing page UI design.
+*Add a post stick to the top function.
+
+** Plan for the next period **
+*Add new functions as planned in proposal.
+
+-----
+
+Week9
+*User message system(in user's profile page).
+*store up a advertisement page in user main page.
+
+** Plan for the next period **
+*Meeting with group members and talking about rest of functions
+*Add new functions as planned in proposal.
+
+-----
+
+Week10
+*personal information notification function.
+
+-----
+
+Week 11 & Week 12
+* Check report with marking criteria

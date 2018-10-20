@@ -61,18 +61,7 @@
 <%@include file="nav.jsp"%>
 <div class="gs-container container">
     <div id="list-alert" class="alert alert-success alert-dismissible" role="alert">
-        <span class="gs-alert-icon fui-info-circle"></span><span class="gs-color-dsun"><strong>Get 1,000 Bonus Credits for listing Apartment & Unit today!</strong></span><strong> Also get 1,000 Bonus Credits by filling your details! <a>Click to do it! </a></strong>
-        <p>
-            <small>To receive this bonus:</small>
-        </p>
-        <ol>
-            <li>Go to the Post page:<strong><a class="alert-link" href="http://localhost:8080/post.jsp">www.goodstay.com/post</a></strong></li>
-            <li>Describe your place, and don't forget tell us the <strong class="gs-color-greensea">dwelling type</strong>
-            </li>
-            <li>Add at least <strong>1 photo</strong> and offer <strong>an appropriate price</strong> on it.
-            </li>
-            <li>List somewhere good! Deleted or prohibited places will not qualify. Posting must be newly listed during the promotion.</li>
-        </ol>
+        <span class="gs-alert-icon fui-info-circle"></span><span><strong>Start your post from here.</strong> Feel free to ask us if you have any problem.
     </div>
     <!-- /custom alert -->
 
@@ -227,7 +216,7 @@
                         </div>
                     </div>
 
-                    <div id="list-bargain">
+                    <div id="list-bargain" hidden>
                         <div class="list-text">
                             <strong>Alidada Match</strong><a href="/help.jsp"><span style="margin-left: 7px;" class="fui-question-circle gs-color-greensea"></span></a>
                         </div>

@@ -53,8 +53,8 @@
             <span class="gs-alert-icon fui-info-circle"></span>You will find how it works soon. Discover unique places to stay anywhere in the world.
         </div>
 
-        <b>What is Alidada Match?</b>
-        <div>
+        <b hidden>What is Alidada Match?</b>
+        <div hidden>
             <div class="notification gs-text-md">
                 <span>
                     <a href="#"><b>AlidadaMatchSystem</b></a> which enables the buyer to simply leave the detail of his interest with the maximum price and the intended period to stay, the system will then search for the corresponding matches found & notify to the buyer.

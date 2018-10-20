@@ -57,8 +57,6 @@
                     <ul class="dropdown-menu">
                         <li><a href="/profile.jsp?user_id=<%=user.getId()%>" class="gs-text-md"><span class="glyphicon fui-user"
                                                                  aria-hidden="true"></span>Profile</a></li>
-                        <li><a href="#" class="gs-text-md"><span class="glyphicon fui-document"
-                                                                 aria-hidden="true"></span>Friends</a></li>
                         <li class="divider"></li>
                         <li><a href="/LoginServlet?action=logout" class="gs-text-md"><span class="glyphicon fui-power"
                                                                  aria-hidden="true"></span>Log out</a></li>
